@@ -1,0 +1,18 @@
+- url: https://open.spotify.com
+  title: Spotify
+  desc: Music streaming with podcasts, playlists, and personalized discovery.
+  tags: [music, podcasts, streaming]
+  added: 2025-12-01
+
+- url: https://youtube.com
+  title: YouTube
+  desc: Video platform for tutorials, entertainment, and endless rabbit holes.
+  tags: [video, tutorials, entertainment]
+  featured: true
+  added: 2025-12-01
+
+- url: https://getpocket.com
+  title: Pocket
+  desc: Save articles and videos for later. Read when you're ready.
+  tags: [read-later, articles, curation]
+  added: 2025-12-02

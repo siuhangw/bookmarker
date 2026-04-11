@@ -1,0 +1,31 @@
+- url: https://github.com
+  title: GitHub
+  desc: Where the world builds software. Version control, collaboration, and CI/CD.
+  tags: [code, git, open-source]
+  featured: true
+  added: 2025-12-01
+
+- url: https://code.visualstudio.com
+  title: VS Code
+  desc: Lightweight but powerful code editor with extensions for every language.
+  tags: [editor, code, microsoft]
+  added: 2025-12-01
+
+- url: https://developer.mozilla.org
+  title: MDN Web Docs
+  desc: The definitive resource for web standards — HTML, CSS, JS, and Web APIs.
+  tags: [docs, reference, web]
+  featured: true
+  added: 2025-12-01
+
+- url: https://caniuse.com
+  title: Can I Use
+  desc: Browser support tables for modern web technologies at a glance.
+  tags: [browser, compatibility, web]
+  added: 2025-12-02
+
+- url: https://regex101.com
+  title: Regex101
+  desc: Online regex tester and debugger with real-time explanation.
+  tags: [regex, tool, testing]
+  added: 2025-12-02

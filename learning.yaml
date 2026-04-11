@@ -1,0 +1,19 @@
+- url: https://freecodecamp.org
+  title: freeCodeCamp
+  desc: Learn to code for free with interactive curriculum and certifications.
+  tags: [coding, free, curriculum]
+  featured: true
+  added: 2025-12-01
+
+- url: https://coursera.org
+  title: Coursera
+  desc: Online courses from top universities and companies worldwide.
+  tags: [courses, university, certificates]
+  added: 2025-12-01
+
+- url: https://pudding.cool
+  title: The Pudding
+  desc: Visual essays that explain ideas debated in culture with data.
+  tags: [data-viz, culture, essays]
+  featured: true
+  added: 2025-12-02
