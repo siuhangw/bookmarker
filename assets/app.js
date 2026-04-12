@@ -36,7 +36,9 @@ const isDesktop = () => window.innerWidth >= 1024;
 
 /* ═══ Data Loading ═══ */
 async function fetchFromGitHub() {
-  const res = await fetch(`${REPO_BASE}/data/bookmarks.yaml`);
+  const isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+  const url = isLocal ? "./data/bookmarks.yaml" : `${REPO_BASE}/data/bookmarks.yaml`;
+  const res = await fetch(url);
   if (!res.ok) throw new Error(`bookmarks.yaml: ${res.status}`);
   const parsed = jsyaml.load(await res.text());
 
