@@ -314,8 +314,6 @@ function renderRow(bm, i) {
 /* ═══ Actions ═══ */
 function selectCollection(id) {
   state.activeCol = id; state.activeTag = null; state.showFeatured = false; state.activeSubcol = null;
-  const col = state.collections.find((c) => c.id === id);
-  if (col && col.subcollections && col.subcollections.length > 0) state.expandedCols.add(id);
   if (!isDesktop()) state.sidebarOpen = false;
   render();
 }
