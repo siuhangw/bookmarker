@@ -155,7 +155,7 @@ function render() {
       ? `<button class="nav-chevron${isExpanded ? " expanded" : ""}" onclick="toggleColExpand('${col.id}')" aria-label="Toggle subcollections"><i data-lucide="chevron-right" style="width:13px;height:13px;"></i></button>`
       : "";
     nav += `<div class="nav-collection-wrap">
-      <button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="selectCollection('${col.id}')">
+      <button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="${hasSubs ? "selectAndToggleCollection" : "selectCollection"}('${col.id}')">
         <span class="nav-icon"><span class="color-dot" style="background:${col.color};"></span></span>
         <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(col.name)}</span>
         <span class="nav-count">${count}</span>
@@ -314,8 +314,12 @@ function renderRow(bm, i) {
 /* ═══ Actions ═══ */
 function selectCollection(id) {
   state.activeCol = id; state.activeTag = null; state.showFeatured = false; state.activeSubcol = null;
-  const col = state.collections.find((c) => c.id === id);
-  if (col && col.subcollections && col.subcollections.length > 0) state.expandedCols.add(id);
+  if (!isDesktop()) state.sidebarOpen = false;
+  render();
+}
+function selectAndToggleCollection(id) {
+  state.activeCol = id; state.activeTag = null; state.showFeatured = false; state.activeSubcol = null;
+  if (state.expandedCols.has(id)) { state.expandedCols.delete(id); } else { state.expandedCols.add(id); }
   if (!isDesktop()) state.sidebarOpen = false;
   render();
 }
