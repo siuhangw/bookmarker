@@ -1,3 +1,11 @@
+meta:
+  title: Markly
+  tagline: Showcase
+  description: Curated tools, resources, and links I use and recommend.
+  theme:
+    default: light
+    accent: "#E8453C"
+
 collections:
 - id: ai
   name: AI & Machine Learning
