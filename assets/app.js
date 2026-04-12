@@ -5,10 +5,12 @@ const REPO_BASE = "https://raw.githubusercontent.com/siuhangw/bookmarker/main";
 
 /* ═══ State ═══ */
 let state = {
-  site: { name: "Markly", tagline: "" },
+  site: { name: "Markly", tagline: "", description: "" },
+  meta: null,
   collections: [],
   bookmarks: [],
   activeCol: "all",
+  activeSubcol: null,
   activeTag: null,
   showFeatured: false,
   search: "",
@@ -34,38 +36,48 @@ const isDesktop = () => window.innerWidth >= 1024;
 
 /* ═══ Data Loading ═══ */
 async function fetchFromGitHub() {
-  const metaRes = await fetch(`${REPO_BASE}/data/_meta.yaml`);
-  if (!metaRes.ok) throw new Error(`_meta.yaml: ${metaRes.status}`);
-  const meta = jsyaml.load(await metaRes.text());
-  const collections = meta.collections || [];
-  const site = meta.site || { name: "Markly", tagline: "" };
+  const res = await fetch(`${REPO_BASE}/data/bookmarks.yaml`);
+  if (!res.ok) throw new Error(`bookmarks.yaml: ${res.status}`);
+  const parsed = jsyaml.load(await res.text());
 
-  const bmArrays = await Promise.all(collections.map(async (col) => {
-    try {
-      const res = await fetch(`${REPO_BASE}/data/${col.file}`);
-      if (!res.ok) return [];
-      const items = jsyaml.load(await res.text());
-      return (Array.isArray(items) ? items : []).map((bm, idx) => ({
-        ...bm, id: `${col.id}-${idx}`, collection: col.id,
-        tags: bm.tags || [], featured: bm.featured || false, desc: bm.desc || "",
-      }));
-    } catch { return []; }
+  const meta = parsed.meta || {};
+  const site = {
+    name: meta.title || "Markly",
+    tagline: meta.tagline || "",
+    description: meta.description || "",
+  };
+
+  const collections = (parsed.collections || [])
+    .slice()
+    .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
+
+  const bookmarks = (parsed.bookmarks || []).map((bm) => ({
+    ...bm,
+    id: String(bm.id),
+    tags: bm.tags || [],
+    featured: bm.featured || false,
+    desc: bm.desc || "",
+    subcollection: bm.subcollection || null,
   }));
-  return { site, collections, bookmarks: bmArrays.flat() };
+
+  return { meta, site, collections, bookmarks };
 }
 
 async function loadData() {
   try {
     const data = await fetchFromGitHub();
+    state.meta = data.meta;
     state.site = data.site;
     state.collections = data.collections;
     state.bookmarks = data.bookmarks;
     state.error = null;
   } catch (e) {
     console.error("Fetch failed:", e);
-    state.site = { name: "Markly", tagline: "" };
+    state.meta = null;
+    state.site = { name: "Markly", tagline: "", description: "" };
     state.collections = [];
     state.bookmarks = [];
+    state.activeSubcol = null;
     state.error = "Could not load bookmarks from GitHub. Please try again later.";
   }
 }
@@ -74,6 +86,7 @@ async function loadData() {
 function getFiltered() {
   return state.bookmarks.filter((b) => {
     if (state.activeCol !== "all" && b.collection !== state.activeCol) return false;
+    if (state.activeSubcol && b.subcollection !== state.activeSubcol) return false;
     if (state.activeTag && !b.tags.includes(state.activeTag)) return false;
     if (state.showFeatured && !b.featured) return false;
     if (state.search) {
@@ -133,11 +146,26 @@ function render() {
   state.collections.forEach((col) => {
     const count = state.bookmarks.filter((b) => b.collection === col.id).length;
     const isActive = state.activeCol === col.id && !state.showFeatured && !state.activeTag;
-    nav += `<button class="nav-item${isActive ? " active" : ""}" onclick="selectCollection('${col.id}')">
+    nav += `<button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="selectCollection('${col.id}')">
       <span class="nav-icon"><span class="color-dot" style="background:${col.color};"></span></span>
       <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(col.name)}</span>
       <span class="nav-count">${count}</span>
     </button>`;
+    // Subcollections (shown when parent collection is active)
+    if (isActive && col.subcollections && col.subcollections.length > 0) {
+      col.subcollections
+        .slice()
+        .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity))
+        .forEach((sub) => {
+          const subCount = state.bookmarks.filter((b) => b.collection === col.id && b.subcollection === sub.id).length;
+          const subActive = state.activeSubcol === sub.id;
+          nav += `<button class="nav-item nav-subitem${subActive ? " active" : ""}" onclick="selectSubcollection('${sub.id}')">
+            <span class="nav-icon"></span>
+            <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">↳ ${esc(sub.name)}</span>
+            <span class="nav-count">${subCount}</span>
+          </button>`;
+        });
+    }
   });
   // Tags
   if (allTags.length > 0) {
@@ -178,13 +206,19 @@ function render() {
 
   // Title
   let title = "All Resources";
-  if (state.showFeatured) title = "Favorites";
-  else if (state.activeTag) title = `Tagged <span class="title-dim">#${esc(state.activeTag)}</span>`;
-  else if (state.activeCol !== "all" && colData) title = esc(colData.name);
+  let subtitle = state.site.description || state.site.tagline;
+  if (state.showFeatured) { title = "Favorites"; subtitle = ""; }
+  else if (state.activeTag) { title = `Tagged <span class="title-dim">#${esc(state.activeTag)}</span>`; subtitle = ""; }
+  else if (state.activeSubcol && colData) {
+    const subcol = colData.subcollections?.find((s) => s.id === state.activeSubcol);
+    title = subcol ? esc(subcol.name) : esc(colData.name);
+    subtitle = "";
+  }
+  else if (state.activeCol !== "all" && colData) { title = esc(colData.name); subtitle = ""; }
 
   html += `<div class="title-section"><h2 class="page-title">${title}</h2>`;
-  if (state.activeCol === "all" && !state.showFeatured && !state.activeTag && state.site.tagline) {
-    html += `<p class="page-subtitle">${esc(state.site.tagline)}</p>`;
+  if (state.activeCol === "all" && !state.showFeatured && !state.activeTag && subtitle) {
+    html += `<p class="page-subtitle">${esc(subtitle)}</p>`;
   }
   html += `</div>`;
 
@@ -228,6 +262,10 @@ function renderCard(bm, i) {
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;fill:#F59E0B;"></i>` : "";
   let tags = "";
   if (col) tags += `<span class="collection-badge" style="background:${col.color}18;color:${col.color};">${esc(col.name)}</span>`;
+  if (bm.subcollection && col) {
+    const subcol = col.subcollections?.find((s) => s.id === bm.subcollection);
+    if (subcol) tags += `<span class="subcol-badge">${esc(subcol.name)}</span>`;
+  }
   bm.tags.slice(0, 3).forEach((t) => {
     tags += `<button class="inline-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
   });
@@ -266,21 +304,26 @@ function renderRow(bm, i) {
 
 /* ═══ Actions ═══ */
 function selectCollection(id) {
-  state.activeCol = id; state.activeTag = null; state.showFeatured = false;
+  state.activeCol = id; state.activeTag = null; state.showFeatured = false; state.activeSubcol = null;
+  if (!isDesktop()) state.sidebarOpen = false;
+  render();
+}
+function selectSubcollection(id) {
+  state.activeSubcol = state.activeSubcol === id ? null : id;
   if (!isDesktop()) state.sidebarOpen = false;
   render();
 }
 function toggleFavorites() {
-  state.showFeatured = !state.showFeatured; state.activeCol = "all"; state.activeTag = null;
+  state.showFeatured = !state.showFeatured; state.activeCol = "all"; state.activeTag = null; state.activeSubcol = null;
   if (!isDesktop()) state.sidebarOpen = false;
   render();
 }
 function selectTag(tag) {
-  state.activeTag = state.activeTag === tag ? null : tag; state.showFeatured = false;
+  state.activeTag = state.activeTag === tag ? null : tag; state.showFeatured = false; state.activeSubcol = null;
   if (!isDesktop()) state.sidebarOpen = false;
   render();
 }
-function clearTag() { state.activeTag = null; render(); }
+function clearTag() { state.activeTag = null; state.activeSubcol = null; render(); }
 function onSearch() {
   state.search = document.getElementById("searchInput").value;
   render();
@@ -288,6 +331,7 @@ function onSearch() {
 }
 function clearSearch() {
   state.search = "";
+  state.activeSubcol = null;
   document.getElementById("searchInput").value = "";
   render();
 }
@@ -303,9 +347,20 @@ async function reloadData() {
   document.getElementById("app").style.display = "none";
   document.getElementById("loading").style.display = "flex";
   await loadData();
+  applyThemeFromMeta();
   document.getElementById("loading").style.display = "none";
   document.getElementById("app").style.display = "flex";
   render();
+}
+
+function applyThemeFromMeta() {
+  if (!state.meta) return;
+  if (state.meta.theme?.accent) {
+    document.documentElement.style.setProperty("--accent", state.meta.theme.accent);
+  }
+  const defaultTheme = state.meta.theme?.default ?? "light";
+  state.theme = defaultTheme;
+  document.body.setAttribute("data-theme", defaultTheme);
 }
 
 /* ═══ Responsive ═══ */
@@ -319,6 +374,7 @@ window.addEventListener("resize", () => {
 (async function init() {
   lucide.createIcons();
   await loadData();
+  applyThemeFromMeta();
   document.getElementById("loading").style.display = "none";
   document.getElementById("app").style.display = "flex";
   state.sidebarOpen = isDesktop();

@@ -115,6 +115,7 @@ body { background: var(--bg); color: var(--text); }
   font-family: 'JetBrains Mono', monospace;
 }
 .color-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.nav-subitem { padding-left: 28px; font-size: 12px; }
 
 .tags-wrap { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 8px 20px; }
 .tag-btn {
@@ -247,6 +248,10 @@ body { background: var(--bg); color: var(--text); }
 .card-tags { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .collection-badge {
   font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500;
+}
+.subcol-badge {
+  font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500;
+  background: var(--tag-bg); color: var(--text-secondary);
 }
 .inline-tag {
   font-size: 11px; padding: 2px 8px; border-radius: 20px;
