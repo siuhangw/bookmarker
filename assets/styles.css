@@ -117,6 +117,21 @@ body { background: var(--bg); color: var(--text); }
 .color-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
 .nav-subitem { padding-left: 28px; font-size: 12px; }
 
+/* ─── Collection expand/collapse ─── */
+.nav-collection-wrap { display: flex; align-items: center; }
+.nav-collection-wrap .nav-item { flex: 1; min-width: 0; }
+.nav-chevron {
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 32px; background: none; border: none;
+  border-radius: 4px; color: var(--text-dim); padding: 0; cursor: pointer;
+  transition: color 0.15s, background 0.15s;
+}
+.nav-chevron:hover { color: var(--text-secondary); background: rgba(0,0,0,0.04); }
+[data-theme="dark"] .nav-chevron:hover { background: rgba(255,255,255,0.04); }
+.nav-chevron svg { transform: rotate(0deg); }
+.nav-chevron.expanded svg { animation: chevron-expand 0.2s ease forwards; }
+@keyframes chevron-expand { from { transform: rotate(0deg); } to { transform: rotate(90deg); } }
+
 .tags-wrap { display: flex; flex-wrap: wrap; gap: 5px; padding: 0 8px 20px; }
 .tag-btn {
   font-size: 11px; padding: 4px 10px; border-radius: 20px; border: none;
