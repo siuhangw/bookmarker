@@ -17,6 +17,7 @@ let state = {
   view: "grid",
   theme: "light",
   sidebarOpen: window.innerWidth >= 1024,
+  expandedCols: new Set(),
   error: null,
 };
 
@@ -148,13 +149,19 @@ function render() {
   state.collections.forEach((col) => {
     const count = state.bookmarks.filter((b) => b.collection === col.id).length;
     const isActive = state.activeCol === col.id && !state.showFeatured && !state.activeTag;
-    nav += `<button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="selectCollection('${col.id}')">
-      <span class="nav-icon"><span class="color-dot" style="background:${col.color};"></span></span>
-      <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(col.name)}</span>
-      <span class="nav-count">${count}</span>
-    </button>`;
-    // Subcollections (shown when parent collection is active)
-    if (isActive && col.subcollections && col.subcollections.length > 0) {
+    const hasSubs = col.subcollections && col.subcollections.length > 0;
+    const isExpanded = state.expandedCols.has(col.id);
+    const chevron = hasSubs
+      ? `<button class="nav-chevron${isExpanded ? " expanded" : ""}" onclick="toggleColExpand('${col.id}')" aria-label="Toggle subcollections"><i data-lucide="chevron-right" style="width:13px;height:13px;"></i></button>`
+      : "";
+    nav += `<div class="nav-collection-wrap">
+      <button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="${hasSubs ? "selectAndToggleCollection" : "selectCollection"}('${col.id}')">
+        <span class="nav-icon"><span class="color-dot" style="background:${col.color};"></span></span>
+        <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(col.name)}</span>
+        <span class="nav-count">${count}</span>
+      </button>${chevron}
+    </div>`;
+    if (hasSubs && isExpanded) {
       col.subcollections
         .slice()
         .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity))
@@ -310,6 +317,12 @@ function selectCollection(id) {
   if (!isDesktop()) state.sidebarOpen = false;
   render();
 }
+function selectAndToggleCollection(id) {
+  state.activeCol = id; state.activeTag = null; state.showFeatured = false; state.activeSubcol = null;
+  if (state.expandedCols.has(id)) { state.expandedCols.delete(id); } else { state.expandedCols.add(id); }
+  if (!isDesktop()) state.sidebarOpen = false;
+  render();
+}
 function selectSubcollection(id) {
   state.activeSubcol = state.activeSubcol === id ? null : id;
   if (!isDesktop()) state.sidebarOpen = false;
@@ -323,6 +336,11 @@ function toggleFavorites() {
 function selectTag(tag) {
   state.activeTag = state.activeTag === tag ? null : tag; state.showFeatured = false; state.activeSubcol = null;
   if (!isDesktop()) state.sidebarOpen = false;
+  render();
+}
+function toggleColExpand(id) {
+  if (state.expandedCols.has(id)) { state.expandedCols.delete(id); }
+  else { state.expandedCols.add(id); }
   render();
 }
 function clearTag() { state.activeTag = null; state.activeSubcol = null; render(); }
