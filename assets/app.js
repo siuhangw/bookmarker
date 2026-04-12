@@ -34,7 +34,7 @@ const isDesktop = () => window.innerWidth >= 1024;
 
 /* ═══ Data Loading ═══ */
 async function fetchFromGitHub() {
-  const metaRes = await fetch(`${REPO_BASE}/_meta.yaml`);
+  const metaRes = await fetch(`${REPO_BASE}/data/_meta.yaml`);
   if (!metaRes.ok) throw new Error(`_meta.yaml: ${metaRes.status}`);
   const meta = jsyaml.load(await metaRes.text());
   const collections = meta.collections || [];
@@ -42,7 +42,7 @@ async function fetchFromGitHub() {
 
   const bmArrays = await Promise.all(collections.map(async (col) => {
     try {
-      const res = await fetch(`${REPO_BASE}/${col.file}`);
+      const res = await fetch(`${REPO_BASE}/data/${col.file}`);
       if (!res.ok) return [];
       const items = jsyaml.load(await res.text());
       return (Array.isArray(items) ? items : []).map((bm, idx) => ({

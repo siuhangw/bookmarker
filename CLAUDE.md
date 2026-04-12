@@ -10,14 +10,18 @@ A personal bookmark showcase website. I manage bookmarks as YAML files in Obsidi
 ## Architecture
 
 ```
-index.html          ← Single-file app (HTML + CSS + JS, no build step)
-_meta.yaml          ← Site config + collection registry
-dev.yaml            ← Dev Tools bookmarks
-design.yaml         ← Design bookmarks
-productivity.yaml   ← Productivity bookmarks
-learning.yaml       ← Learning bookmarks
-ai.yaml             ← AI & ML bookmarks
-media.yaml          ← Media & Fun bookmarks
+index.html          ← HTML shell (no inline CSS or JS)
+assets/
+  styles.css        ← All styles
+  app.js            ← All application logic
+data/
+  _meta.yaml        ← Site config + collection registry
+  dev.yaml          ← Dev Tools bookmarks
+  design.yaml       ← Design bookmarks
+  productivity.yaml ← Productivity bookmarks
+  learning.yaml     ← Learning bookmarks
+  ai.yaml           ← AI & ML bookmarks
+  media.yaml        ← Media & Fun bookmarks
 README.md           ← Schema docs
 CLAUDE.md           ← This file
 ```
@@ -29,7 +33,6 @@ CLAUDE.md           ← This file
 - **Lucide icons** from CDN (`unpkg.com/lucide`)
 - **DM Sans** + **JetBrains Mono** from Google Fonts
 - Fetches YAML from `raw.githubusercontent.com` at runtime
-- Fallback embedded data if GitHub fetch fails
 
 ## Data Flow
 
@@ -76,10 +79,9 @@ collections:
 
 ## Config
 
-At the top of `<script>` in `index.html`:
+At the top of `assets/app.js`:
 
 ```js
-const USE_GITHUB_FETCH = true;   // true = live fetch, false = embedded fallback
 const REPO_BASE = "https://raw.githubusercontent.com/siuhangw/bookmarker/main";
 ```
 
