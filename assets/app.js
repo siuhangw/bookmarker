@@ -156,7 +156,7 @@ function render() {
       : "";
     nav += `<div class="nav-collection-wrap">
       <button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="${hasSubs ? "selectAndToggleCollection" : "selectCollection"}('${col.id}')">
-        <span class="nav-icon"><span class="color-dot"></span></span>
+        <span class="nav-icon"><i data-lucide="${col.icon || 'folder'}" style="width:15px;height:15px;"></i></span>
         <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(col.name)}</span>
         <span class="nav-count">${count}</span>
       </button>${chevron}

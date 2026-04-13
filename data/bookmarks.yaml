@@ -9,6 +9,7 @@ meta:
 collections:
 - id: ai
   name: AI & Machine Learning
+  icon: bot
   color: '#8B5CF6'
   order: 1
   subcollections:
@@ -29,6 +30,7 @@ collections:
     order: 5
 - id: finance
   name: Finance & Markets
+  icon: trending-up
   color: '#10B981'
   order: 2
   subcollections:
@@ -61,6 +63,7 @@ collections:
     order: 9
 - id: dev
   name: Development
+  icon: code-2
   color: '#3B82F6'
   order: 3
   subcollections:
@@ -96,6 +99,7 @@ collections:
     order: 10
 - id: design
   name: Design & UX
+  icon: palette
   color: '#E8453C'
   order: 4
   subcollections:
@@ -110,6 +114,7 @@ collections:
     order: 3
 - id: news
   name: News & Media
+  icon: newspaper
   color: '#F59E0B'
   order: 5
   subcollections:
@@ -127,6 +132,7 @@ collections:
     order: 4
 - id: tools
   name: Tools & Utilities
+  icon: wrench
   color: '#06B6D6'
   order: 6
   subcollections:
@@ -150,6 +156,7 @@ collections:
     order: 6
 - id: learning
   name: Learning & Research
+  icon: book-open
   color: '#EC4899'
   order: 7
   subcollections:
@@ -164,6 +171,7 @@ collections:
     order: 3
 - id: videos
   name: Videos & Channels
+  icon: play-circle
   color: '#EF4444'
   order: 8
   subcollections:
@@ -175,6 +183,7 @@ collections:
     order: 2
 - id: misc
   name: Miscellaneous
+  icon: package
   color: '#6B7280'
   order: 9
 bookmarks:
