@@ -1,0 +1,25 @@
+name: Validate bookmarks.yaml
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/bookmarks.yaml
+  pull_request:
+    paths:
+      - data/bookmarks.yaml
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install PyYAML
+        run: pip install pyyaml --quiet
+
+      - name: Validate schema
+        run: |
+          python3 scripts/sync_bookmarks.py \
+            --validate-only \
+            --yaml data/bookmarks.yaml
