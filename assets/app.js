@@ -143,7 +143,7 @@ function render() {
   nav += navItem("all", "layers", "All Resources", state.bookmarks.length, state.activeCol === "all" && !state.showFeatured && !state.activeTag);
   // Favorites
   const favCount = state.bookmarks.filter((b) => b.featured).length;
-  nav += navItem("fav", "star", "Favorites", favCount, state.showFeatured, state.showFeatured ? ' style="color:#F59E0B"' : "");
+  nav += navItem("fav", "star", "Favorites", favCount, state.showFeatured, "");
   nav += `<div class="sidebar-hr"></div><div class="sidebar-label">Collections</div>`;
   // Collections
   state.collections.forEach((col) => {
@@ -156,7 +156,7 @@ function render() {
       : "";
     nav += `<div class="nav-collection-wrap">
       <button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="${hasSubs ? "selectAndToggleCollection" : "selectCollection"}('${col.id}')">
-        <span class="nav-icon"><span class="color-dot" style="background:${col.color};"></span></span>
+        <span class="nav-icon"><span class="color-dot"></span></span>
         <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(col.name)}</span>
         <span class="nav-count">${count}</span>
       </button>${chevron}
@@ -268,9 +268,9 @@ function navItem(id, icon, label, count, active, extra = "") {
 
 function renderCard(bm, i) {
   const col = state.collections.find((c) => c.id === bm.collection);
-  const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;fill:#F59E0B;"></i>` : "";
+  const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;"></i>` : "";
   let tags = "";
-  if (col) tags += `<span class="collection-badge" style="background:${col.color}18;color:${col.color};">${esc(col.name)}</span>`;
+  if (col) tags += `<span class="collection-badge">${esc(col.name)}</span>`;
   if (bm.subcollection && col) {
     const subcol = col.subcollections?.find((s) => s.id === bm.subcollection);
     if (subcol) tags += `<span class="subcol-badge">${esc(subcol.name)}</span>`;
@@ -295,8 +295,8 @@ function renderCard(bm, i) {
 
 function renderRow(bm, i) {
   const col = state.collections.find((c) => c.id === bm.collection);
-  const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;fill:#F59E0B;margin-left:5px;vertical-align:middle;"></i>` : "";
-  let colBadge = col ? `<span class="row-collection" style="background:${col.color}18;color:${col.color};">${esc(col.name)}</span>` : "";
+  const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;margin-left:5px;vertical-align:middle;"></i>` : "";
+  let colBadge = col ? `<span class="row-collection">${esc(col.name)}</span>` : "";
   let tags = "";
   bm.tags.slice(0, 2).forEach((t) => {
     tags += `<button class="row-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;

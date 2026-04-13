@@ -83,7 +83,7 @@ body { background: var(--bg); color: var(--text); }
 .sidebar-brand { padding: 22px 20px 18px; display: flex; align-items: center; gap: 10; }
 @media (max-width: 639px) { .sidebar-brand { padding: 18px 16px 14px; } }
 .sidebar-logo {
-  width: 32px; height: 32px; border-radius: 8px; background: var(--accent);
+  width: 32px; height: 32px; border-radius: 8px; background: var(--text-secondary);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .sidebar-title { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
@@ -114,7 +114,7 @@ body { background: var(--bg); color: var(--text); }
   font-size: 11px; color: var(--text-dim);
   font-family: 'JetBrains Mono', monospace;
 }
-.color-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+.color-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; background: var(--text-dim); }
 .nav-subitem { padding-left: 28px; font-size: 12px; }
 
 /* ─── Collection expand/collapse ─── */
@@ -207,8 +207,8 @@ body { background: var(--bg); color: var(--text); }
 
 .active-tag-chip {
   display: inline-flex; align-items: center; gap: 5px; font-size: 12px;
-  padding: 4px 12px; border-radius: 20px; background: var(--accent);
-  color: #fff; border: none; font-weight: 500; margin-bottom: 16px;
+  padding: 4px 12px; border-radius: 20px; background: var(--text);
+  color: var(--bg); border: none; font-weight: 500; margin-bottom: 16px;
 }
 
 /* Empty */
@@ -267,6 +267,7 @@ body { background: var(--bg); color: var(--text); }
 .card-tags { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
 .collection-badge {
   font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500;
+  background: var(--tag-bg); color: var(--text-secondary);
 }
 .subcol-badge {
   font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500;
@@ -302,6 +303,7 @@ body { background: var(--bg); color: var(--text); }
 }
 .row-collection {
   font-size: 10px; padding: 2px 7px; border-radius: 20px; font-weight: 500; flex-shrink: 0;
+  background: var(--tag-bg); color: var(--text-secondary);
 }
 .row-tag {
   font-size: 10px; padding: 2px 7px; border-radius: 20px;
@@ -326,4 +328,4 @@ body { background: var(--bg); color: var(--text); }
 .loading-spinner { animation: spin 1s linear infinite; }
 
 /* ─── Star icon ─── */
-.star-icon { color: #F59E0B; flex-shrink: 0; }
+.star-icon { color: var(--text-dim); flex-shrink: 0; }
