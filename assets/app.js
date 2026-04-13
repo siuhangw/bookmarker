@@ -275,7 +275,7 @@ function renderCard(bm, i) {
     tags += `<button class="inline-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
   });
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
-  return `<a href="${esc(bm.url)}" class="card fade-up" style="animation-delay:${i * 35}ms;" onclick="event.preventDefault();openModal(${bm.id});" rel="noopener noreferrer">
+  return `<a href="${esc(bm.url)}" class="card fade-up" style="animation-delay:${i * 35}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
     <div class="card-top">
       <div class="card-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
       <div class="card-info">
@@ -296,7 +296,7 @@ function renderRow(bm, i) {
   bm.tags.slice(0, 2).forEach((t) => {
     tags += `<button class="row-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
   });
-  return `<a href="${esc(bm.url)}" class="row fade-up" style="animation-delay:${i * 20}ms;" onclick="event.preventDefault();openModal(${bm.id});" rel="noopener noreferrer">
+  return `<a href="${esc(bm.url)}" class="row fade-up" style="animation-delay:${i * 20}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
     <div class="row-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
     <span class="row-title">${esc(bm.title)}${fav}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
