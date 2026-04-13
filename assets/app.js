@@ -90,7 +90,7 @@ function getFiltered() {
   return state.bookmarks.filter((b) => {
     if (state.activeCol !== "all" && b.collection !== state.activeCol) return false;
     if (state.activeSubcol && b.subcollection !== state.activeSubcol) return false;
-    if (state.activeTag && !b.tags.includes(state.activeTag)) return false;
+    if (state.activeTag && !getBookmarkTags(b, getSubNames()).includes(state.activeTag)) return false;
     if (state.showFeatured && !b.featured) return false;
     if (state.search) {
       const q = state.search.toLowerCase();
@@ -101,9 +101,22 @@ function getFiltered() {
   });
 }
 
-function getAllTags() {
+function getSubNames() {
   const map = {};
-  state.bookmarks.forEach((b) => b.tags.forEach((t) => { map[t] = (map[t] || 0) + 1; }));
+  state.collections.forEach((col) => (col.subcollections || []).forEach((s) => { map[s.id] = s.name; }));
+  return map;
+}
+
+function getBookmarkTags(b, subNames) {
+  if (b.tags && b.tags.length > 0) return b.tags;
+  if (b.subcollection && subNames[b.subcollection]) return [subNames[b.subcollection]];
+  return [];
+}
+
+function getAllTags() {
+  const subNames = getSubNames();
+  const map = {};
+  state.bookmarks.forEach((b) => getBookmarkTags(b, subNames).forEach((t) => { map[t] = (map[t] || 0) + 1; }));
   return Object.entries(map).sort((a, b) => b[1] - a[1]);
 }
 
