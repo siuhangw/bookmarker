@@ -28,6 +28,13 @@
     <!-- Overlay -->
     <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
 
+    <!-- Bookmark Modal -->
+    <div id="bookmarkModal" class="modal-overlay" onclick="closeModal()">
+      <div class="modal-panel" onclick="event.stopPropagation()">
+        <div id="modalContent"></div>
+      </div>
+    </div>
+
     <!-- Sidebar -->
     <aside id="sidebar" class="sidebar sb">
       <div class="sidebar-brand">

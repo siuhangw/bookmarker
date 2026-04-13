@@ -18,6 +18,7 @@ let state = {
   theme: "light",
   sidebarOpen: window.innerWidth >= 1024,
   expandedCols: new Set(),
+  activeModal: null,
   error: null,
 };
 
@@ -90,7 +91,7 @@ function getFiltered() {
   return state.bookmarks.filter((b) => {
     if (state.activeCol !== "all" && b.collection !== state.activeCol) return false;
     if (state.activeSubcol && b.subcollection !== state.activeSubcol) return false;
-    if (state.activeTag && !getBookmarkTags(b, getSubNames()).includes(state.activeTag)) return false;
+    if (state.activeTag && !b.tags.includes(state.activeTag)) return false;
     if (state.showFeatured && !b.featured) return false;
     if (state.search) {
       const q = state.search.toLowerCase();
@@ -101,22 +102,9 @@ function getFiltered() {
   });
 }
 
-function getSubNames() {
-  const map = {};
-  state.collections.forEach((col) => (col.subcollections || []).forEach((s) => { map[s.id] = s.name; }));
-  return map;
-}
-
-function getBookmarkTags(b, subNames) {
-  if (b.tags && b.tags.length > 0) return b.tags;
-  if (b.subcollection && subNames[b.subcollection]) return [subNames[b.subcollection]];
-  return [];
-}
-
 function getAllTags() {
-  const subNames = getSubNames();
   const map = {};
-  state.bookmarks.forEach((b) => getBookmarkTags(b, subNames).forEach((t) => { map[t] = (map[t] || 0) + 1; }));
+  state.bookmarks.forEach((b) => b.tags.forEach((t) => { map[t] = (map[t] || 0) + 1; }));
   return Object.entries(map).sort((a, b) => b[1] - a[1]);
 }
 
@@ -287,7 +275,7 @@ function renderCard(bm, i) {
     tags += `<button class="inline-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
   });
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
-  return `<a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="card fade-up" style="animation-delay:${i * 35}ms;">
+  return `<a href="${esc(bm.url)}" class="card fade-up" style="animation-delay:${i * 35}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
     <div class="card-top">
       <div class="card-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
       <div class="card-info">
@@ -308,7 +296,7 @@ function renderRow(bm, i) {
   bm.tags.slice(0, 2).forEach((t) => {
     tags += `<button class="row-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
   });
-  return `<a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="row fade-up" style="animation-delay:${i * 20}ms;">
+  return `<a href="${esc(bm.url)}" class="row fade-up" style="animation-delay:${i * 20}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
     <div class="row-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
     <span class="row-title">${esc(bm.title)}${fav}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
@@ -370,6 +358,49 @@ function toggleTheme() {
 }
 function toggleSidebar() { state.sidebarOpen = !state.sidebarOpen; render(); }
 function closeSidebar() { state.sidebarOpen = false; render(); }
+
+/* ═══ Modal ═══ */
+function openModal(id) {
+  const bm = state.bookmarks.find((b) => b.id === id);
+  if (!bm) return;
+  const col = state.collections.find((c) => c.id === bm.collection);
+  const subcol = col?.subcollections?.find((s) => s.id === bm.subcollection);
+  document.getElementById("modalContent").innerHTML = renderModalContent(bm, col, subcol);
+  document.getElementById("bookmarkModal").classList.add("active");
+  document.body.style.overflow = "hidden";
+  lucide.createIcons();
+}
+function closeModal() {
+  document.getElementById("bookmarkModal").classList.remove("active");
+  document.body.style.overflow = "";
+}
+function renderModalContent(bm, col, subcol) {
+  const tags = bm.tags.map((t) =>
+    `<button class="tag-btn" onclick="closeModal();selectTag('${esc(t)}')">#${esc(t)}</button>`
+  ).join("");
+  const meta = [
+    col ? esc(col.name) : null,
+    subcol ? esc(subcol.name) : null,
+    bm.added ? esc(String(bm.added)) : null,
+  ].filter(Boolean).join(" · ");
+  return `
+    <div class="modal-header">
+      <div class="modal-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
+      <div class="modal-title-wrap">
+        <h2 class="modal-title">${esc(bm.title)}</h2>
+        <a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="modal-domain">${esc(getDomain(bm.url))}</a>
+      </div>
+      <button class="modal-close" onclick="closeModal()"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+    </div>
+    ${bm.desc ? `<p class="modal-desc">${esc(bm.desc)}</p>` : ""}
+    ${meta ? `<div class="modal-meta">${meta}</div>` : ""}
+    ${bm.tags.length ? `<div class="modal-tags">${tags}</div>` : ""}
+    <div class="modal-footer">
+      <a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="modal-visit">
+        Visit site <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i>
+      </a>
+    </div>`;
+}
 async function reloadData() {
   document.getElementById("app").style.display = "none";
   document.getElementById("loading").style.display = "flex";
@@ -400,6 +431,7 @@ window.addEventListener("resize", () => {
 /* ═══ Init ═══ */
 (async function init() {
   lucide.createIcons();
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
   await loadData();
   applyThemeFromMeta();
   document.getElementById("loading").style.display = "none";
