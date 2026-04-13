@@ -118,20 +118,16 @@ body { background: var(--bg); color: var(--text); }
 .nav-subitem { padding-left: 28px; font-size: 12px; }
 
 /* ─── Collection expand/collapse ─── */
-.nav-collection-wrap { display: flex; align-items: center; border-radius: 6px; transition: background 0.15s; }
+.nav-collection-wrap { display: flex; align-items: center; }
 .nav-collection-wrap .nav-item { flex: 1; min-width: 0; }
-.nav-collection-wrap .nav-item.active { background: none; }
-.nav-collection-wrap .nav-item:hover:not(.active) { background: none; }
-.nav-collection-wrap:not(:has(.nav-item.active)):hover { background: rgba(0,0,0,0.03); }
-[data-theme="dark"] .nav-collection-wrap:not(:has(.nav-item.active)):hover { background: rgba(255,255,255,0.03); }
-.nav-collection-wrap:has(.nav-item.active) { background: var(--bg-hover); }
 .nav-chevron {
   flex-shrink: 0; display: flex; align-items: center; justify-content: center;
   width: 26px; height: 32px; background: none; border: none;
-  color: var(--text-dim); padding: 0; cursor: pointer;
-  transition: color 0.15s;
+  border-radius: 4px; color: var(--text-dim); padding: 0; cursor: pointer;
+  transition: color 0.15s, background 0.15s;
 }
-.nav-chevron:hover { color: var(--text-secondary); }
+.nav-chevron:hover { color: var(--text-secondary); background: rgba(0,0,0,0.04); }
+[data-theme="dark"] .nav-chevron:hover { background: rgba(255,255,255,0.04); }
 .nav-chevron svg { transform: rotate(0deg); }
 .nav-chevron.expanded svg { animation: chevron-expand 0.2s ease forwards; }
 @keyframes chevron-expand { from { transform: rotate(0deg); } to { transform: rotate(90deg); } }
