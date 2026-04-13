@@ -1,0 +1,55 @@
+/* ═══ Reset & Base ═══ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.35s ease, color 0.35s ease;
+}
+input, button, select, textarea { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; }
+
+/* ═══ Theme Variables ═══ */
+:root {
+  --bg: #F5F5F3; --bg-card: #FFFFFF; --bg-sidebar: #ECEAE6;
+  --bg-hover: #E3E1DC; --bg-input: #ECEAE6;
+  --border: #DBD9D3; --border-hover: #C8C6C0;
+  --text: #1A1A17; --text-secondary: #6B6B63; --text-dim: #A0A098;
+  --accent: #E8453C;
+  --tag-bg: #E3E1DC; --tag-text: #6B6B63;
+  --shadow: 0 4px 20px rgba(0,0,0,0.06);
+  --overlay: rgba(0,0,0,0.25);
+}
+[data-theme="dark"] {
+  --bg: #0c0c0c; --bg-card: #161616; --bg-sidebar: #111111;
+  --bg-hover: #1e1e1e; --bg-input: #1a1a1a;
+  --border: #262626; --border-hover: #333;
+  --text: #e8e8e8; --text-secondary: #999; --text-dim: #555;
+  --accent: #E8453C;
+  --tag-bg: #1f1f1f; --tag-text: #aaa;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --overlay: rgba(0,0,0,0.6);
+}
+body { background: var(--bg); color: var(--text); }
+
+/* ═══ Scrollbar ═══ */
+.sb::-webkit-scrollbar { width: 4px; }
+.sb::-webkit-scrollbar-track { background: transparent; }
+.sb::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* ═══ Animations ═══ */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+.fade-up { animation: fadeUp 0.3s ease both; }
+
+/* ═══ Layout ═══ */
+.app { display: flex; height: 100vh; overflow: hidden; position: relative; }
+
+/* ─── Overlay ─── */
+.overlay {
+  position: fixed; inset: 0; z-index: 40;
+  background: var(--overlay); display: none;
+}
+.overlay.active { display: block; }
