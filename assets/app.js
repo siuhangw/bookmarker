@@ -269,12 +269,6 @@ function navItem(id, icon, label, count, active, extra = "") {
 function renderCard(bm, i) {
   const col = state.collections.find((c) => c.id === bm.collection);
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;"></i>` : "";
-  let tags = "";
-  if (col) tags += `<span class="collection-badge">${esc(col.name)}</span>`;
-  if (bm.subcollection && col) {
-    const subcol = col.subcollections?.find((s) => s.id === bm.subcollection);
-    if (subcol) tags += `<span class="subcol-badge">${esc(subcol.name)}</span>`;
-  }
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
   return `<a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="card fade-up" style="animation-delay:${i * 35}ms;">
     <div class="card-top">
@@ -286,19 +280,16 @@ function renderCard(bm, i) {
       <i data-lucide="arrow-up-right" class="card-arrow" style="width:15px;height:15px;"></i>
     </div>
     ${desc}
-    <div class="card-tags">${tags}</div>
   </a>`;
 }
 
 function renderRow(bm, i) {
   const col = state.collections.find((c) => c.id === bm.collection);
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;margin-left:5px;vertical-align:middle;"></i>` : "";
-  let colBadge = col ? `<span class="row-collection">${esc(col.name)}</span>` : "";
   return `<a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="row fade-up" style="animation-delay:${i * 20}ms;">
     <div class="row-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
     <span class="row-title">${esc(bm.title)}${fav}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
-    ${colBadge}
     <span class="row-domain">${esc(getDomain(bm.url))}</span>
     <i data-lucide="arrow-up-right" class="row-arrow" style="width:13px;height:13px;"></i>
   </a>`;
