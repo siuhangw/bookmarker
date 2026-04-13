@@ -275,9 +275,6 @@ function renderCard(bm, i) {
     const subcol = col.subcollections?.find((s) => s.id === bm.subcollection);
     if (subcol) tags += `<span class="subcol-badge">${esc(subcol.name)}</span>`;
   }
-  bm.tags.slice(0, 3).forEach((t) => {
-    tags += `<button class="inline-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
-  });
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
   return `<a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="card fade-up" style="animation-delay:${i * 35}ms;">
     <div class="card-top">
@@ -297,15 +294,11 @@ function renderRow(bm, i) {
   const col = state.collections.find((c) => c.id === bm.collection);
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;margin-left:5px;vertical-align:middle;"></i>` : "";
   let colBadge = col ? `<span class="row-collection">${esc(col.name)}</span>` : "";
-  let tags = "";
-  bm.tags.slice(0, 2).forEach((t) => {
-    tags += `<button class="row-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
-  });
   return `<a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="row fade-up" style="animation-delay:${i * 20}ms;">
     <div class="row-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
     <span class="row-title">${esc(bm.title)}${fav}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
-    ${colBadge}${tags}
+    ${colBadge}
     <span class="row-domain">${esc(getDomain(bm.url))}</span>
     <i data-lucide="arrow-up-right" class="row-arrow" style="width:13px;height:13px;"></i>
   </a>`;
