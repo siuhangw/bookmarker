@@ -22,9 +22,21 @@ if [[ "${1:-}" == "--dry-run" ]]; then
 fi
 
 # ---------------------------------------------------------------------------
+# Detect Python — Windows Git Bash uses "python", Unix uses "python3"
+# ---------------------------------------------------------------------------
+if command -v python3 &>/dev/null; then
+  PYTHON=python3
+elif command -v python &>/dev/null; then
+  PYTHON=python
+else
+  echo "[clip-sync] ERROR: Python not found. Install Python and ensure it is on PATH." >&2
+  exit 1
+fi
+
+# ---------------------------------------------------------------------------
 # Run the Python sync script
 # ---------------------------------------------------------------------------
-SYNC_OUTPUT=$(python3 scripts/sync_bookmarks.py --quiet ${DRY_RUN} 2>&1) || {
+SYNC_OUTPUT=$("$PYTHON" scripts/sync_bookmarks.py --quiet ${DRY_RUN} 2>&1) || {
   echo "[clip-sync] ERROR: sync_bookmarks.py failed:"
   echo "$SYNC_OUTPUT"
   exit 1
