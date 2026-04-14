@@ -1467,14 +1467,7 @@ bookmarks:
   tags: []
   featured: false
   subcollection: dev-learning-courses
-- id: 161
-  title: JavaScript Info (ZH)
-  url: https://zh.javascript.info/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
+
 - id: 162
   title: All Next.js Starters & Boilerplates
   url: https://nextjsstarter.com/
@@ -1851,14 +1844,7 @@ bookmarks:
   tags: []
   featured: false
   subcollection: dev-open-source-apis
-- id: 209
-  title: Alpaca Trading API
-  url: https://alpaca.markets/algotrading
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
+
 - id: 210
   title: Dev Hunt — New Dev Tools Daily
   url: https://devhunt.org/
@@ -2547,14 +2533,7 @@ bookmarks:
   tags: []
   featured: false
   subcollection: news-tech-security
-- id: 296
-  title: TechInsights — Semiconductor
-  url: https://www.techinsights.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
+
 - id: 297
   title: Dark Lab — Negative SEO in Asia
   url: https://blog.darklab.hk/2025/07/10/the-dark-side-of-seo-negative-seo-attacks-targeting-businesses-in-asia/
@@ -2635,22 +2614,8 @@ bookmarks:
   tags: []
   featured: false
   subcollection: news-general-political-news
-- id: 307
-  title: Zerohedge
-  url: https://www.zerohedge.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-- id: 308
-  title: King World News
-  url: https://kingworldnews.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
+
+
 - id: 309
   title: MRT News
   url: https://mktnews.com/
@@ -2715,14 +2680,7 @@ bookmarks:
   tags: []
   featured: false
   subcollection: news-china-hk-news
-- id: 317
-  title: Reddit — r/Daytrading
-  url: https://www.reddit.com/r/Daytrading/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-community-social
+
 - id: 318
   title: Twitter Trends 24
   url: https://trends24.in/
@@ -2787,22 +2745,8 @@ bookmarks:
   tags: []
   featured: false
   subcollection: tools-cloud-storage
-- id: 326
-  title: Filen — E2E Cloud Storage
-  url: https://filen.io/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-cloud-storage
-- id: 327
-  title: NextCloud
-  url: https://nextcloud.com/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-cloud-storage
+
+
 - id: 328
   title: HackMD
   url: https://hackmd.io/
@@ -3059,14 +3003,7 @@ bookmarks:
   tags: []
   featured: false
   subcollection: tools-maps-geo-data
-- id: 360
-  title: Free.com.tw (免費資源網路社群)
-  url: https://free.com.tw/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-free-resource-collections
+
 - id: 361
   title: 初學日語30短句 (Google Docs)
   url: https://docs.google.com/document/d/1iROGNOORPCEmpITR-GrqWnUj-ZNemXCNCTurthVoB5c/edit
@@ -3115,22 +3052,8 @@ bookmarks:
   tags: []
   featured: false
   subcollection: learning-podcasts-talks
-- id: 367
-  title: Arxiv
-  url: https://arxiv.org/
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-reference-research
-- id: 368
-  title: Kaggle
-  url: https://www.kaggle.com/
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-reference-research
+
+
 - id: 369
   title: Dane Galbraith — Projects (Notion)
   url: https://danegalbraith.notion.site/Dane-s-Projects-53c4290f965c47d4960ff9d71f29e25e
@@ -3419,54 +3342,12 @@ bookmarks:
   tags: []
   featured: false
   review: true
-- id: 405
-  title: Collector Crypt — Collectibles
-  url: https://collectorcrypt.com/
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 406
-  title: MoMA Postcard Exhibition
-  url: https://www.moma.org/calendar/exhibitions/5618
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 407
-  title: Lens — Web3 Social
-  url: https://onboarding.lens.xyz/explore
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 408
-  title: Musicca Music Tools
-  url: https://www.musicca.com/tw/tools
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 409
-  title: Hend World
-  url: https://app.hend.world/
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 410
-  title: Tilly Social
-  url: https://www.tilly.social/app/people
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
+
+
+
+
+
+
 - id: 411
   title: NFT/Art
   url: https://akaswap.com/event/taiwan520
@@ -3483,3 +3364,22 @@ bookmarks:
   tags: []
   featured: false
   review: true
+- id: 413
+  title: Introducing ONCE
+  url: https://once.com/
+  desc: Once upon a time you owned what you paid for, you controlled what you depended
+    on, and your privacy and security were your own business. We think it’s that time
+    again.
+  collection: misc
+  tags: []
+  featured: false
+  added: '2026-04-14'
+- id: 414
+  title: Tier List
+  url: https://www.canirun.ai/tier
+  desc: See which AI models your machine can run, ranked in a classic tier list. Share
+    your results.
+  collection: misc
+  tags: []
+  featured: false
+  added: '2026-04-14'
