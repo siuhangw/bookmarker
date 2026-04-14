@@ -383,9 +383,14 @@ def main() -> int:
             for w in warnings:
                 print(f"  ~ {w}")
         if errors:
-            print(f"Validation failed ({len(errors)} error(s)):")
-            for e in errors:
-                print(f"  - {e}")
+            if args.quiet:
+                print(f"Validation failed ({len(errors)} error(s)):", file=sys.stderr)
+                for e in errors:
+                    print(f"  - {e}", file=sys.stderr)
+            else:
+                print(f"Validation failed ({len(errors)} error(s)):")
+                for e in errors:
+                    print(f"  - {e}")
             return 1
         if not args.quiet:
             data = load_yaml_data(yaml_path)
@@ -425,6 +430,13 @@ def main() -> int:
             print("No notes in inbox.")
         if args.dry_run:
             print("(dry-run: no files were written)")
+
+    if args.quiet and result.skipped_errors:
+        print(f"Skipped {len(result.skipped_errors)} note(s) with errors:", file=sys.stderr)
+        for fname, errs in result.skipped_errors:
+            print(f"  ! {fname}:", file=sys.stderr)
+            for e in errs:
+                print(f"      - {e}", file=sys.stderr)
 
     # Machine-readable summary line for clip-sync.sh
     if args.quiet:
