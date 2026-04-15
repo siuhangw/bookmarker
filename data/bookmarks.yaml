@@ -34,15 +34,9 @@ collections:
   color: '#10B981'
   order: 2
   subcollections:
-  - id: finance-market-data-sentiment
-    name: Market Data & Sentiment
+  - id: finance-market-data-tools
+    name: Market Data & Tools
     order: 1
-  - id: finance-earnings
-    name: Earnings
-    order: 10
-  - id: finance-valuation
-    name: Valuation
-    order: 11
   - id: finance-earnings
     name: Earnings
     order: 10
@@ -52,15 +46,6 @@ collections:
   - id: finance-options-derivatives
     name: Options & Derivatives
     order: 2
-  - id: finance-crypto-on-chain-analytics
-    name: 'Crypto: On-Chain Analytics'
-    order: 3
-  - id: finance-crypto-trading-bots-apis
-    name: 'Crypto: Trading Bots & APIs'
-    order: 4
-  - id: finance-crypto-projects-news
-    name: 'Crypto: Projects & News'
-    order: 5
   - id: finance-precious-metals
     name: Precious Metals
     order: 6
@@ -73,6 +58,30 @@ collections:
   - id: finance-macro-economic-data
     name: Macro & Economic Data
     order: 9
+  - id: finance-news
+    name: News
+    order: 10
+  - id: finance-politics
+    name: Politics
+    order: 11
+  - id: finance-insider-trading
+    name: Insider Trading
+    order: 12
+- id: crypto
+  name: Cryptocurrency
+  icon: bitcoin
+  color: '#FBBF24'
+  order: 3
+  subcollections:
+  - id: crypto-on-chain-analytics
+    name: 'Crypto: On-Chain Analytics'
+    order: 3
+  - id: crypto-trading-bots-apis
+    name: 'Crypto: Trading Bots & APIs'
+    order: 4
+  - id: crypto-projects-news
+    name: 'Crypto: Projects & News'
+    order: 5
 - id: dev
   name: Development
   icon: code-2
@@ -526,7 +535,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 
 - id: 43
   title: Koyfin Overview
@@ -535,7 +544,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 44
   title: OpenBB
   url: https://openbb.co/
@@ -543,8 +552,8 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
-  - id: 45
+  subcollection: finance-market-data-tools
+- id: 45
   title: Earnings Hub — Earnings Calendar
   url: https://earningshub.com/earnings-calendar/this-week
   desc: ''
@@ -559,15 +568,15 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 47
   title: Barchart — Gamma Exposure
   url: https://www.barchart.com/stocks/quotes/ADBE/gamma-exposure
   desc: ''
   collection: finance
-  tags: []
+  tags: [options, derivatives]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-options-derivatives
 - id: 48
   title: sqzme / SqueezeMetrics
   url: https://squeezemetrics.com/monitor
@@ -575,8 +584,8 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
-  - id: 49
+  subcollection: finance-market-data-tools
+- id: 49
   title: S&P 500 PE Ratio — GuruFocus
   url: https://www.gurufocus.com/economic_indicators/57/sp-500-pe-ratio
   desc: ''
@@ -584,7 +593,7 @@ bookmarks:
   tags: [pe-ratio, valuation]
   featured: false
   subcollection: finance-valuation
-  - id: 51
+- id: 51
   title: Multpl — S&P 500 PE Ratio
   url: https://www.multpl.com/s-p-500-pe-ratio
   desc: ''
@@ -592,7 +601,7 @@ bookmarks:
   tags: [pe-ratio, valuation]
   featured: false
   subcollection: finance-valuation
-  - id: 52
+- id: 52
   title: US Yield Curve — GuruFocus
   url: https://www.gurufocus.com/yield_curve.php
   desc: ''
@@ -607,7 +616,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 54
   title: WorldQuant BRAIN
   url: https://platform.worldquantbrain.com/sign-in
@@ -615,7 +624,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 55
   title: Quiver Quantitative
   url: https://www.quiverquant.com/
@@ -623,15 +632,15 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 56
   title: Dilution Tracker
   url: https://dilutiontracker.com/app/
   desc: ''
   collection: finance
-  tags: []
+  tags: [insider-trading]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-insider-trading
 - id: 57
   title: Chart Exchange
   url: https://chartexchange.com/
@@ -639,7 +648,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 58
   title: Relative Rotation Graphs
   url: https://relativerotationgraphs.com/login/
@@ -647,23 +656,23 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 59
   title: Sec Form 4 — Insider Trades
   url: https://www.secform4.com/
   desc: ''
   collection: finance
-  tags: []
+  tags: [insider-trading]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-insider-trading
 - id: 60
   title: US Congress — Most Viewed Bills
   url: https://www.congress.gov/most-viewed-bills
   desc: ''
   collection: finance
-  tags: []
+  tags: [politics]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-politics
 - id: 61
   title: Fastbull (TW)
   url: https://www.fastbull.com/tw/
@@ -671,7 +680,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 62
   title: Polymarket — 2026 House Election
   url: https://polymarket.com/event/which-party-will-win-the-house-in-2026
@@ -679,7 +688,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 63
   title: 好用投資工具網站分享 (2024)
   url: https://vocus.cc/article/65d83f7ffd89780001d4f385
@@ -687,7 +696,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 64
   title: Toolfolio
   url: https://toolfolio.io/ogfolio
@@ -695,31 +704,23 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-market-data-sentiment
-- id: 65
-  title: Try Motley
-  url: https://trymotley.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-market-data-tools
 - id: 66
   title: Zerohedge
   url: https://www.zerohedge.com/
   desc: ''
   collection: finance
-  tags: []
+  tags: [news]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-news
 - id: 67
   title: King World News
   url: https://kingworldnews.com/
   desc: ''
   collection: finance
-  tags: []
+  tags: [news]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-news
 - id: 68
   title: Implied Volatility Suite (TradingView)
   url: https://www.tradingview.com/script/E8zeTYik-Implied-Volatility-Suite/
@@ -764,226 +765,226 @@ bookmarks:
   title: Check on Chain — Charts
   url: https://charts.checkonchain.com/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 74
   title: HODL Waves
   url: https://charts.checkonchain.com/btconchain/supply/hodl_waves_1/hodl_waves_1_light.html
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 75
   title: Ultra Sound Money — ETH
   url: https://ultrasound.money/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 76
   title: MVRV Z Score — CoinAnk
   url: https://coinank.com/chart/indicator/mvrv-z-score
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 77
   title: Short Holder Amount — CoinAnk
   url: https://coinank.com/chart/indicator/short-holder-amount
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 78
   title: CoinKarma
   url: https://www.coinkarma.co/chart
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 79
   title: BitInfoCharts — Bitcoin
   url: https://bitinfocharts.com/bitcoin/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 80
   title: Bitcoin Treasuries
   url: https://bitcointreasuries.net/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 81
   title: B Geometrics — Realized P&L Ratio
   url: https://charts.bgeometrics.com/realized_profit_loss_ratio.html
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 82
   title: Hyperdash — Liquidation Map
   url: https://hyperdash.info/liqmap
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 83
   title: Soso Value
   url: https://sosovalue.com/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 84
   title: ETH Validator Queue
   url: https://www.validatorqueue.com/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 85
   title: RWA.xyz
   url: https://app.rwa.xyz/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 86
   title: Bitcoin Mining Pools
   url: https://miningpoolstats.stream/bitcoin
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 87
   title: BTC–US Equities Correlation — NewHedge
   url: https://newhedge.io/bitcoin/us-equities-correlation
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 88
   title: EtherFi — Cash Membership
   url: https://www.ether.fi/app/cash/my-membership
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 89
   title: Lens — Web3 Social
   url: https://onboarding.lens.xyz/explore
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-on-chain-analytics
+  subcollection: crypto-on-chain-analytics
 - id: 90
   title: freqtrade — Open Source Crypto Trading Bot
   url: https://github.com/freqtrade/freqtrade
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-trading-bots-apis
+  subcollection: crypto-trading-bots-apis
 - id: 91
   title: jesse-ai/jesse — Advanced Crypto Trading Bot
   url: https://github.com/jesse-ai/jesse
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-trading-bots-apis
+  subcollection: crypto-trading-bots-apis
 - id: 92
   title: ccxt — Multi-Exchange Crypto Trading API
   url: https://github.com/ccxt/ccxt
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-trading-bots-apis
+  subcollection: crypto-trading-bots-apis
 - id: 93
   title: Top 10 AI-Powered Crypto Trading GitHub Repos (Medium)
   url: https://medium.com/@gwrx2005/top-10-ai-powered-crypto-trading-repositories-on-github-0041862546b6
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-trading-bots-apis
+  subcollection: crypto-trading-bots-apis
 - id: 94
   title: Alpaca — Algorithmic Trading API
   url: https://alpaca.markets/algotrading
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-trading-bots-apis
+  subcollection: crypto-trading-bots-apis
 - id: 95
   title: Crypto Data Tools — Binance Research (PDF)
   url: https://research.binance.com/static/pdf/crypto-data-tools-what-you-need-to-know.pdf
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-trading-bots-apis
+  subcollection: crypto-trading-bots-apis
 - id: 96
   title: RootData — Crypto Project Discovery
   url: https://www.rootdata.com/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-projects-news
+  subcollection: crypto-projects-news
 - id: 97
   title: BlockBeats — Blockchain News
   url: https://www.theblockbeats.info/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-projects-news
+  subcollection: crypto-projects-news
 - id: 98
   title: BlockTempo — 動區動趨
   url: https://www.blocktempo.com/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-projects-news
+  subcollection: crypto-projects-news
 - id: 99
   title: OSL Exchange — HK Account
   url: https://www.moneysmart.hk/zh-hk/online-brokerage/osl-digital-securities-account
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-projects-news
+  subcollection: crypto-projects-news
 - id: 100
   title: Collector Crypt — Digital Collectibles
   url: https://collectorcrypt.com/
   desc: ''
-  collection: finance
+  collection: crypto
   tags: []
   featured: false
-  subcollection: finance-crypto-projects-news
+  subcollection: crypto-projects-news
 - id: 101
   title: Gold Price
   url: https://goldprice.org/
@@ -3379,4 +3380,4 @@ bookmarks:
   collection: misc
   tags: []
   featured: false
-  added: '2026-04-14'
+  added: '2026-04-1'
