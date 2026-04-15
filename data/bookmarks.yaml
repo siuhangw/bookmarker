@@ -37,6 +37,18 @@ collections:
   - id: finance-market-data-sentiment
     name: Market Data & Sentiment
     order: 1
+  - id: finance-earnings
+    name: Earnings
+    order: 10
+  - id: finance-valuation
+    name: Valuation
+    order: 11
+  - id: finance-earnings
+    name: Earnings
+    order: 10
+  - id: finance-valuation
+    name: Valuation
+    order: 11
   - id: finance-options-derivatives
     name: Options & Derivatives
     order: 2
@@ -515,14 +527,7 @@ bookmarks:
   tags: []
   featured: false
   subcollection: finance-market-data-sentiment
-- id: 42
-  title: CNN Fear & Greed Index
-  url: https://edition.cnn.com/markets/fear-and-greed
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-sentiment
+
 - id: 43
   title: Koyfin Overview
   url: https://app.koyfin.com/
@@ -539,14 +544,14 @@ bookmarks:
   tags: []
   featured: false
   subcollection: finance-market-data-sentiment
-- id: 45
+  - id: 45
   title: Earnings Hub — Earnings Calendar
   url: https://earningshub.com/earnings-calendar/this-week
   desc: ''
   collection: finance
-  tags: []
+  tags: [earnings-calendar]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-earnings
 - id: 46
   title: Unusual Whale
   url: https://unusualwhales.com/information
@@ -571,38 +576,30 @@ bookmarks:
   tags: []
   featured: false
   subcollection: finance-market-data-sentiment
-- id: 49
+  - id: 49
   title: S&P 500 PE Ratio — GuruFocus
   url: https://www.gurufocus.com/economic_indicators/57/sp-500-pe-ratio
   desc: ''
   collection: finance
-  tags: []
+  tags: [pe-ratio, valuation]
   featured: false
-  subcollection: finance-market-data-sentiment
-- id: 50
-  title: S&P 500 Price-to-Book — GuruFocus
-  url: https://www.gurufocus.com/economic_indicators/4240/sp-500-price-to-book-value
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-sentiment
-- id: 51
+  subcollection: finance-valuation
+  - id: 51
   title: Multpl — S&P 500 PE Ratio
   url: https://www.multpl.com/s-p-500-pe-ratio
   desc: ''
   collection: finance
-  tags: []
+  tags: [pe-ratio, valuation]
   featured: false
-  subcollection: finance-market-data-sentiment
-- id: 52
+  subcollection: finance-valuation
+  - id: 52
   title: US Yield Curve — GuruFocus
   url: https://www.gurufocus.com/yield_curve.php
   desc: ''
   collection: finance
-  tags: []
+  tags: [yield-curve]
   featured: false
-  subcollection: finance-market-data-sentiment
+  subcollection: finance-earnings
 - id: 53
   title: Asset Market Cap
   url: https://assetmarketcap.com/
