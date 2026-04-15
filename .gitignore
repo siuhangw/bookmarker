@@ -4,3 +4,14 @@
 # Python bytecode
 scripts/__pycache__/
 *.pyc
+
+# Ai Code Asistant config
+.kilo/
+CLAUDE.md
+
+# Environment config
+.venv/
+env/
+
+# Local config files
+.obsidian/
