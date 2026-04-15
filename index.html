@@ -75,6 +75,17 @@
             <i data-lucide="list" style="width:14px;height:14px;"></i>
           </button>
         </div>
+        <div class="sort-toggle">
+          <button class="sort-btn active" id="sortDefault" onclick="setSort('default')" title="Default order">
+            <i data-lucide="arrow-up-down" style="width:14px;height:14px;"></i>
+          </button>
+          <button class="sort-btn" id="sortAlpha" onclick="setSort('alpha')" title="A → Z">
+            <i data-lucide="a-z" style="width:14px;height:14px;"></i>
+          </button>
+          <button class="sort-btn" id="sortDate" onclick="setSort('date')" title="Newest first">
+            <i data-lucide="calendar" style="width:14px;height:14px;"></i>
+          </button>
+        </div>
         <button class="theme-btn" onclick="toggleTheme()">
           <i id="themeIcon" data-lucide="moon" style="width:15px;height:15px;"></i>
         </button>

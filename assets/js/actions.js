@@ -43,6 +43,7 @@ function clearSearch() {
   render();
 }
 function setView(v) { state.view = v; render(); }
+function setSort(v) { state.sort = v; render(); }
 function toggleTheme() {
   state.theme = state.theme === "dark" ? "light" : "dark";
   document.body.setAttribute("data-theme", state.theme);

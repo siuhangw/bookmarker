@@ -35,6 +35,16 @@
 }
 .view-btn.active { background: var(--bg-hover); color: var(--text); }
 
+.sort-toggle {
+  display: flex; gap: 2px; background: var(--bg-input); border-radius: 6px; padding: 3px; flex-shrink: 0;
+}
+@media (max-width: 639px) { .sort-toggle { display: none; } }
+.sort-btn {
+  background: none; border: none; color: var(--text-dim);
+  padding: 5px 8px; border-radius: 4px; display: flex; align-items: center; cursor: pointer;
+}
+.sort-btn.active { background: var(--bg-hover); color: var(--text); }
+
 .theme-btn {
   display: flex; align-items: center; justify-content: center;
   width: 34px; height: 34px; border-radius: 8px; flex-shrink: 0;

@@ -78,6 +78,9 @@ function render() {
   // Header controls
   document.getElementById("gridBtn").className = `view-btn${state.view === "grid" ? " active" : ""}`;
   document.getElementById("listBtn").className = `view-btn${state.view === "list" ? " active" : ""}`;
+  document.getElementById("sortDefault").className = `sort-btn${state.sort === "default" ? " active" : ""}`;
+  document.getElementById("sortAlpha").className   = `sort-btn${state.sort === "alpha"   ? " active" : ""}`;
+  document.getElementById("sortDate").className    = `sort-btn${state.sort === "date"    ? " active" : ""}`;
   document.getElementById("themeIcon").setAttribute("data-lucide", state.theme === "dark" ? "sun" : "moon");
   document.getElementById("itemCount").textContent = `${filtered.length} item${filtered.length !== 1 ? "s" : ""}`;
   document.getElementById("searchClear").style.display = state.search ? "flex" : "none";

@@ -91,7 +91,7 @@ async function loadData() {
 
 /* ═══ Filtering ═══ */
 function getFiltered() {
-  return state.bookmarks.filter((b) => {
+  let list = state.bookmarks.filter((b) => {
     if (state.activeCol !== "all" && b.collection !== state.activeCol) return false;
     if (state.activeSubcol && b.subcollection !== state.activeSubcol) return false;
     if (state.activeTag && !b.tags.includes(state.activeTag)) return false;
@@ -103,6 +103,19 @@ function getFiltered() {
     }
     return true;
   });
+
+  if (state.sort === "alpha") {
+    list = list.slice().sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
+  } else if (state.sort === "date") {
+    list = list.slice().sort((a, b) => {
+      if (!a.added && !b.added) return 0;
+      if (!a.added) return 1;
+      if (!b.added) return -1;
+      return b.added > a.added ? 1 : b.added < a.added ? -1 : 0;
+    });
+  }
+
+  return list;
 }
 
 function getAllTags() {

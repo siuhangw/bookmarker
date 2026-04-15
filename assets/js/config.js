@@ -15,6 +15,7 @@ let state = {
   showFeatured: false,
   search: "",
   view: "grid",
+  sort: "default",   // "default" | "alpha" | "date"
   theme: "light",
   sidebarOpen: window.innerWidth >= 1024,
   expandedCols: new Set(),
