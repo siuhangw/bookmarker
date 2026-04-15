@@ -37,15 +37,18 @@ collections:
   - id: finance-market-data-tools
     name: Market Data & Tools
     order: 1
+  - id: finance-forex-currancy
+    name: Forex & Currency
+    order: 2
   - id: finance-earnings
     name: Earnings
-    order: 10
+    order: 3
   - id: finance-valuation
     name: Valuation
-    order: 11
+    order: 4
   - id: finance-options-derivatives
     name: Options & Derivatives
-    order: 2
+    order: 5
   - id: finance-precious-metals
     name: Precious Metals
     order: 6
@@ -67,6 +70,12 @@ collections:
   - id: finance-insider-trading
     name: Insider Trading
     order: 12
+  - id: finance-sentiment-analysis
+    name: Sentiment Analysis
+    order: 13
+  - id: finance-archive
+    name: Archive
+    order: 14
 - id: crypto
   name: Cryptocurrency
   icon: bitcoin
@@ -1208,7 +1217,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-macro-economic-data
+  subcollection: finance-forex-currancy
 - id: 129
   title: 人民幣匯率 (chinamoney.com.cn)
   url: https://www.chinamoney.com.cn/chinese/bkrmbidx/
@@ -1216,7 +1225,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-macro-economic-data
+  subcollection: finance-forex-currancy
 - id: 130
   title: Stats Gov CN
   url: https://www.stats.gov.cn/
@@ -1286,25 +1295,17 @@ bookmarks:
   url: https://www.tradingster.com/cot/legacy-futures/097741
   desc: ''
   collection: finance
-  tags: []
+  tags: [yen, position, carry-trade]
   featured: false
-  subcollection: finance-macro-economic-data
-- id: 139
-  title: Google Trends — HK
-  url: https://trends.google.com/trending?geo=HK&hl=en-GB
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
+  subcollection: finance-sentiment-analysis
 - id: 140
   title: Caixin — Search
   url: https://search.caixin.com/newsearch/caixinsearch
   desc: ''
   collection: finance
-  tags: []
+  tags: [news]
   featured: false
-  subcollection: finance-macro-economic-data
+  subcollection: finance-news
 - id: 141
   title: Trading Terminal — Calendar
   url: https://tradingterminal.com/calendar
@@ -1328,7 +1329,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-macro-economic-data
+  subcollection: finance-archive
 - id: 144
   title: Daytrading @ Reddit
   url: https://www.reddit.com/r/Daytrading/
@@ -1336,7 +1337,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-macro-economic-data
+  subcollection: finance-archive
 - id: 145
   title: 滬深公司公告
   url: https://stock.us/hk/filing/cn
@@ -1344,7 +1345,7 @@ bookmarks:
   collection: finance
   tags: []
   featured: false
-  subcollection: finance-macro-economic-data
+  subcollection: finance-hk-china-markets
 - id: 146
   title: mTor Club
   url: https://mtor.club/
