@@ -39,6 +39,7 @@ function onSearch() {
 function clearSearch() {
   state.search = "";
   state.activeSubcol = null;
+  state.activeTag = null;
   document.getElementById("searchInput").value = "";
   render();
 }
@@ -47,6 +48,7 @@ function setSort(v) { state.sort = v; render(); }
 function toggleTheme() {
   state.theme = state.theme === "dark" ? "light" : "dark";
   document.body.setAttribute("data-theme", state.theme);
+  try { localStorage.setItem("theme", state.theme); } catch { /* storage full — skip */ }
   render();
 }
 function toggleSidebar() { state.sidebarOpen = !state.sidebarOpen; render(); }
@@ -61,7 +63,7 @@ function openModal(id) {
   document.getElementById("modalContent").innerHTML = renderModalContent(bm, col, subcol);
   document.getElementById("bookmarkModal").classList.add("active");
   document.body.style.overflow = "hidden";
-  lucide.createIcons();
+  safeCreateIcons();
 }
 function closeModal() {
   document.getElementById("bookmarkModal").classList.remove("active");
@@ -86,7 +88,7 @@ window.addEventListener("resize", () => {
 
 /* ═══ Init ═══ */
 (async function init() {
-  lucide.createIcons();
+  safeCreateIcons();
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
   await loadData();
   applyThemeFromMeta();

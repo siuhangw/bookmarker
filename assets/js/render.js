@@ -162,7 +162,7 @@ function render() {
   }
 
   document.getElementById("content").innerHTML = html;
-  lucide.createIcons();
+  safeCreateIcons();
 }
 
 function navItem(id, icon, label, count, active, extra = "") {

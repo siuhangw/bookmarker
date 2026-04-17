@@ -1,6 +1,13 @@
 /* ═══ Data Loading ═══ */
 const CACHE_KEY = "bookmarks_cache";
 const CACHE_TTL = 2 * 60 * 1000; // 2 minutes in ms
+const FETCH_TIMEOUT_MS = 10_000;
+
+function fetchWithTimeout(url, options = {}, timeoutMs = FETCH_TIMEOUT_MS) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  return fetch(url, { ...options, signal: ctrl.signal }).finally(() => clearTimeout(timer));
+}
 
 function parseYaml(yamlText) {
   const parsed = jsyaml.load(yamlText);
@@ -63,7 +70,7 @@ async function loadData() {
     const headers = {};
     if (!isLocal && cache?.etag) headers["If-None-Match"] = cache.etag;
 
-    const res = await fetch(url, { headers });
+    const res = await fetchWithTimeout(url, { headers });
 
     if (res.status === 304) {
       // Not modified — bump timestamp, keep cached data
@@ -133,7 +140,12 @@ function applyThemeFromMeta() {
   if (state.meta.theme?.accent) {
     document.documentElement.style.setProperty("--accent", state.meta.theme.accent);
   }
-  const defaultTheme = state.meta.theme?.default ?? "light";
-  state.theme = defaultTheme;
-  document.body.setAttribute("data-theme", defaultTheme);
+  // User preference wins over YAML default so toggling persists across reloads.
+  let saved = null;
+  try { saved = localStorage.getItem("theme"); } catch { /* private mode */ }
+  const theme = (saved === "dark" || saved === "light")
+    ? saved
+    : (state.meta.theme?.default ?? "light");
+  state.theme = theme;
+  document.body.setAttribute("data-theme", theme);
 }

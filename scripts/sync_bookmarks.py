@@ -527,7 +527,18 @@ def main() -> int:
 
     processed_dir.mkdir(parents=True, exist_ok=True)
 
-    result = process_inbox(inbox_dir, yaml_path, processed_dir, dry_run=args.dry_run)
+    try:
+        result = process_inbox(inbox_dir, yaml_path, processed_dir, dry_run=args.dry_run)
+    except yaml.YAMLError as exc:
+        # bookmarks.yaml is unreadable — dedup, id allocation, and append all
+        # depend on parsing it, so there's no safe way to continue. Surface
+        # the file path so the user knows where to look.
+        print(
+            f"Error: cannot parse {yaml_path}: {exc}\n"
+            f"Fix the YAML (or `git checkout` to restore) and re-run.",
+            file=sys.stderr,
+        )
+        return 1
 
     if not args.quiet:
         if result.added:
