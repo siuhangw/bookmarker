@@ -12,8 +12,17 @@ A personal bookmark showcase website. I manage bookmarks as a single YAML file i
 ```
 index.html              ← HTML shell (no inline CSS or JS)
 assets/
-  styles.css            ← All styles
-  app.js                ← All application logic
+  css/
+    base.css            ← Reset, tokens, typography
+    main.css            ← Layout, cards, list view, header
+    sidebar.css         ← Sidebar + mobile drawer
+    modal.css           ← Bookmark detail modal
+  js/
+    config.js           ← REPO_BASE + shared `state` object
+    helpers.js          ← esc(), getFavicon(), getDomain(), breakpoints, safeCreateIcons()
+    data.js             ← fetch + parse bookmarks.yaml, filtering, theme
+    render.js           ← render() entry point + card/row/modal HTML
+    actions.js          ← UI handlers + init bootstrap
 data/
   bookmarks.yaml        ← All data: site meta, collections, and bookmarks
 bookmarks-inbox/        ← Drop Obsidian Web Clipper notes here (auto-synced)

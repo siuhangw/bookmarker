@@ -8,13 +8,9 @@ scripts/__pycache__/
 # Advisory lock files next to data/bookmarks.yaml (created by sync_bookmarks.py)
 *.yaml.lock
 
-# Ai Code Asistant config
+# AI Code Assistant config
 .kilo/
-CLAUDE.md
 
 # Environment config
 .venv/
 env/
-
-# Local config files
-.obsidian/

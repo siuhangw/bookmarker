@@ -1,71 +1,106 @@
 # Bookmarker
 
-A curated collection of tools, resources, and links — managed in Obsidian, stored on GitHub, displayed via [Markly Showcase](https://github.com/siuhangw/bookmarker).
+A curated collection of tools, resources, and links — managed in Obsidian, synced to GitHub, and displayed via [Markly Showcase](https://siuhangw.github.io/bookmarker/).
 
-## Structure
+## How it works
 
 ```
-_meta.yaml          # Site config + collection registry
-dev.yaml            # Dev Tools bookmarks
-design.yaml         # Design bookmarks
-productivity.yaml   # Productivity bookmarks
-learning.yaml       # Learning bookmarks
-ai.yaml             # AI & ML bookmarks
-media.yaml          # Media & Fun bookmarks
+Obsidian Web Clipper   →   bookmarks-inbox/*.md
+                               │
+                               │  scripts/clip-sync.sh
+                               ▼
+                         data/bookmarks.yaml   →   GitHub Pages
+                               ▲
+                               │  processed notes move to
+                         bookmarks-processed/
 ```
 
-## Schema
+All bookmarks live in a single YAML file (`data/bookmarks.yaml`). The static site fetches it from `raw.githubusercontent.com` at page load and renders everything client-side. No build step, no backend.
 
-### `_meta.yaml`
+## Repository layout
+
+```
+index.html               HTML shell
+assets/
+  css/                   base.css, main.css, sidebar.css, modal.css
+  js/                    config.js, helpers.js, data.js, render.js, actions.js
+data/
+  bookmarks.yaml         Single source of truth: site meta, collections, bookmarks
+bookmarks-inbox/         Drop Obsidian Web Clipper notes here
+bookmarks-processed/     Notes move here after a successful sync (audit trail)
+scripts/
+  sync_bookmarks.py      Converts inbox .md notes → bookmarks.yaml entries
+  clip-sync.sh           Runs sync, then git pull/commit/push
+.github/workflows/
+  validate.yml           CI: validates bookmarks.yaml on every push
+```
+
+## Schema (`data/bookmarks.yaml`)
 
 ```yaml
-site:
-  name: Markly
-  tagline: Your tagline here
+meta:
+  title: Markly
+  tagline: Showcase
+  description: Curated tools…
+  theme:
+    default: light           # "light" | "dark"
+    accent: "#E8453C"
 
-collections:
-  - id: dev           # Unique ID (used in filenames)
-    name: Dev Tools   # Display name
-    color: "#3B82F6"  # Hex color for the UI
-    file: dev.yaml    # Corresponding bookmark file
-```
-
-### Bookmark files (`*.yaml`)
-
-```yaml
-- url: https://example.com        # Required — must start with https://
-  title: Example Site              # Required — display name
-  desc: A short description        # Optional — one-liner
-  tags: [tool, web, free]          # Optional — lowercase, kebab-case
-  featured: true                   # Optional — defaults to false
-  added: 2025-12-01                # Optional — YYYY-MM-DD
-```
-
-## Adding bookmarks
-
-1. Open the YAML file for the target collection in Obsidian
-2. Add a new entry following the schema above
-3. Commit and push to GitHub
-4. The showcase fetches from `raw.githubusercontent.com` — changes appear on next page load
-
-## Adding a new collection
-
-1. Add an entry to `collections` in `_meta.yaml`
-2. Create the corresponding `.yaml` file
-3. Push both files
-
-## Future: Sub-collections
-
-The schema supports nested collections via a `children` array in `_meta.yaml`:
-
-```yaml
-collections:
-  - id: dev
+collectionList:
+  - id: dev                  # Unique id, referenced by bookmarks
     name: Dev Tools
     color: "#3B82F6"
-    file: dev.yaml
-    children:
-      - id: dev-frontend
-        name: Frontend
-        file: dev-frontend.yaml
+    order: 1
+    collectionItem:          # Optional nested groups
+      - { id: dev-editors, name: Editors & IDEs, order: 1 }
+      - { id: dev-references, name: References & Docs, order: 2 }
+
+bookmarkList:
+  - domain: github.com       # Grouped by host for faster lookup
+    bookmarkItem:
+      - id: 1
+        title: GitHub
+        url: https://github.com
+        desc: Code hosting
+        collection: dev
+        tags: [code, git]
+        featured: true
+        collectionItem: dev-editors   # Optional; must match a nested id
+        added: 2025-12-01
 ```
+
+## Workflow
+
+### Automated (Obsidian Web Clipper → live site)
+
+Install the Obsidian Web Clipper extension, point it at the `bookmarks-inbox/`
+folder in this repo, then clip pages as usual. A cron or launchd job runs
+`scripts/clip-sync.sh` every 15 minutes to:
+
+1. Parse the frontmatter of each new `.md` note
+2. Validate and deduplicate against existing `bookmarks.yaml` entries
+3. Append valid entries atomically to `data/bookmarks.yaml`
+4. Move the note to `bookmarks-processed/`
+5. `git pull --rebase`, commit, and push to `main`
+
+GitHub Pages redeploys automatically on push.
+
+### Manual
+
+```bash
+./scripts/clip-sync.sh              # sync + push
+./scripts/clip-sync.sh --dry-run    # preview without writing
+```
+
+### Validate the YAML locally
+
+```bash
+python3 scripts/sync_bookmarks.py --validate-only
+```
+
+CI runs the same check on every push touching `data/bookmarks.yaml`.
+
+## Further docs
+
+- [`CLAUDE.md`](./CLAUDE.md) — full architecture notes, Obsidian template
+  setup, cron/launchd examples, and collection/subcollection id reference.
