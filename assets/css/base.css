@@ -13,7 +13,7 @@ button { cursor: pointer; }
 /* ═══ Theme Variables ═══ */
 :root {
   --bg: #F5F5F3; --bg-card: #FFFFFF; --bg-sidebar: #ECEAE6;
-  --bg-hover: #E3E1DC; --bg-input: #ECEAE6;
+  --bg-hover: #d0d9db; --bg-input: #ECEAE6;
   --border: #DBD9D3; --border-hover: #C8C6C0;
   --text: #1A1A17; --text-secondary: #6B6B63; --text-dim: #A0A098;
   --accent: #E8453C;
@@ -23,7 +23,7 @@ button { cursor: pointer; }
 }
 [data-theme="dark"] {
   --bg: #0c0c0c; --bg-card: #161616; --bg-sidebar: #111111;
-  --bg-hover: #1e1e1e; --bg-input: #1a1a1a;
+  --bg-hover: #232e41; --bg-input: #1a1a1a;
   --border: #262626; --border-hover: #333;
   --text: #e8e8e8; --text-secondary: #999; --text-dim: #555;
   --accent: #E8453C;
