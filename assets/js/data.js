@@ -10,17 +10,20 @@ function parseYaml(yamlText) {
     tagline: meta.tagline || "",
     description: meta.description || "",
   };
-  const collections = (parsed.collections || [])
+  const collections = (parsed.collectionList || [])
     .slice()
     .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
-  const bookmarks = (parsed.bookmarks || []).map((bm) => ({
-    ...bm,
-    id: String(bm.id),
-    tags: bm.tags || [],
-    featured: bm.featured || false,
-    desc: bm.desc || "",
-    subcollection: bm.subcollection || null,
-  }));
+  // Flatten bookmarkList[].bookmarkItem[] into a single array
+  const bookmarks = (parsed.bookmarkList || []).flatMap((group) =>
+    (group.bookmarkItem || []).map((bm) => ({
+      ...bm,
+      id: String(bm.id),
+      tags: bm.tags || [],
+      featured: bm.featured || false,
+      desc: bm.desc || "",
+      collectionItem: bm.collectionItem || null,
+    }))
+  );
   return { meta, site, collections, bookmarks };
 }
 
@@ -93,7 +96,7 @@ async function loadData() {
 function getFiltered() {
   let list = state.bookmarks.filter((b) => {
     if (state.activeCol !== "all" && b.collection !== state.activeCol) return false;
-    if (state.activeSubcol && b.subcollection !== state.activeSubcol) return false;
+    if (state.activeSubcol && b.collectionItem !== state.activeSubcol) return false;
     if (state.activeTag && !b.tags.includes(state.activeTag)) return false;
     if (state.showFeatured && !b.featured) return false;
     if (state.search) {

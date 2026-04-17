@@ -1,3 +1,16 @@
+/* ═══ Domain grouping ═══ */
+function groupByDomain(bookmarks) {
+  const map = {};
+  bookmarks.forEach((bm) => {
+    const domain = getDomain(bm.url) || "unknown";
+    if (!map[domain]) map[domain] = [];
+    map[domain].push(bm);
+  });
+  return Object.entries(map)
+    .map(([domain, items]) => ({ domain, items }))
+    .sort((a, b) => b.items.length - a.items.length);
+}
+
 /* ═══ Render ═══ */
 function render() {
   const filtered = getFiltered();
@@ -38,7 +51,7 @@ function render() {
   state.collections.forEach((col) => {
     const count = state.bookmarks.filter((b) => b.collection === col.id).length;
     const isActive = state.activeCol === col.id && !state.showFeatured && !state.activeTag;
-    const hasSubs = col.subcollections && col.subcollections.length > 0;
+    const hasSubs = col.collectionItem && col.collectionItem.length > 0;
     const isExpanded = state.expandedCols.has(col.id);
     const chevron = hasSubs
       ? `<button class="nav-chevron${isExpanded ? " expanded" : ""}" onclick="toggleColExpand('${col.id}')" aria-label="Toggle subcollections"><i data-lucide="chevron-right" style="width:13px;height:13px;"></i></button>`
@@ -51,11 +64,11 @@ function render() {
       </button>${chevron}
     </div>`;
     if (hasSubs && isExpanded) {
-      col.subcollections
+      col.collectionItem
         .slice()
         .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity))
         .forEach((sub) => {
-          const subCount = state.bookmarks.filter((b) => b.collection === col.id && b.subcollection === sub.id).length;
+          const subCount = state.bookmarks.filter((b) => b.collection === col.id && b.collectionItem === sub.id).length;
           const subActive = state.activeSubcol === sub.id;
           nav += `<button class="nav-item nav-subitem${subActive ? " active" : ""}" onclick="selectSubcollection('${sub.id}')">
             <span class="nav-icon"></span>
@@ -103,7 +116,7 @@ function render() {
   if (state.showFeatured) { title = "Favorites"; subtitle = ""; }
   else if (state.activeTag) { title = `Tagged <span class="title-dim">#${esc(state.activeTag)}</span>`; subtitle = ""; }
   else if (state.activeSubcol && colData) {
-    const subcol = colData.subcollections?.find((s) => s.id === state.activeSubcol);
+    const subcol = colData.collectionItem?.find((s) => s.id === state.activeSubcol);
     title = subcol ? esc(subcol.name) : esc(colData.name);
     subtitle = "";
   }
@@ -125,14 +138,27 @@ function render() {
       <p style="font-size:14px;font-weight:500;">No bookmarks found</p>
       <p style="font-size:12px;margin-top:4px;">Try a different search or filter</p>
     </div>`;
-  } else if (state.view === "grid" || isMobile()) {
-    html += `<div class="grid">`;
-    filtered.forEach((bm, i) => { html += renderCard(bm, i); });
-    html += `</div>`;
   } else {
-    html += `<div class="list">`;
-    filtered.forEach((bm, i) => { html += renderRow(bm, i); });
-    html += `</div>`;
+    const groups = groupByDomain(filtered);
+    let cardIndex = 0;
+    groups.forEach((group) => {
+      html += `<div class="domain-group">
+        <div class="domain-header">
+          <img class="domain-favicon" src="${getFavicon(group.items[0].url)}" alt="" onerror="this.style.display='none'" />
+          <span class="domain-name">${esc(group.domain)}</span>
+          <span class="domain-count">${group.items.length}</span>
+        </div>`;
+      if (state.view === "grid" || isMobile()) {
+        html += `<div class="grid">`;
+        group.items.forEach((bm) => { html += renderCard(bm, cardIndex++); });
+        html += `</div>`;
+      } else {
+        html += `<div class="list">`;
+        group.items.forEach((bm) => { html += renderRow(bm, cardIndex++); });
+        html += `</div>`;
+      }
+      html += `</div>`;
+    });
   }
 
   document.getElementById("content").innerHTML = html;

@@ -33,7 +33,7 @@ import yaml
 # ---------------------------------------------------------------------------
 # Field ordering to match the existing bookmarks.yaml style
 # ---------------------------------------------------------------------------
-FIELD_ORDER = ["id", "title", "url", "desc", "collection", "tags", "featured", "subcollection", "added"]
+FIELD_ORDER = ["id", "title", "url", "desc", "collection", "tags", "featured", "collectionItem", "added"]
 
 
 # ---------------------------------------------------------------------------
@@ -108,23 +108,28 @@ def load_yaml_data(yaml_path: Path) -> dict:
         return yaml.safe_load(f)
 
 
+def _flat_bookmarks(data: dict) -> list:
+    """Flatten bookmarkList[].bookmarkItem[] into a single list."""
+    return [bm for group in data.get("bookmarkList", []) for bm in group.get("bookmarkItem", [])]
+
+
 def load_existing_urls(yaml_path: Path) -> set[str]:
     data = load_yaml_data(yaml_path)
-    return {normalize_url(b["url"]) for b in data.get("bookmarks", [])}
+    return {normalize_url(b["url"]) for b in _flat_bookmarks(data)}
 
 
 def load_valid_collections(yaml_path: Path) -> dict[str, set[str]]:
-    """Return {collection_id: {subcollection_id, ...}} for validation."""
+    """Return {collection_id: {collectionItem_id, ...}} for validation."""
     data = load_yaml_data(yaml_path)
     return {
-        col["id"]: {sub["id"] for sub in col.get("subcollections", [])}
-        for col in data.get("collections", [])
+        col["id"]: {sub["id"] for sub in col.get("collectionItem", [])}
+        for col in data.get("collectionList", [])
     }
 
 
 def next_id(yaml_path: Path) -> int:
     data = load_yaml_data(yaml_path)
-    bookmarks = data.get("bookmarks", [])
+    bookmarks = _flat_bookmarks(data)
     return max((b["id"] for b in bookmarks), default=0) + 1
 
 
@@ -148,11 +153,11 @@ def validate_entry(fm: dict, valid_collections: dict[str, set[str]]) -> list[str
         known = ", ".join(sorted(valid_collections.keys()))
         errors.append(f"invalid 'collection': {collection!r} (known: {known})")
     else:
-        subcollection = fm.get("subcollection") or ""
+        subcollection = fm.get("collectionItem") or fm.get("subcollection") or ""
         if subcollection and subcollection not in valid_collections[collection]:
             known_subs = ", ".join(sorted(valid_collections[collection]))
             errors.append(
-                f"invalid 'subcollection': {subcollection!r} for collection "
+                f"invalid 'collectionItem': {subcollection!r} for collection "
                 f"{collection!r} (known: {known_subs or 'none'})"
             )
 
@@ -189,9 +194,9 @@ def frontmatter_to_bookmark(fm: dict, new_id: int) -> dict:
     desc = fm.get("description") or fm.get("desc") or ""
     desc = str(desc).strip()
 
-    subcollection = fm.get("subcollection") or None
-    if subcollection:
-        subcollection = str(subcollection).strip() or None
+    collection_item = fm.get("collectionItem") or fm.get("subcollection") or None
+    if collection_item:
+        collection_item = str(collection_item).strip() or None
 
     added_raw = fm.get("added") or date.today()
     added = _coerce_date(added_raw) or str(date.today())
@@ -204,28 +209,38 @@ def frontmatter_to_bookmark(fm: dict, new_id: int) -> dict:
         "collection": str(fm["collection"]).strip(),
         "tags": _coerce_tags(fm.get("tags")),
         "featured": bool(fm.get("featured", False)),
-        "subcollection": subcollection,
+        "collectionItem": collection_item,
         "added": added,
     }
 
     # Apply canonical field order; omit None values
-    return {k: raw[k] for k in FIELD_ORDER if raw.get(k) is not None or k not in ("subcollection",)}
+    return {k: raw[k] for k in FIELD_ORDER if raw.get(k) is not None or k not in ("collectionItem",)}
 
 
 # ---------------------------------------------------------------------------
 # YAML append
 # ---------------------------------------------------------------------------
 def append_to_yaml(yaml_path: Path, entry: dict) -> None:
-    """Append a single bookmark entry to the end of bookmarks.yaml."""
-    serialised = yaml.dump(
-        [entry],
-        Dumper=BookmarkDumper,
-        default_flow_style=False,
-        allow_unicode=True,
-        sort_keys=False,
-    )
-    with open(yaml_path, "a", encoding="utf-8") as f:
-        f.write(serialised)
+    """Insert a bookmark entry into the correct domain group in bookmarkList."""
+    from urllib.parse import urlparse
+
+    data = load_yaml_data(yaml_path)
+    domain = urlparse(entry["url"]).netloc.replace("www.", "") or "unknown"
+
+    bookmark_list = data.get("bookmarkList", [])
+    for group in bookmark_list:
+        if group.get("domain") == domain:
+            group["bookmarkItem"].append(entry)
+            break
+    else:
+        bookmark_list.append({"domain": domain, "bookmarkItem": [entry]})
+        # Keep sorted by group size desc
+        bookmark_list.sort(key=lambda g: -len(g.get("bookmarkItem", [])))
+
+    data["bookmarkList"] = bookmark_list
+
+    with open(yaml_path, "w", encoding="utf-8") as f:
+        yaml.dump(data, f, Dumper=BookmarkDumper, allow_unicode=True, sort_keys=False, default_flow_style=False)
 
 
 # ---------------------------------------------------------------------------
@@ -263,14 +278,14 @@ def validate_yaml_file(yaml_path: Path) -> tuple[list[str], list[str]]:
         return [f"YAML parse error: {exc}"], []
 
     valid_collections = {
-        col["id"]: {sub["id"] for sub in col.get("subcollections", [])}
-        for col in data.get("collections", [])
+        col["id"]: {sub["id"] for sub in col.get("collectionItem", [])}
+        for col in data.get("collectionList", [])
     }
 
     seen_ids: set[int] = set()
     seen_urls: set[str] = set()
 
-    for i, bm in enumerate(data.get("bookmarks", []), start=1):
+    for i, bm in enumerate(_flat_bookmarks(data), start=1):
         prefix = f"bookmark #{i} (id={bm.get('id')})"
 
         bm_id = bm.get("id")
@@ -291,10 +306,10 @@ def validate_yaml_file(yaml_path: Path) -> tuple[list[str], list[str]]:
         if col not in valid_collections:
             errors.append(f"{prefix}: unknown collection {col!r}")
         else:
-            sub = bm.get("subcollection") or ""
+            sub = bm.get("collectionItem") or ""
             if sub and sub not in valid_collections[col]:
                 errors.append(
-                    f"{prefix}: unknown subcollection {sub!r} for collection {col!r}"
+                    f"{prefix}: unknown collectionItem {sub!r} for collection {col!r}"
                 )
 
     return errors, warnings
@@ -395,7 +410,7 @@ def main() -> int:
         if not args.quiet:
             data = load_yaml_data(yaml_path)
             print(
-                f"OK: {len(data.get('bookmarks', []))} bookmarks validated"
+                f"OK: {len(_flat_bookmarks(data))} bookmarks validated"
                 + (f", {len(warnings)} warning(s)" if warnings else ", no issues")
                 + "."
             )

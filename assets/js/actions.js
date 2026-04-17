@@ -57,7 +57,7 @@ function openModal(id) {
   const bm = state.bookmarks.find((b) => b.id === id);
   if (!bm) return;
   const col = state.collections.find((c) => c.id === bm.collection);
-  const subcol = col?.subcollections?.find((s) => s.id === bm.subcollection);
+  const subcol = col?.collectionItem?.find((s) => s.id === bm.collectionItem);
   document.getElementById("modalContent").innerHTML = renderModalContent(bm, col, subcol);
   document.getElementById("bookmarkModal").classList.add("active");
   document.body.style.overflow = "hidden";

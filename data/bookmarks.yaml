@@ -4,15 +4,14 @@ meta:
   description: Curated tools, resources, and links I use and recommend.
   theme:
     default: light
-    accent: "#E8453C"
-
-collections:
+    accent: '#E8453C'
+collectionList:
 - id: ai
   name: AI & Machine Learning
   icon: bot
   color: '#8B5CF6'
   order: 1
-  subcollections:
+  collectionItem:
   - id: ai-llms-prompting-tools
     name: LLMs, Prompting & Tools
     order: 1
@@ -33,7 +32,7 @@ collections:
   icon: trending-up
   color: '#10B981'
   order: 2
-  subcollections:
+  collectionItem:
   - id: finance-market-data-tools
     name: Market Data & Tools
     order: 1
@@ -81,7 +80,7 @@ collections:
   icon: bitcoin
   color: '#FBBF24'
   order: 3
-  subcollections:
+  collectionItem:
   - id: crypto-on-chain-analytics
     name: 'Crypto: On-Chain Analytics'
     order: 3
@@ -96,7 +95,7 @@ collections:
   icon: code-2
   color: '#3B82F6'
   order: 3
-  subcollections:
+  collectionItem:
   - id: dev-learning-courses
     name: Learning & Courses
     order: 1
@@ -132,7 +131,7 @@ collections:
   icon: palette
   color: '#E8453C'
   order: 4
-  subcollections:
+  collectionItem:
   - id: design-visual-inspiration
     name: Visual Inspiration
     order: 1
@@ -147,7 +146,7 @@ collections:
   icon: newspaper
   color: '#F59E0B'
   order: 5
-  subcollections:
+  collectionItem:
   - id: news-tech-security
     name: Tech & Security
     order: 1
@@ -165,7 +164,7 @@ collections:
   icon: wrench
   color: '#06B6D6'
   order: 6
-  subcollections:
+  collectionItem:
   - id: tools-cloud-storage
     name: Cloud & Storage
     order: 1
@@ -189,7 +188,7 @@ collections:
   icon: book-open
   color: '#EC4899'
   order: 7
-  subcollections:
+  collectionItem:
   - id: learning-language-learning
     name: Language Learning
     order: 1
@@ -204,7 +203,7 @@ collections:
   icon: play-circle
   color: '#EF4444'
   order: 8
-  subcollections:
+  collectionItem:
   - id: videos-ai-llm-videos
     name: AI & LLM Videos
     order: 1
@@ -216,3169 +215,3771 @@ collections:
   icon: package
   color: '#6B7280'
   order: 9
-bookmarks:
-- id: 1
-  title: A proposal for inline LLM instructions in HTML (llms.txt)
-  url: https://vercel.com/blog/a-proposal-for-inline-llm-instructions-in-html
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 2
-  title: The /llms.txt file – llms-txt
-  url: https://llmstxt.org/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 3
-  title: 'microsoft/poml: Prompt Orchestration Markup Language'
-  url: https://github.com/microsoft/poml
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 4
-  title: linshenkx/prompt-optimizer
-  url: https://github.com/linshenkx/prompt-optimizer
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 5
-  title: OpenAI Prompt Packs
-  url: https://academy.openai.com/public/tags/prompt-packs-6849a0f98c613939acef841c
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 6
-  title: AI Prompt Library — ChatGPT, Claude, Gemini, Grok
-  url: https://playbooks.com/prompts
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 7
-  title: Stable Diffusion Prompts
-  url: https://stablediffusionweb.com/prompts
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 8
-  title: ExplainThis — ChatGPT & Dev Resources (ZH)
-  url: https://www.explainthis.io/zh-hant
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 9
-  title: iFlow
-  url: https://iflow.cn/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 10
-  title: LongCat
-  url: https://longcat.chat/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-llms-prompting-tools
-- id: 11
-  title: Shubhamsaboo/awesome-llm-apps
-  url: https://github.com/Shubhamsaboo/awesome-llm-apps
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-agents-automation
-- id: 12
-  title: 'TauricResearch/TradingAgents: Multi-Agent LLM Trading Framework'
-  url: https://github.com/TauricResearch/TradingAgents
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-agents-automation
-- id: 13
-  title: 1Panel — Web UI + MCP Server for Linux management
-  url: https://github.com/1Panel-dev/1Panel
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-agents-automation
-- id: 14
-  title: SEO Bot — Autonomous SEO AI Agents
-  url: https://seobotai.com/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-agents-automation
-- id: 15
-  title: Blaze AI — Local Business Growth
-  url: https://www.blaze.ai/persona/local-services
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-agents-automation
-- id: 16
-  title: Midday AI — Invoicing, Time tracking, Financial Overview
-  url: https://midday.ai/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-agents-automation
-- id: 17
-  title: midday-ai/midday (GitHub)
-  url: https://github.com/midday-ai/midday
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-agents-automation
-- id: 18
-  title: Upscayl — AI Image Upscaler
-  url: https://upscayl.org/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 19
-  title: Dreamina (CapCut)
-  url: https://dreamina.capcut.com/ai-tool/home/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 20
-  title: Krea AI
-  url: https://www.krea.ai/pricing
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 21
-  title: Pika — AI Video
-  url: https://pika.art/login
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 22
-  title: Jianying (即梦)
-  url: https://jimeng.jianying.com/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 23
-  title: Stills — Stock Image Licensing
-  url: https://www.stills.com/stock-images
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 24
-  title: Refern — Image Reference Platform
-  url: https://www.refern.app/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 25
-  title: PicoTrex/Awesome-Nano-Banana-images
-  url: https://github.com/PicoTrex/Awesome-Nano-Banana-images
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-generative-media-image-video
-- id: 26
-  title: Replicate — Run AI with an API
-  url: https://replicate.com/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-models-platforms
-- id: 27
-  title: Skywork
-  url: https://skywork.ai/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-models-platforms
-- id: 28
-  title: Stepfun
-  url: https://stepfun.ai/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-models-platforms
-- id: 29
-  title: 天秤AI byGMO
-  url: https://tenbin.ai/workspace/welcome
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-models-platforms
-- id: 30
-  title: AIbase (TW)
-  url: https://www.aibase.com/tw
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-models-platforms
-- id: 31
-  title: AI-Bot.cn
-  url: https://ai-bot.cn/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-models-platforms
-- id: 32
-  title: AI News Aggregator
-  url: https://thysrael.github.io/Horizon/2026/02/28/summary-zh.html
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-models-platforms
-- id: 33
-  title: Tabnine — AI Code Assistant
-  url: https://www.tabnine.com/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 34
-  title: Solo — Free AI Website Creator
-  url: https://soloist.ai/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 35
-  title: Kombai — UI to Code
-  url: https://kombai.com/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 36
-  title: Locofy — Design to Code
-  url: https://www.locofy.ai/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 37
-  title: GitHub Copilot 全方位實戰 (Course)
-  url: https://learn.duotify.com/courses/gh-copilot-all
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 38
-  title: HuggingFace/aisheets — AI-powered spreadsheet datasets
-  url: https://github.com/huggingface/aisheets
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 39
-  title: Kite
-  url: https://gokite.ai/
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 40
-  title: Webbsite — CCASS tool
-  url: https://webbsite.0xmd.com/ccass/chldchg.asp?sort=chngdn&i=424&sc=&d1=2025-09-04&d=2025-12-05
-  desc: ''
-  collection: ai
-  tags: []
-  featured: false
-  subcollection: ai-ai-coding-dev-tools
-- id: 41
-  title: Stock Analysis
-  url: https://stockanalysis.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-
-- id: 43
-  title: Koyfin Overview
-  url: https://app.koyfin.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 44
-  title: OpenBB
-  url: https://openbb.co/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 45
-  title: Earnings Hub — Earnings Calendar
-  url: https://earningshub.com/earnings-calendar/this-week
-  desc: ''
-  collection: finance
-  tags: [earnings-calendar]
-  featured: false
-  subcollection: finance-earnings
-- id: 46
-  title: Unusual Whale
-  url: https://unusualwhales.com/information
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 47
-  title: Barchart — Gamma Exposure
-  url: https://www.barchart.com/stocks/quotes/ADBE/gamma-exposure
-  desc: ''
-  collection: finance
-  tags: [options, derivatives]
-  featured: false
-  subcollection: finance-options-derivatives
-- id: 48
-  title: sqzme / SqueezeMetrics
-  url: https://squeezemetrics.com/monitor
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 49
-  title: S&P 500 PE Ratio — GuruFocus
-  url: https://www.gurufocus.com/economic_indicators/57/sp-500-pe-ratio
-  desc: ''
-  collection: finance
-  tags: [pe-ratio, valuation]
-  featured: false
-  subcollection: finance-valuation
-- id: 51
-  title: Multpl — S&P 500 PE Ratio
-  url: https://www.multpl.com/s-p-500-pe-ratio
-  desc: ''
-  collection: finance
-  tags: [pe-ratio, valuation]
-  featured: false
-  subcollection: finance-valuation
-- id: 52
-  title: US Yield Curve — GuruFocus
-  url: https://www.gurufocus.com/yield_curve.php
-  desc: ''
-  collection: finance
-  tags: [yield-curve]
-  featured: false
-  subcollection: finance-earnings
-- id: 53
-  title: Asset Market Cap
-  url: https://assetmarketcap.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 54
-  title: WorldQuant BRAIN
-  url: https://platform.worldquantbrain.com/sign-in
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 55
-  title: Quiver Quantitative
-  url: https://www.quiverquant.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 56
-  title: Dilution Tracker
-  url: https://dilutiontracker.com/app/
-  desc: ''
-  collection: finance
-  tags: [insider-trading]
-  featured: false
-  subcollection: finance-insider-trading
-- id: 57
-  title: Chart Exchange
-  url: https://chartexchange.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 58
-  title: Relative Rotation Graphs
-  url: https://relativerotationgraphs.com/login/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 59
-  title: Sec Form 4 — Insider Trades
-  url: https://www.secform4.com/
-  desc: ''
-  collection: finance
-  tags: [insider-trading]
-  featured: false
-  subcollection: finance-insider-trading
-- id: 60
-  title: US Congress — Most Viewed Bills
-  url: https://www.congress.gov/most-viewed-bills
-  desc: ''
-  collection: finance
-  tags: [politics]
-  featured: false
-  subcollection: finance-politics
-- id: 61
-  title: Fastbull (TW)
-  url: https://www.fastbull.com/tw/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 62
-  title: Polymarket — 2026 House Election
-  url: https://polymarket.com/event/which-party-will-win-the-house-in-2026
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 63
-  title: 好用投資工具網站分享 (2024)
-  url: https://vocus.cc/article/65d83f7ffd89780001d4f385
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 64
-  title: Toolfolio
-  url: https://toolfolio.io/ogfolio
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-market-data-tools
-- id: 66
-  title: Zerohedge
-  url: https://www.zerohedge.com/
-  desc: ''
-  collection: finance
-  tags: [news]
-  featured: false
-  subcollection: finance-news
-- id: 67
-  title: King World News
-  url: https://kingworldnews.com/
-  desc: ''
-  collection: finance
-  tags: [news]
-  featured: false
-  subcollection: finance-news
-- id: 68
-  title: Implied Volatility Suite (TradingView)
-  url: https://www.tradingview.com/script/E8zeTYik-Implied-Volatility-Suite/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-options-derivatives
-- id: 69
-  title: BTC DVOL — Deribit Volatility Index
-  url: https://www.deribit.com/statistics/BTC/volatility-index
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-options-derivatives
-- id: 70
-  title: BTC Sell Put
-  url: http://btcsellput.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-options-derivatives
-- id: 71
-  title: 期權循環圖 — HKOptionClass
-  url: https://www.hkoptionclass.com.hk/cycleoptionpic
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-options-derivatives
-- id: 72
-  title: Credit Spread Alert
-  url: https://www.creditspreadalert.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-options-derivatives
-- id: 73
-  title: Check on Chain — Charts
-  url: https://charts.checkonchain.com/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 74
-  title: HODL Waves
-  url: https://charts.checkonchain.com/btconchain/supply/hodl_waves_1/hodl_waves_1_light.html
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 75
-  title: Ultra Sound Money — ETH
-  url: https://ultrasound.money/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 76
-  title: MVRV Z Score — CoinAnk
-  url: https://coinank.com/chart/indicator/mvrv-z-score
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 77
-  title: Short Holder Amount — CoinAnk
-  url: https://coinank.com/chart/indicator/short-holder-amount
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 78
-  title: CoinKarma
-  url: https://www.coinkarma.co/chart
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 79
-  title: BitInfoCharts — Bitcoin
-  url: https://bitinfocharts.com/bitcoin/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 80
-  title: Bitcoin Treasuries
-  url: https://bitcointreasuries.net/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 81
-  title: B Geometrics — Realized P&L Ratio
-  url: https://charts.bgeometrics.com/realized_profit_loss_ratio.html
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 82
-  title: Hyperdash — Liquidation Map
-  url: https://hyperdash.info/liqmap
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 83
-  title: Soso Value
-  url: https://sosovalue.com/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 84
-  title: ETH Validator Queue
-  url: https://www.validatorqueue.com/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 85
-  title: RWA.xyz
-  url: https://app.rwa.xyz/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 86
-  title: Bitcoin Mining Pools
-  url: https://miningpoolstats.stream/bitcoin
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 87
-  title: BTC–US Equities Correlation — NewHedge
-  url: https://newhedge.io/bitcoin/us-equities-correlation
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 88
-  title: EtherFi — Cash Membership
-  url: https://www.ether.fi/app/cash/my-membership
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 89
-  title: Lens — Web3 Social
-  url: https://onboarding.lens.xyz/explore
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-on-chain-analytics
-- id: 90
-  title: freqtrade — Open Source Crypto Trading Bot
-  url: https://github.com/freqtrade/freqtrade
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-trading-bots-apis
-- id: 91
-  title: jesse-ai/jesse — Advanced Crypto Trading Bot
-  url: https://github.com/jesse-ai/jesse
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-trading-bots-apis
-- id: 92
-  title: ccxt — Multi-Exchange Crypto Trading API
-  url: https://github.com/ccxt/ccxt
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-trading-bots-apis
-- id: 93
-  title: Top 10 AI-Powered Crypto Trading GitHub Repos (Medium)
-  url: https://medium.com/@gwrx2005/top-10-ai-powered-crypto-trading-repositories-on-github-0041862546b6
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-trading-bots-apis
-- id: 94
-  title: Alpaca — Algorithmic Trading API
-  url: https://alpaca.markets/algotrading
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-trading-bots-apis
-- id: 95
-  title: Crypto Data Tools — Binance Research (PDF)
-  url: https://research.binance.com/static/pdf/crypto-data-tools-what-you-need-to-know.pdf
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-trading-bots-apis
-- id: 96
-  title: RootData — Crypto Project Discovery
-  url: https://www.rootdata.com/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-projects-news
-- id: 97
-  title: BlockBeats — Blockchain News
-  url: https://www.theblockbeats.info/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-projects-news
-- id: 98
-  title: BlockTempo — 動區動趨
-  url: https://www.blocktempo.com/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-projects-news
-- id: 99
-  title: OSL Exchange — HK Account
-  url: https://www.moneysmart.hk/zh-hk/online-brokerage/osl-digital-securities-account
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-projects-news
-- id: 100
-  title: Collector Crypt — Digital Collectibles
-  url: https://collectorcrypt.com/
-  desc: ''
-  collection: crypto
-  tags: []
-  featured: false
-  subcollection: crypto-projects-news
-- id: 101
-  title: Gold Price
-  url: https://goldprice.org/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-precious-metals
-- id: 102
-  title: Real Interest Rate vs Gold — MacroMicro
-  url: https://www.macromicro.me/charts/724/3month-bond-real-yield-gold-price
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-precious-metals
-- id: 103
-  title: MetalCharts
-  url: https://metalcharts.org/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-precious-metals
-- id: 104
-  title: APMEX — 1oz Silver Buffalo
-  url: https://www.apmex.com/product/44447/1-oz-silver-round-buffalo
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-precious-metals
-- id: 105
-  title: SD Bullion — 2026 Silver Eagle
-  url: https://sdbullion.com/2026-1-oz-american-silver-eagle-coin-bu
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-precious-metals
-- id: 106
-  title: GoldBar HK
-  url: https://www.goldbar.com.hk/?m=products&c=view&pid=84
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-precious-metals
-- id: 107
-  title: Amazon — Silver Round
-  url: https://www.amazon.co.uk/Second-Amendment-Right-Silver-Round/dp/B084732WRB
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-precious-metals
-- id: 108
-  title: Property HK Blog
-  url: https://www.property.hk/article/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-real-estate
-- id: 109
-  title: 中原樓市大數據 — 香港十八區
-  url: https://hkdata.centanet.com/BigData/%E9%A6%99%E6%B8%AF?field=WP_ER
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-real-estate
-- id: 110
-  title: Creprice — China Commercial Real Estate
-  url: https://www.creprice.cn/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-real-estate
-- id: 111
-  title: Cost of Living — World Data
-  url: https://www.worlddata.info/cost-of-living.php
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-real-estate
-- id: 112
-  title: AAStocks — HK Connect Gainers
-  url: https://www.aastocks.com/tc/cnhk/market/top-rank/sz-hk-connect?type=A
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 113
-  title: AAStocks — IPO Calendar
-  url: https://www.aastocks.com/tc/stocks/market/ipo/ipocalendar.aspx
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 114
-  title: AAStocks — News
-  url: https://www.aastocks.com/tc/lci/listconews.aspx
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 115
-  title: Etnet — HK Stocks
-  url: https://www.etnet.com.hk/www/tc/stocks/ci_act_placing.php
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 116
-  title: Finet HK
-  url: https://www.finet.hk/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 117
-  title: HKFDB — Component Data
-  url: https://hkfdbinfo.wixsite.com/hkfdb/component-data
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 118
-  title: HK Participants — Stoctaverse
-  url: https://stoctaverse.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 119
-  title: Webb-site CCASS — Stock 00003
-  url: https://webb-site.com/ccass/cholder.asp?sort=stakdn&part=1323&d=
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 120
-  title: Webb-site CCASS — Stock 00004
-  url: https://webb-site.com/ccass/cholder.asp?sort=stakdn&part=1456&d=
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 121
-  title: East Money — Silver Futures
-  url: https://quote.eastmoney.com/qihuo/ag2602.html
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 122
-  title: HK GDP (East Money)
-  url: https://data.eastmoney.com/cjsj/foreign_8_4.html
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 123
-  title: 乌龟量化 — 估值數據
-  url: https://wglh.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 124
-  title: 交易生活
-  url: https://ictnlife.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 125
-  title: Hong Kong Program Trading Research Centre
-  url: https://hkptrc.thinkific.com/enrollments
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 126
-  title: HKGX — Approved Courses
-  url: https://hkgx.com.hk/hk/registration/Approved%20Courses
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 127
-  title: Forex Factory — Calendar
-  url: https://www.forexfactory.com/calendar
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 128
-  title: China Money — RMB FX Index
-  url: https://www.chinamoney.org.cn/chinese/bkrmbidx/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-forex-currancy
-- id: 129
-  title: 人民幣匯率 (chinamoney.com.cn)
-  url: https://www.chinamoney.com.cn/chinese/bkrmbidx/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-forex-currancy
-- id: 130
-  title: Stats Gov CN
-  url: https://www.stats.gov.cn/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 131
-  title: Data Stats Gov CN — Search
-  url: https://data.stats.gov.cn/search.htm
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 132
-  title: PBC — Survey & Statistics
-  url: http://www.pbc.gov.cn/diaochatongjisi/116219/116319/4780803/index.html
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 133
-  title: Tushare — China Financial Data API
-  url: http://tushare.org/bak.html
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 134
-  title: Data Eastmoney — PPI
-  url: https://data.eastmoney.com/cjsj/ppi.html
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 135
-  title: Gotohui — GDP
-  url: https://gdp.gotohui.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 136
-  title: FX678 — Forex News
-  url: https://www.fx678.com/kx
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 137
-  title: Benner Cycle (Wikipedia)
-  url: https://en.wikipedia.org/wiki/Benner_Cycle
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 138
-  title: Yen Short Position / Carry Trade (COT)
-  url: https://www.tradingster.com/cot/legacy-futures/097741
-  desc: ''
-  collection: finance
-  tags: [yen, position, carry-trade]
-  featured: false
-  subcollection: finance-sentiment-analysis
-- id: 140
-  title: Caixin — Search
-  url: https://search.caixin.com/newsearch/caixinsearch
-  desc: ''
-  collection: finance
-  tags: [news]
-  featured: false
-  subcollection: finance-news
-- id: 141
-  title: Trading Terminal — Calendar
-  url: https://tradingterminal.com/calendar
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 142
-  title: Long Term Trends — Weekly Macro Report
-  url: https://www.longtermtrends.com/weekly-macro-report/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 143
-  title: Day Trading Guide 2025
-  url: https://www.daytrading.com/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-archive
-- id: 144
-  title: Daytrading @ Reddit
-  url: https://www.reddit.com/r/Daytrading/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-archive
-- id: 145
-  title: 滬深公司公告
-  url: https://stock.us/hk/filing/cn
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-hk-china-markets
-- id: 146
-  title: mTor Club
-  url: https://mtor.club/
-  desc: ''
-  collection: finance
-  tags: []
-  featured: false
-  subcollection: finance-macro-economic-data
-- id: 147
-  title: Hello Algo — Data Structures & Algorithms
-  url: https://www.hello-algo.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 148
-  title: JavaScript Info (ZH)
-  url: https://zh.javascript.info/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 149
-  title: 33 JS Concepts (GitHub)
-  url: https://github.com/leonardomso/33-js-concepts
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 150
-  title: Real Python — Pythonic Code Learning Path
-  url: https://realpython.com/learning-paths/writing-pythonic-code/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 151
-  title: 廖雪峰 Python Tutorial
-  url: https://liaoxuefeng.com/books/python/oop/access/index.html
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 152
-  title: Boot.dev — Learn Linux
-  url: https://www.boot.dev/courses/learn-linux
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 153
-  title: Roadmap.sh — Linux
-  url: https://roadmap.sh/linux
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 154
-  title: Stephen Grider — Udemy
-  url: https://www.udemy.com/user/sgslo/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 155
-  title: AKShare — Python Financial Data Library
-  url: https://github.com/akfamily/akshare
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 156
-  title: Vanilla JS
-  url: http://vanilla-js.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 157
-  title: Dev Docs
-  url: https://devdocs.io/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 158
-  title: DevDocs — Node.js 22 LTS
-  url: https://devdocs.io/node~22_lts/cli
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 159
-  title: CSDN
-  url: https://www.csdn.net/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-- id: 160
-  title: Playwright Tutorial — Video Testing Framework
-  url: https://playwright.itest.info/tags/video/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-learning-courses
-
-- id: 162
-  title: All Next.js Starters & Boilerplates
-  url: https://nextjsstarter.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 163
-  title: Halo — Open Source CMS
-  url: https://www.halo.run/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 164
-  title: Frappe.io Framework
-  url: https://frappe.io/framework
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 165
-  title: ERPNext
-  url: https://frappe.io/erpnext
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 166
-  title: Tailark — Tailwind UI
-  url: https://tailark.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 167
-  title: Web Studio
-  url: https://webstudio.is/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 168
-  title: Tesslate Designer
-  url: https://designer.tesslate.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 169
-  title: Blaze (Vercel)
-  url: https://blaze.vercel.app/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 170
-  title: Zion — Functorz
-  url: https://www.functorz.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 171
-  title: D2 — Diagram Language
-  url: https://d2lang.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 172
-  title: Jazz Tools
-  url: https://jazz.tools/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-javascript-web-dev
-- id: 173
-  title: Android Basics with Compose — Google
-  url: https://developer.android.com/courses/android-basics-compose/course
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 174
-  title: Kotlin Koans
-  url: https://play.kotlinlang.org/koans/overview
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 175
-  title: Jetpack Compose Introduction
-  url: https://www.jetpackcompose.net/buttons-in-jetpack-compose
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 176
-  title: Composables
-  url: https://composables.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 177
-  title: Happy Coding — Android Layouts
-  url: https://happycoding.io/tutorials/android/layouts
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 178
-  title: Futurice Android Best Practices
-  url: https://github.com/futurice/android-best-practices
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 179
-  title: CodingWithMitch
-  url: https://codingwithmitch.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 180
-  title: WeChat Mini Program Dev Tools Download
-  url: https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 181
-  title: WeChat Mini Program Portal
-  url: https://mp.weixin.qq.com/wxamp/home/guide
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 182
-  title: Google Play Console — Dev Account Signup
-  url: https://play.google.com/console/u/0/signup
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 183
-  title: Google Play Academy Certificate
-  url: https://playacademy.withgoogle.com/certificate/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 184
-  title: WeChat Open Community
-  url: https://developers.weixin.qq.com/community/business/course/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-android-mobile
-- id: 185
-  title: ByteByteGo — System Design 101 (GitHub)
-  url: https://github.com/ByteByteGoHq/system-design-101
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-system-design
-- id: 186
-  title: ByteByteGo — API & Web Dev Guide
-  url: https://bytebytego.com/guides/api-web-development/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-system-design
-- id: 187
-  title: ByteByteGo — All Visual Guides
-  url: https://bytebytego.com/guides/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-system-design
-- id: 188
-  title: ByteByteGo
-  url: https://bytebytego.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-system-design
-- id: 189
-  title: sindresorhus/awesome
-  url: https://github.com/sindresorhus/awesome
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 190
-  title: GitHubDaily
-  url: https://github.com/GitHubDaily/GitHubDaily
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 191
-  title: GitHub Trending
-  url: https://github.com/trending
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 192
-  title: TrendShift
-  url: https://trendshift.io/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 193
-  title: ROSS Index — Runacap
-  url: https://runacap.com/ross-index/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 194
-  title: Open Source Alternatives (openalternative.co)
-  url: https://openalternative.co/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 195
-  title: OP Alternative
-  url: https://opensourcealternative.to/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 196
-  title: public-apis/public-apis
-  url: https://github.com/public-apis/public-apis
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 197
-  title: RapidAPI Hub
-  url: https://rapidapi.com/hub
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 198
-  title: OpenAPI Initiative
-  url: https://www.openapis.org/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 199
-  title: modelcontextprotocol/servers
-  url: https://github.com/modelcontextprotocol/servers
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 200
-  title: MLabonne Blog (ML)
-  url: https://mlabonne.github.io/blog/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 201
-  title: Happy-LLM (Datawhale)
-  url: https://datawhalechina.github.io/happy-llm/#/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 202
-  title: OSS Insight Collections
-  url: https://ossinsight.io/explore/collections
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 203
-  title: Grist — Spreadsheet Evolution
-  url: https://github.com/gristlabs/grist-core
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 204
-  title: Paradigm OSS
-  url: https://www.paradigm.xyz/oss
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 205
-  title: CNCF Landscape
-  url: https://landscape.cncf.io/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 206
-  title: ripienaar/free-for-dev
-  url: https://github.com/ripienaar/free-for-dev
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 207
-  title: Free for Developers
-  url: https://free-for.dev/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 208
-  title: Always Free Oracle Cloud Resources
-  url: https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-
-- id: 210
-  title: Dev Hunt — New Dev Tools Daily
-  url: https://devhunt.org/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 211
-  title: Dev.to
-  url: https://dev.to/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 212
-  title: Kaggle
-  url: https://www.kaggle.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 213
-  title: Arxiv
-  url: https://arxiv.org/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 214
-  title: Scraping Sandbox — toscrape.com
-  url: https://toscrape.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 215
-  title: Remote Jobs in Tech
-  url: https://github.com/remoteintech/remote-jobs
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 216
-  title: github/spec-kit — Spec-Driven Development
-  url: https://github.com/github/spec-kit
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 217
-  title: Cash Wu — GitHub Spec-Kit
-  url: https://blog.cashwu.com/blog/2025/github-spec-kit-first-experience
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 218
-  title: Learn Anything
-  url: https://learn-anything.xyz/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-open-source-apis
-- id: 219
-  title: Anthropic News
-  url: https://www.anthropic.com/news
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-tech-blogs
-- id: 220
-  title: Cybersecurity News
-  url: https://cybersecuritynews.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-tech-blogs
-- id: 221
-  title: 4ier/neo
-  url: https://github.com/4ier/neo
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 222
-  title: alibaba/page-agent
-  url: https://github.com/alibaba/page-agent
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 223
-  title: aszx87410/blog
-  url: https://github.com/aszx87410/blog
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 224
-  title: Automattic/wordpress-agent-skills/design-systems
-  url: https://github.com/Automattic/wordpress-agent-skills/blob/trunk/claude-cowork/wp-site-creator/skills/design-systems/SKILL.md
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 225
-  title: Automattic/wordpress-agent-skills/site-specification
-  url: https://github.com/Automattic/wordpress-agent-skills/blob/trunk/claude-cowork/wp-site-creator/skills/site-specification/SKILL.md
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 226
-  title: facebook/docusaurus
-  url: https://github.com/facebook/docusaurus
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 227
-  title: flutter/skills
-  url: https://github.com/flutter/skills/tree/generate-skills
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 228
-  title: FoundationAgents/OpenManus
-  url: https://github.com/FoundationAgents/OpenManus
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 229
-  title: GoogleChromeLabs/squoosh
-  url: https://github.com/GoogleChromeLabs/squoosh
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 230
-  title: iib0011/omni-tools
-  url: https://github.com/iib0011/omni-tools
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 231
-  title: justlovemaki/AIClient-2-API
-  url: https://github.com/justlovemaki/AIClient-2-API
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 232
-  title: openclaw/skill-creator
-  url: https://github.com/openclaw/openclaw/tree/main/skills/skill-creator
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 233
-  title: PDFCraftTool/pdfcraft
-  url: https://github.com/PDFCraftTool/pdfcraft
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 234
-  title: shanraisshan/claude-code-best-practice
-  url: https://github.com/shanraisshan/claude-code-best-practice
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-github-repos-projects
-- id: 235
-  title: SAM 3D (Meta AI)
-  url: https://ai.meta.com/sam3d/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-development-tools
-- id: 236
-  title: a2ui
-  url: https://a2ui.org/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-development-tools
-- id: 237
-  title: Blade Components
-  url: https://blade-components.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-development-tools
-- id: 238
-  title: PDF Drive
-  url: https://pdfdrive.webs.nf/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-development-tools
-- id: 239
-  title: 5sim (SMS Verification)
-  url: https://5sim.net/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-development-tools
-- id: 240
-  title: Zulip
-  url: https://zulip.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-development-tools
-- id: 241
-  title: Linux Journey
-  url: https://linuxjourney.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 242
-  title: Linux Bird (鳥哥)
-  url: https://linux.vbird.org/linux_basic/centos7/0110whatislinux.php
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 243
-  title: Runoob — Linux Remote Login
-  url: https://www.runoob.com/linux/linux-remote-login.html
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 244
-  title: Labex — Linux Journey
-  url: https://labex.io/linuxjourney
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 245
-  title: Ultimate Linux Guide (GitHub)
-  url: https://github.com/iam-veeramalla/ultimate-linux-guide
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 246
-  title: Linux Basics Course (KodeKloud)
-  url: https://github.com/kodekloudhub/linux-basics-course
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 247
-  title: Linux Topics
-  url: https://github.com/topics/linux-learning
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 248
-  title: Unraid
-  url: https://unraid.net/product
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 249
-  title: NextCloud
-  url: https://nextcloud.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 250
-  title: Filen — E2E Encrypted Cloud Storage
-  url: https://filen.io/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 251
-  title: Winutil Documentation
-  url: https://winutil.christitus.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 252
-  title: LocalWP — Local WordPress Dev
-  url: https://localwp.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 253
-  title: Joe Sandbox — Automated Malware Analysis
-  url: https://www.joesandbox.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-linux-infrastructure
-- id: 254
-  title: Google Search Central — Outbound Link SEO
-  url: https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 255
-  title: Schema.org Structured Data Validator
-  url: https://validator.schema.org/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 256
-  title: Rank Math — Yoast Alternative
-  url: https://rankmath.com/yoast-alternative/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 257
-  title: MyYoast Login
-  url: https://my.yoast.com/login
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 258
-  title: SEO Research Institute (TW)
-  url: https://seo.dns.com.tw/archives/category/website-optimization
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 259
-  title: Welly SEO — 法律010
-  url: https://welly.hk/clients/laws010
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 260
-  title: No Bullshit Guide to UX 2025 (eBook)
-  url: https://hype4academy.gumroad.com/l/guidetoux
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 261
-  title: Playboard — YouTube Analytics
-  url: https://playboard.co/en/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 262
-  title: Foreplay — Ad Workflow & Ad Library
-  url: https://www.foreplay.co/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 263
-  title: Brand Intimacy Study — MBLM
-  url: https://mblm.com/lab/brandintimacy-study/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 264
-  title: Growth Design
-  url: https://growth.design/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 265
-  title: ShipFast — Launch Startup Boilerplate
-  url: https://shipfa.st/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 266
-  title: Dirstarter — Directory Website
-  url: https://dirstarter.com/
-  desc: ''
-  collection: dev
-  tags: []
-  featured: false
-  subcollection: dev-seo-web-optimization
-- id: 267
-  title: Siteinspire — Web Design Showcase
-  url: https://www.siteinspire.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 268
-  title: Httpster — Website Design Inspiration
-  url: https://httpster.net/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 269
-  title: CNU视觉联盟
-  url: http://www.cnu.cc/selectedPage
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 270
-  title: Are.na — Explore
-  url: https://www.are.na/explore
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 271
-  title: Cosmos
-  url: https://www.cosmos.so/home
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 272
-  title: Same Energy
-  url: https://same.energy/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 273
-  title: Ordinary Folk
-  url: https://www.ordinaryfolk.co/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 274
-  title: The Thiings Collection
-  url: https://www.thiings.co/things
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 275
-  title: Lovable Docs — Inspiration
-  url: https://docs.lovable.dev/use-case/inspiration
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 276
-  title: Digital Inspiration — Tech How-Tos
-  url: https://www.labnol.org/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 277
-  title: StreetsOfZine
-  url: https://streetsofzine.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 278
-  title: MoMA — Postcard Exhibition
-  url: https://www.moma.org/calendar/exhibitions/5618
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 279
-  title: Photography — 大胆构图
-  url: http://www.rxsy.net/2024/04/between-you-and-sea/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 280
-  title: Command Palette (Artsopolis)
-  url: https://artsopolis.vercel.app/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-visual-inspiration
-- id: 281
-  title: HeroUI
-  url: https://www.heroui.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 282
-  title: Magic UI
-  url: https://magicui.design/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 283
-  title: Subframe
-  url: https://subframe.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 284
-  title: iBelick — Backgrounds
-  url: https://bg.ibelick.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 285
-  title: Hypermatic — Figma Plugins
-  url: https://www.hypermatic.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 286
-  title: U.S. Web Design System — Design Principles
-  url: https://designsystem.digital.gov/design-principles/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 287
-  title: Brand Design Checklist (PDF)
-  url: https://uploads-ssl.webflow.com/61c5dfc8cb9ad62204867ed7/624894a4d8ca8b2e6d8092f7_%E5%93%81%E7%89%8C%E8%A8%AD%E8%A8%88%E8%B6%85%E5%AF%A6%E4%BD%9C%E6%B8%85%E5%96%AE.pdf
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 288
-  title: Growth Design Kit
-  url: https://growthdesignkit.growmodo.com/gdk-lp26
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 289
-  title: TechInsights — Semiconductor Platform
-  url: https://www.techinsights.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-design-systems-ui-kits
-- id: 290
-  title: Growth Hacker Tools — 100 Tools List
-  url: https://www.growthmarketer.academy/en-hk/blog/growth-hacking
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-growth-marketing
-- id: 291
-  title: No-Nonsense UX Framework eBook
-  url: https://aceinterface.gumroad.com/l/doEGx
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-growth-marketing
-- id: 292
-  title: HubSpot / Digital Marketing — Hububble
-  url: https://www.hububble.co/blog
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-growth-marketing
-- id: 293
-  title: No-Code PWA & Web Push — Progressier
-  url: https://progressier.com/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-growth-marketing
-- id: 294
-  title: OpenStreetMap
-  url: https://www.openstreetmap.org/
-  desc: ''
-  collection: design
-  tags: []
-  featured: false
-  subcollection: design-growth-marketing
-- id: 295
-  title: Hacker News
-  url: https://news.ycombinator.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-
-- id: 297
-  title: Dark Lab — Negative SEO in Asia
-  url: https://blog.darklab.hk/2025/07/10/the-dark-side-of-seo-negative-seo-attacks-targeting-businesses-in-asia/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-- id: 298
-  title: Top 25 Hacking Forums (Feedspot)
-  url: https://forums.feedspot.com/hacking_forums/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-- id: 299
-  title: Top 10 Dark Web Forums 2025 (Cyble)
-  url: https://cyble.com/knowledge-hub/top-10-dark-web-forums/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-- id: 300
-  title: TryHackMe — Offensive Security Intro
-  url: https://tryhackme.com/room/offensivesecurityintro
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-- id: 301
-  title: CyberFlow Academy
-  url: https://cyberflow-academy.framer.website/courses
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-- id: 302
-  title: PCHome — Taiwan Tech News
-  url: https://www.pchome.net/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-- id: 303
-  title: Free TW
-  url: https://free.com.tw/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-tech-security
-- id: 304
-  title: Foreign Affairs Magazine
-  url: https://www.foreignaffairs.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-- id: 305
-  title: Politico
-  url: https://www.politico.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-- id: 306
-  title: The Information
-  url: https://www.theinformation.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-
-
-- id: 309
-  title: MRT News
-  url: https://mktnews.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-- id: 310
-  title: iNewsroom (X/Twitter)
-  url: https://x.com/iNewsroom
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-- id: 311
-  title: NewsBlur
-  url: https://newsblur.com/folder/everything
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-- id: 312
-  title: 求是網
-  url: https://www.qstheory.cn/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-general-political-news
-- id: 313
-  title: 財聯社 (CLS)
-  url: https://www.cls.cn/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-china-hk-news
-- id: 314
-  title: 觀察者網
-  url: https://www.guancha.cn/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-china-hk-news
-- id: 315
-  title: 網易
-  url: https://www.163.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-china-hk-news
-- id: 316
-  title: HK01 — 中國觀察
-  url: https://www.hk01.com/channel/458/%E4%B8%AD%E5%9C%8B%E8%A7%80%E5%AF%9F
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-china-hk-news
-
-- id: 318
-  title: Twitter Trends 24
-  url: https://trends24.in/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-community-social
-- id: 319
-  title: 4chan
-  url: https://4chan.org/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-community-social
-- id: 320
-  title: Alyssa X
-  url: https://www.alyssax.com/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-community-social
-- id: 321
-  title: Tilly Social
-  url: https://www.tilly.social/app/people
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-community-social
-- id: 322
-  title: Hend World
-  url: https://app.hend.world/
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-community-social
-- id: 323
-  title: gk.dsn Linktree
-  url: https://linktr.ee/gk.dsn
-  desc: ''
-  collection: news
-  tags: []
-  featured: false
-  subcollection: news-community-social
-- id: 324
-  title: Immich — Self-hosted Photo Backup
-  url: https://immich.app/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-cloud-storage
-- id: 325
-  title: Duplicati — Backup Tool
-  url: https://duplicati.com/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-cloud-storage
-
-
-- id: 328
-  title: HackMD
-  url: https://hackmd.io/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 329
-  title: StackEdit — Markdown Editor
-  url: https://stackedit.io/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 330
-  title: Trilium Notes Documentation
-  url: https://docs.triliumnotes.org/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 331
-  title: Dynalist
-  url: https://dynalist.io/d/m5BtjnKFi0te5O92bMsv_pSs
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 332
-  title: Blank Page
-  url: https://blank.page/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 333
-  title: Scira — AI Search
-  url: https://scira.ai/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 334
-  title: Musicca — Music Tools (TW)
-  url: https://www.musicca.com/tw/tools
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 335
-  title: Nuclear Player
-  url: https://nuclearplayer.com/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 336
-  title: MP3Cow
-  url: https://mp3cow.com/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-productivity-writing
-- id: 337
-  title: SVG Viewer
-  url: https://www.svgviewer.dev/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 338
-  title: IT-Tools
-  url: https://it-tools.tech/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 339
-  title: Omni Tools
-  url: https://omnitools.app/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 340
-  title: Tiny Tools
-  url: https://tinytools.page/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 341
-  title: CSV to JSON Converter (jam.dev)
-  url: https://jam.dev/utilities/csv-to-json
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 342
-  title: CSVink
-  url: https://csv.ink/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 343
-  title: Datarade — Data Marketplace
-  url: https://datarade.ai/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 344
-  title: WildCard — Virtual Payment
-  url: http://bewildcard.com/pay-service
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 345
-  title: Mark Weavia
-  url: https://markweavia.vercel.app/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 346
-  title: Localhost Tools (locallhost.me)
-  url: https://locallhost.me/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 347
-  title: SleazyFork — Userscript Repository
-  url: https://sleazyfork.org/en
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 348
-  title: Userscript.zone — Userscript Collection
-  url: https://www.userscript.zone/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-web-utilities-dev-tools
-- id: 349
-  title: VirusTotal
-  url: https://www.virustotal.com/gui/home/upload
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-security-privacy
-- id: 350
-  title: UrlScan.io
-  url: https://urlscan.io/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-security-privacy
-- id: 351
-  title: Have I Been Pwned
-  url: https://haveibeenpwned.com/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-security-privacy
-- id: 352
-  title: Web-Check
-  url: https://web-check.xyz/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-security-privacy
-- id: 353
-  title: Am I Unique — Browser Fingerprint
-  url: https://amiunique.org/fingerprint
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-security-privacy
-- id: 354
-  title: Unblock Academy
-  url: https://www.unblock.academy/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-security-privacy
-- id: 355
-  title: GeoInfo Map HK (HKSARG)
-  url: https://www.map.gov.hk/gm/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-maps-geo-data
-- id: 356
-  title: CSDI Portal — HK Spatial Data
-  url: https://portal.csdi.gov.hk/csdi-webpage/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-maps-geo-data
-- id: 357
-  title: HK Daily Passenger Traffic Stats
-  url: https://data.gov.hk/tc-data/dataset/hk-immd-set5-statistics-daily-passenger-traffic
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-maps-geo-data
-- id: 358
-  title: PolyGlobe (Pizzint)
-  url: https://www.pizzint.watch/polyglobe
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-maps-geo-data
-- id: 359
-  title: Pizzint
-  url: https://www.pizzint.watch/
-  desc: ''
-  collection: tools
-  tags: []
-  featured: false
-  subcollection: tools-maps-geo-data
-
-- id: 361
-  title: 初學日語30短句 (Google Docs)
-  url: https://docs.google.com/document/d/1iROGNOORPCEmpITR-GrqWnUj-ZNemXCNCTurthVoB5c/edit
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-language-learning
-- id: 362
-  title: Mazii — Japanese–English Dictionary
-  url: https://mazii.net/
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-language-learning
-- id: 363
-  title: JLPT N2 Past Papers 2015–2021
-  url: https://www.jlptwehelp.com/zh/product-page/n2-pp-2021-2015-cn
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-language-learning
-- id: 364
-  title: 博客來 — ゼロから12ヵ国語マスター (Book)
-  url: https://www.books.com.tw/products/M010190572
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-language-learning
-- id: 365
-  title: Learn English Resource
-  url: https://en.knowledgefxg.com/
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-language-learning
-- id: 366
-  title: 'Lex Fridman #474 — DHH Transcript'
-  url: https://lexfridman.com/dhh-david-heinemeier-hansson-transcript
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-podcasts-talks
-
-
-- id: 369
-  title: Dane Galbraith — Projects (Notion)
-  url: https://danegalbraith.notion.site/Dane-s-Projects-53c4290f965c47d4960ff9d71f29e25e
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-reference-research
-- id: 370
-  title: Linsa.io
-  url: https://linsa.io/
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-reference-research
-- id: 371
-  title: ExplainThis Articles (ZH)
-  url: https://www.explainthis.io/zh-hant/articles
-  desc: ''
-  collection: learning
-  tags: []
-  featured: false
-  subcollection: learning-reference-research
-- id: 372
-  title: 我如何用3个AI工具快速读懂英文原版书？（Kimi、notebooklm、Edge 浏览器）
-  url: https://www.youtube.com/watch?v=QYjmM0t9H_0
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-ai-llm-videos
-- id: 373
-  title: 【保姆級教學】n8n × Threads 自動發文AI工作流
-  url: https://www.youtube.com/watch?app=desktop&v=kd0mbo_1Rl0
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-ai-llm-videos
-- id: 374
-  title: 【Qwen3-Embedding+N8N】零代码构建个人知识库
-  url: https://www.youtube.com/watch?app=desktop&v=LjxFRot3YGQ
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-ai-llm-videos
-- id: 375
-  title: 【2025最新】AI信息时代"淘金"——LangGraph | LangChain | RAG
-  url: https://www.youtube.com/watch?app=desktop&v=ubpD53T8tho
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-ai-llm-videos
-- id: 376
-  title: GitHub Foundations Exam Details and Real Questions
-  url: https://www.youtube.com/watch?v=hEk3unGct14
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-ai-llm-videos
-- id: 377
-  title: VibeVoice实战教程——微软最新开源长语音TTS模型
-  url: https://www.youtube.com/watch?app=desktop&v=v_y4AvFlfgQ
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-ai-llm-videos
-- id: 378
-  title: Andy Lin — Entrepreneurship & Motivation
-  url: https://www.youtube.com/@rainsnoopy/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 379
-  title: GitHub Daily Trend AI Podcast
-  url: https://www.youtube.com/@githubtrendfeed/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 380
-  title: Boot Dev
-  url: https://www.youtube.com/@bootdotdev/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 381
-  title: The Futur
-  url: https://www.youtube.com/@thefutur/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 382
-  title: Pepko Motion
-  url: https://www.youtube.com/@pepkomotion/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 383
-  title: IVolatility
-  url: https://www.youtube.com/@IVolatilitysYouTube/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 384
-  title: Takumi
-  url: https://www.youtube.com/@takumi_2424/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 385
-  title: Chris Rasmussen
-  url: https://www.youtube.com/@chrisgrasmussen/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 386
-  title: GUDZON
-  url: https://www.youtube.com/@GUDZON_CREATIVE/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 387
-  title: Faded Memory
-  url: https://www.youtube.com/@faded_memory/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 388
-  title: Shoichi
-  url: https://www.youtube.com/@be_shoichi/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 389
-  title: Paper Lantern
-  url: https://www.youtube.com/@paperlantern9163/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 390
-  title: Hideki Shiota / FILM EI
-  url: https://www.youtube.com/@hideki_film/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 391
-  title: Powerful PRE
-  url: https://www.youtube.com/@joerogan/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 392
-  title: Dwarkesh Patel
-  url: https://www.youtube.com/@DwarkeshPatel/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 393
-  title: Work Beats Lab
-  url: https://www.youtube.com/@WorkBeatsLab/videos
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 394
-  title: Indently
-  url: https://www.youtube.com/@Indently/search
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 395
-  title: How to Create a Custom WordPress Theme Using AI
-  url: https://www.youtube.com/watch?app=desktop&v=2YPUWFPsJlI
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 396
-  title: PTM Trading (Phantom Trading)
-  url: https://www.youtube.com/channel/UCGd-NGbH9zaA2P5lcyXgWAQ
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 397
-  title: ooohmygosh
-  url: https://www.youtube.com/@ooohmygosh6017
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 398
-  title: '【品牌設計一次看懂】Ep1: 絞盡腦汁也沒用'
-  url: https://www.youtube.com/watch?v=lwCWnIPblJ0
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 399
-  title: Lex Fridman
-  url: https://www.youtube.com/@lexfridman
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 400
-  title: 新手小白三步搭建个人博客网站——WordPress教程
-  url: https://www.youtube.com/watch?v=-NsexbTBUGU
-  desc: ''
-  collection: videos
-  tags: []
-  featured: false
-  subcollection: videos-youtube-channels
-- id: 401
-  title: Jellyfin — Free Media Server
-  url: https://jellyfin.org/
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 402
-  title: Overstock (Vivaldi)
-  url: https://vivaldi.com/bk/overstock-us-bk
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 403
-  title: GetYourGuide (Vivaldi)
-  url: https://vivaldi.com/bk/sd-getyourguide
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 404
-  title: bet365
-  url: https://www.bet365.com/
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-
-
-
-
-
-
-- id: 411
-  title: NFT/Art
-  url: https://akaswap.com/event/taiwan520
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 412
-  title: Portfolio/Design
-  url: https://bajgartoffice.com/
-  desc: ''
-  collection: misc
-  tags: []
-  featured: false
-  review: true
-- id: 413
-  title: Introducing ONCE
-  url: https://once.com/
-  desc: Once upon a time you owned what you paid for, you controlled what you depended
-    on, and your privacy and security were your own business. We think it’s that time
-    again.
-  collection: misc
-  tags: []
-  featured: false
-  added: '2026-04-14'
-- id: 414
-  title: Tier List
-  url: https://www.canirun.ai/tier
-  desc: See which AI models your machine can run, ranked in a classic tier list. Share
-    your results.
-  collection: misc
-  tags: []
-  featured: false
-  added: '2026-04-1'
+bookmarkList:
+- domain: github.com
+  bookmarkItem:
+  - id: 3
+    title: 'microsoft/poml: Prompt Orchestration Markup Language'
+    url: https://github.com/microsoft/poml
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+  - id: 4
+    title: linshenkx/prompt-optimizer
+    url: https://github.com/linshenkx/prompt-optimizer
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+  - id: 11
+    title: Shubhamsaboo/awesome-llm-apps
+    url: https://github.com/Shubhamsaboo/awesome-llm-apps
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-agents-automation
+  - id: 12
+    title: 'TauricResearch/TradingAgents: Multi-Agent LLM Trading Framework'
+    url: https://github.com/TauricResearch/TradingAgents
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-agents-automation
+  - id: 13
+    title: 1Panel — Web UI + MCP Server for Linux management
+    url: https://github.com/1Panel-dev/1Panel
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-agents-automation
+  - id: 17
+    title: midday-ai/midday (GitHub)
+    url: https://github.com/midday-ai/midday
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-agents-automation
+  - id: 25
+    title: PicoTrex/Awesome-Nano-Banana-images
+    url: https://github.com/PicoTrex/Awesome-Nano-Banana-images
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+  - id: 38
+    title: HuggingFace/aisheets — AI-powered spreadsheet datasets
+    url: https://github.com/huggingface/aisheets
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+  - id: 90
+    title: freqtrade — Open Source Crypto Trading Bot
+    url: https://github.com/freqtrade/freqtrade
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-trading-bots-apis
+  - id: 91
+    title: jesse-ai/jesse — Advanced Crypto Trading Bot
+    url: https://github.com/jesse-ai/jesse
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-trading-bots-apis
+  - id: 92
+    title: ccxt — Multi-Exchange Crypto Trading API
+    url: https://github.com/ccxt/ccxt
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-trading-bots-apis
+  - id: 149
+    title: 33 JS Concepts (GitHub)
+    url: https://github.com/leonardomso/33-js-concepts
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+  - id: 155
+    title: AKShare — Python Financial Data Library
+    url: https://github.com/akfamily/akshare
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+  - id: 178
+    title: Futurice Android Best Practices
+    url: https://github.com/futurice/android-best-practices
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+  - id: 185
+    title: ByteByteGo — System Design 101 (GitHub)
+    url: https://github.com/ByteByteGoHq/system-design-101
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-system-design
+  - id: 189
+    title: sindresorhus/awesome
+    url: https://github.com/sindresorhus/awesome
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 190
+    title: GitHubDaily
+    url: https://github.com/GitHubDaily/GitHubDaily
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 191
+    title: GitHub Trending
+    url: https://github.com/trending
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 196
+    title: public-apis/public-apis
+    url: https://github.com/public-apis/public-apis
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 199
+    title: modelcontextprotocol/servers
+    url: https://github.com/modelcontextprotocol/servers
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 203
+    title: Grist — Spreadsheet Evolution
+    url: https://github.com/gristlabs/grist-core
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 206
+    title: ripienaar/free-for-dev
+    url: https://github.com/ripienaar/free-for-dev
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 215
+    title: Remote Jobs in Tech
+    url: https://github.com/remoteintech/remote-jobs
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 216
+    title: github/spec-kit — Spec-Driven Development
+    url: https://github.com/github/spec-kit
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+  - id: 221
+    title: 4ier/neo
+    url: https://github.com/4ier/neo
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 222
+    title: alibaba/page-agent
+    url: https://github.com/alibaba/page-agent
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 223
+    title: aszx87410/blog
+    url: https://github.com/aszx87410/blog
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 224
+    title: Automattic/wordpress-agent-skills/design-systems
+    url: https://github.com/Automattic/wordpress-agent-skills/blob/trunk/claude-cowork/wp-site-creator/skills/design-systems/SKILL.md
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 225
+    title: Automattic/wordpress-agent-skills/site-specification
+    url: https://github.com/Automattic/wordpress-agent-skills/blob/trunk/claude-cowork/wp-site-creator/skills/site-specification/SKILL.md
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 226
+    title: facebook/docusaurus
+    url: https://github.com/facebook/docusaurus
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 227
+    title: flutter/skills
+    url: https://github.com/flutter/skills/tree/generate-skills
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 228
+    title: FoundationAgents/OpenManus
+    url: https://github.com/FoundationAgents/OpenManus
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 229
+    title: GoogleChromeLabs/squoosh
+    url: https://github.com/GoogleChromeLabs/squoosh
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 230
+    title: iib0011/omni-tools
+    url: https://github.com/iib0011/omni-tools
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 231
+    title: justlovemaki/AIClient-2-API
+    url: https://github.com/justlovemaki/AIClient-2-API
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 232
+    title: openclaw/skill-creator
+    url: https://github.com/openclaw/openclaw/tree/main/skills/skill-creator
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 233
+    title: PDFCraftTool/pdfcraft
+    url: https://github.com/PDFCraftTool/pdfcraft
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 234
+    title: shanraisshan/claude-code-best-practice
+    url: https://github.com/shanraisshan/claude-code-best-practice
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-github-repos-projects
+  - id: 245
+    title: Ultimate Linux Guide (GitHub)
+    url: https://github.com/iam-veeramalla/ultimate-linux-guide
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+  - id: 246
+    title: Linux Basics Course (KodeKloud)
+    url: https://github.com/kodekloudhub/linux-basics-course
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+  - id: 247
+    title: Linux Topics
+    url: https://github.com/topics/linux-learning
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: youtube.com
+  bookmarkItem:
+  - id: 372
+    title: 我如何用3个AI工具快速读懂英文原版书？（Kimi、notebooklm、Edge 浏览器）
+    url: https://www.youtube.com/watch?v=QYjmM0t9H_0
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-ai-llm-videos
+  - id: 373
+    title: 【保姆級教學】n8n × Threads 自動發文AI工作流
+    url: https://www.youtube.com/watch?app=desktop&v=kd0mbo_1Rl0
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-ai-llm-videos
+  - id: 374
+    title: 【Qwen3-Embedding+N8N】零代码构建个人知识库
+    url: https://www.youtube.com/watch?app=desktop&v=LjxFRot3YGQ
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-ai-llm-videos
+  - id: 375
+    title: 【2025最新】AI信息时代"淘金"——LangGraph | LangChain | RAG
+    url: https://www.youtube.com/watch?app=desktop&v=ubpD53T8tho
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-ai-llm-videos
+  - id: 376
+    title: GitHub Foundations Exam Details and Real Questions
+    url: https://www.youtube.com/watch?v=hEk3unGct14
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-ai-llm-videos
+  - id: 377
+    title: VibeVoice实战教程——微软最新开源长语音TTS模型
+    url: https://www.youtube.com/watch?app=desktop&v=v_y4AvFlfgQ
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-ai-llm-videos
+  - id: 378
+    title: Andy Lin — Entrepreneurship & Motivation
+    url: https://www.youtube.com/@rainsnoopy/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 379
+    title: GitHub Daily Trend AI Podcast
+    url: https://www.youtube.com/@githubtrendfeed/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 380
+    title: Boot Dev
+    url: https://www.youtube.com/@bootdotdev/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 381
+    title: The Futur
+    url: https://www.youtube.com/@thefutur/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 382
+    title: Pepko Motion
+    url: https://www.youtube.com/@pepkomotion/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 383
+    title: IVolatility
+    url: https://www.youtube.com/@IVolatilitysYouTube/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 384
+    title: Takumi
+    url: https://www.youtube.com/@takumi_2424/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 385
+    title: Chris Rasmussen
+    url: https://www.youtube.com/@chrisgrasmussen/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 386
+    title: GUDZON
+    url: https://www.youtube.com/@GUDZON_CREATIVE/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 387
+    title: Faded Memory
+    url: https://www.youtube.com/@faded_memory/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 388
+    title: Shoichi
+    url: https://www.youtube.com/@be_shoichi/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 389
+    title: Paper Lantern
+    url: https://www.youtube.com/@paperlantern9163/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 390
+    title: Hideki Shiota / FILM EI
+    url: https://www.youtube.com/@hideki_film/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 391
+    title: Powerful PRE
+    url: https://www.youtube.com/@joerogan/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 392
+    title: Dwarkesh Patel
+    url: https://www.youtube.com/@DwarkeshPatel/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 393
+    title: Work Beats Lab
+    url: https://www.youtube.com/@WorkBeatsLab/videos
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 394
+    title: Indently
+    url: https://www.youtube.com/@Indently/search
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 395
+    title: How to Create a Custom WordPress Theme Using AI
+    url: https://www.youtube.com/watch?app=desktop&v=2YPUWFPsJlI
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 396
+    title: PTM Trading (Phantom Trading)
+    url: https://www.youtube.com/channel/UCGd-NGbH9zaA2P5lcyXgWAQ
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 397
+    title: ooohmygosh
+    url: https://www.youtube.com/@ooohmygosh6017
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 398
+    title: '【品牌設計一次看懂】Ep1: 絞盡腦汁也沒用'
+    url: https://www.youtube.com/watch?v=lwCWnIPblJ0
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 399
+    title: Lex Fridman
+    url: https://www.youtube.com/@lexfridman
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+  - id: 400
+    title: 新手小白三步搭建个人博客网站——WordPress教程
+    url: https://www.youtube.com/watch?v=-NsexbTBUGU
+    desc: ''
+    collection: videos
+    tags: []
+    featured: false
+    collectionItem: videos-youtube-channels
+- domain: aastocks.com
+  bookmarkItem:
+  - id: 112
+    title: AAStocks — HK Connect Gainers
+    url: https://www.aastocks.com/tc/cnhk/market/top-rank/sz-hk-connect?type=A
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+  - id: 113
+    title: AAStocks — IPO Calendar
+    url: https://www.aastocks.com/tc/stocks/market/ipo/ipocalendar.aspx
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+  - id: 114
+    title: AAStocks — News
+    url: https://www.aastocks.com/tc/lci/listconews.aspx
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: bytebytego.com
+  bookmarkItem:
+  - id: 186
+    title: ByteByteGo — API & Web Dev Guide
+    url: https://bytebytego.com/guides/api-web-development/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-system-design
+  - id: 187
+    title: ByteByteGo — All Visual Guides
+    url: https://bytebytego.com/guides/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-system-design
+  - id: 188
+    title: ByteByteGo
+    url: https://bytebytego.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-system-design
+- domain: explainthis.io
+  bookmarkItem:
+  - id: 8
+    title: ExplainThis — ChatGPT & Dev Resources (ZH)
+    url: https://www.explainthis.io/zh-hant
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+  - id: 371
+    title: ExplainThis Articles (ZH)
+    url: https://www.explainthis.io/zh-hant/articles
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-reference-research
+- domain: gurufocus.com
+  bookmarkItem:
+  - id: 49
+    title: S&P 500 PE Ratio — GuruFocus
+    url: https://www.gurufocus.com/economic_indicators/57/sp-500-pe-ratio
+    desc: ''
+    collection: finance
+    tags: [pe-ratio, valuation]
+    featured: false
+    collectionItem: finance-valuation
+  - id: 52
+    title: US Yield Curve — GuruFocus
+    url: https://www.gurufocus.com/yield_curve.php
+    desc: ''
+    collection: finance
+    tags: [yield-curve]
+    featured: false
+    collectionItem: finance-earnings
+- domain: charts.checkonchain.com
+  bookmarkItem:
+  - id: 73
+    title: Check on Chain — Charts
+    url: https://charts.checkonchain.com/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+  - id: 74
+    title: HODL Waves
+    url: https://charts.checkonchain.com/btconchain/supply/hodl_waves_1/hodl_waves_1_light.html
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: coinank.com
+  bookmarkItem:
+  - id: 76
+    title: MVRV Z Score — CoinAnk
+    url: https://coinank.com/chart/indicator/mvrv-z-score
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+  - id: 77
+    title: Short Holder Amount — CoinAnk
+    url: https://coinank.com/chart/indicator/short-holder-amount
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: webb-site.com
+  bookmarkItem:
+  - id: 119
+    title: Webb-site CCASS — Stock 00003
+    url: https://webb-site.com/ccass/cholder.asp?sort=stakdn&part=1323&d=
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+  - id: 120
+    title: Webb-site CCASS — Stock 00004
+    url: https://webb-site.com/ccass/cholder.asp?sort=stakdn&part=1456&d=
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: data.eastmoney.com
+  bookmarkItem:
+  - id: 122
+    title: HK GDP (East Money)
+    url: https://data.eastmoney.com/cjsj/foreign_8_4.html
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+  - id: 134
+    title: Data Eastmoney — PPI
+    url: https://data.eastmoney.com/cjsj/ppi.html
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: devdocs.io
+  bookmarkItem:
+  - id: 157
+    title: Dev Docs
+    url: https://devdocs.io/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+  - id: 158
+    title: DevDocs — Node.js 22 LTS
+    url: https://devdocs.io/node~22_lts/cli
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: frappe.io
+  bookmarkItem:
+  - id: 164
+    title: Frappe.io Framework
+    url: https://frappe.io/framework
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+  - id: 165
+    title: ERPNext
+    url: https://frappe.io/erpnext
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: developers.weixin.qq.com
+  bookmarkItem:
+  - id: 180
+    title: WeChat Mini Program Dev Tools Download
+    url: https://developers.weixin.qq.com/miniprogram/en/dev/devtools/download.html
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+  - id: 184
+    title: WeChat Open Community
+    url: https://developers.weixin.qq.com/community/business/course/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: pizzint.watch
+  bookmarkItem:
+  - id: 358
+    title: PolyGlobe (Pizzint)
+    url: https://www.pizzint.watch/polyglobe
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-maps-geo-data
+  - id: 359
+    title: Pizzint
+    url: https://www.pizzint.watch/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-maps-geo-data
+- domain: vivaldi.com
+  bookmarkItem:
+  - id: 402
+    title: Overstock (Vivaldi)
+    url: https://vivaldi.com/bk/overstock-us-bk
+    desc: ''
+    collection: misc
+    tags: []
+    featured: false
+    review: true
+  - id: 403
+    title: GetYourGuide (Vivaldi)
+    url: https://vivaldi.com/bk/sd-getyourguide
+    desc: ''
+    collection: misc
+    tags: []
+    featured: false
+    review: true
+- domain: vercel.com
+  bookmarkItem:
+  - id: 1
+    title: A proposal for inline LLM instructions in HTML (llms.txt)
+    url: https://vercel.com/blog/a-proposal-for-inline-llm-instructions-in-html
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+- domain: llmstxt.org
+  bookmarkItem:
+  - id: 2
+    title: The /llms.txt file – llms-txt
+    url: https://llmstxt.org/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+- domain: academy.openai.com
+  bookmarkItem:
+  - id: 5
+    title: OpenAI Prompt Packs
+    url: https://academy.openai.com/public/tags/prompt-packs-6849a0f98c613939acef841c
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+- domain: playbooks.com
+  bookmarkItem:
+  - id: 6
+    title: AI Prompt Library — ChatGPT, Claude, Gemini, Grok
+    url: https://playbooks.com/prompts
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+- domain: stablediffusionweb.com
+  bookmarkItem:
+  - id: 7
+    title: Stable Diffusion Prompts
+    url: https://stablediffusionweb.com/prompts
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+- domain: iflow.cn
+  bookmarkItem:
+  - id: 9
+    title: iFlow
+    url: https://iflow.cn/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+- domain: longcat.chat
+  bookmarkItem:
+  - id: 10
+    title: LongCat
+    url: https://longcat.chat/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-llms-prompting-tools
+- domain: seobotai.com
+  bookmarkItem:
+  - id: 14
+    title: SEO Bot — Autonomous SEO AI Agents
+    url: https://seobotai.com/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-agents-automation
+- domain: blaze.ai
+  bookmarkItem:
+  - id: 15
+    title: Blaze AI — Local Business Growth
+    url: https://www.blaze.ai/persona/local-services
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-agents-automation
+- domain: midday.ai
+  bookmarkItem:
+  - id: 16
+    title: Midday AI — Invoicing, Time tracking, Financial Overview
+    url: https://midday.ai/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-agents-automation
+- domain: upscayl.org
+  bookmarkItem:
+  - id: 18
+    title: Upscayl — AI Image Upscaler
+    url: https://upscayl.org/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+- domain: dreamina.capcut.com
+  bookmarkItem:
+  - id: 19
+    title: Dreamina (CapCut)
+    url: https://dreamina.capcut.com/ai-tool/home/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+- domain: krea.ai
+  bookmarkItem:
+  - id: 20
+    title: Krea AI
+    url: https://www.krea.ai/pricing
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+- domain: pika.art
+  bookmarkItem:
+  - id: 21
+    title: Pika — AI Video
+    url: https://pika.art/login
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+- domain: jimeng.jianying.com
+  bookmarkItem:
+  - id: 22
+    title: Jianying (即梦)
+    url: https://jimeng.jianying.com/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+- domain: stills.com
+  bookmarkItem:
+  - id: 23
+    title: Stills — Stock Image Licensing
+    url: https://www.stills.com/stock-images
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+- domain: refern.app
+  bookmarkItem:
+  - id: 24
+    title: Refern — Image Reference Platform
+    url: https://www.refern.app/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-generative-media-image-video
+- domain: replicate.com
+  bookmarkItem:
+  - id: 26
+    title: Replicate — Run AI with an API
+    url: https://replicate.com/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-models-platforms
+- domain: skywork.ai
+  bookmarkItem:
+  - id: 27
+    title: Skywork
+    url: https://skywork.ai/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-models-platforms
+- domain: stepfun.ai
+  bookmarkItem:
+  - id: 28
+    title: Stepfun
+    url: https://stepfun.ai/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-models-platforms
+- domain: tenbin.ai
+  bookmarkItem:
+  - id: 29
+    title: 天秤AI byGMO
+    url: https://tenbin.ai/workspace/welcome
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-models-platforms
+- domain: aibase.com
+  bookmarkItem:
+  - id: 30
+    title: AIbase (TW)
+    url: https://www.aibase.com/tw
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-models-platforms
+- domain: ai-bot.cn
+  bookmarkItem:
+  - id: 31
+    title: AI-Bot.cn
+    url: https://ai-bot.cn/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-models-platforms
+- domain: thysrael.github.io
+  bookmarkItem:
+  - id: 32
+    title: AI News Aggregator
+    url: https://thysrael.github.io/Horizon/2026/02/28/summary-zh.html
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-models-platforms
+- domain: tabnine.com
+  bookmarkItem:
+  - id: 33
+    title: Tabnine — AI Code Assistant
+    url: https://www.tabnine.com/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+- domain: soloist.ai
+  bookmarkItem:
+  - id: 34
+    title: Solo — Free AI Website Creator
+    url: https://soloist.ai/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+- domain: kombai.com
+  bookmarkItem:
+  - id: 35
+    title: Kombai — UI to Code
+    url: https://kombai.com/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+- domain: locofy.ai
+  bookmarkItem:
+  - id: 36
+    title: Locofy — Design to Code
+    url: https://www.locofy.ai/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+- domain: learn.duotify.com
+  bookmarkItem:
+  - id: 37
+    title: GitHub Copilot 全方位實戰 (Course)
+    url: https://learn.duotify.com/courses/gh-copilot-all
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+- domain: gokite.ai
+  bookmarkItem:
+  - id: 39
+    title: Kite
+    url: https://gokite.ai/
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+- domain: webbsite.0xmd.com
+  bookmarkItem:
+  - id: 40
+    title: Webbsite — CCASS tool
+    url: https://webbsite.0xmd.com/ccass/chldchg.asp?sort=chngdn&i=424&sc=&d1=2025-09-04&d=2025-12-05
+    desc: ''
+    collection: ai
+    tags: []
+    featured: false
+    collectionItem: ai-ai-coding-dev-tools
+- domain: stockanalysis.com
+  bookmarkItem:
+  - id: 41
+    title: Stock Analysis
+    url: https://stockanalysis.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: app.koyfin.com
+  bookmarkItem:
+  - id: 43
+    title: Koyfin Overview
+    url: https://app.koyfin.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: openbb.co
+  bookmarkItem:
+  - id: 44
+    title: OpenBB
+    url: https://openbb.co/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: earningshub.com
+  bookmarkItem:
+  - id: 45
+    title: Earnings Hub — Earnings Calendar
+    url: https://earningshub.com/earnings-calendar/this-week
+    desc: ''
+    collection: finance
+    tags: [earnings-calendar]
+    featured: false
+    collectionItem: finance-earnings
+- domain: unusualwhales.com
+  bookmarkItem:
+  - id: 46
+    title: Unusual Whale
+    url: https://unusualwhales.com/information
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: barchart.com
+  bookmarkItem:
+  - id: 47
+    title: Barchart — Gamma Exposure
+    url: https://www.barchart.com/stocks/quotes/ADBE/gamma-exposure
+    desc: ''
+    collection: finance
+    tags: [options, derivatives]
+    featured: false
+    collectionItem: finance-options-derivatives
+- domain: squeezemetrics.com
+  bookmarkItem:
+  - id: 48
+    title: sqzme / SqueezeMetrics
+    url: https://squeezemetrics.com/monitor
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: multpl.com
+  bookmarkItem:
+  - id: 51
+    title: Multpl — S&P 500 PE Ratio
+    url: https://www.multpl.com/s-p-500-pe-ratio
+    desc: ''
+    collection: finance
+    tags: [pe-ratio, valuation]
+    featured: false
+    collectionItem: finance-valuation
+- domain: assetmarketcap.com
+  bookmarkItem:
+  - id: 53
+    title: Asset Market Cap
+    url: https://assetmarketcap.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: platform.worldquantbrain.com
+  bookmarkItem:
+  - id: 54
+    title: WorldQuant BRAIN
+    url: https://platform.worldquantbrain.com/sign-in
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: quiverquant.com
+  bookmarkItem:
+  - id: 55
+    title: Quiver Quantitative
+    url: https://www.quiverquant.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: dilutiontracker.com
+  bookmarkItem:
+  - id: 56
+    title: Dilution Tracker
+    url: https://dilutiontracker.com/app/
+    desc: ''
+    collection: finance
+    tags: [insider-trading]
+    featured: false
+    collectionItem: finance-insider-trading
+- domain: chartexchange.com
+  bookmarkItem:
+  - id: 57
+    title: Chart Exchange
+    url: https://chartexchange.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: relativerotationgraphs.com
+  bookmarkItem:
+  - id: 58
+    title: Relative Rotation Graphs
+    url: https://relativerotationgraphs.com/login/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: secform4.com
+  bookmarkItem:
+  - id: 59
+    title: Sec Form 4 — Insider Trades
+    url: https://www.secform4.com/
+    desc: ''
+    collection: finance
+    tags: [insider-trading]
+    featured: false
+    collectionItem: finance-insider-trading
+- domain: congress.gov
+  bookmarkItem:
+  - id: 60
+    title: US Congress — Most Viewed Bills
+    url: https://www.congress.gov/most-viewed-bills
+    desc: ''
+    collection: finance
+    tags: [politics]
+    featured: false
+    collectionItem: finance-politics
+- domain: fastbull.com
+  bookmarkItem:
+  - id: 61
+    title: Fastbull (TW)
+    url: https://www.fastbull.com/tw/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: polymarket.com
+  bookmarkItem:
+  - id: 62
+    title: Polymarket — 2026 House Election
+    url: https://polymarket.com/event/which-party-will-win-the-house-in-2026
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: vocus.cc
+  bookmarkItem:
+  - id: 63
+    title: 好用投資工具網站分享 (2024)
+    url: https://vocus.cc/article/65d83f7ffd89780001d4f385
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: toolfolio.io
+  bookmarkItem:
+  - id: 64
+    title: Toolfolio
+    url: https://toolfolio.io/ogfolio
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-market-data-tools
+- domain: zerohedge.com
+  bookmarkItem:
+  - id: 66
+    title: Zerohedge
+    url: https://www.zerohedge.com/
+    desc: ''
+    collection: finance
+    tags: [news]
+    featured: false
+    collectionItem: finance-news
+- domain: kingworldnews.com
+  bookmarkItem:
+  - id: 67
+    title: King World News
+    url: https://kingworldnews.com/
+    desc: ''
+    collection: finance
+    tags: [news]
+    featured: false
+    collectionItem: finance-news
+- domain: tradingview.com
+  bookmarkItem:
+  - id: 68
+    title: Implied Volatility Suite (TradingView)
+    url: https://www.tradingview.com/script/E8zeTYik-Implied-Volatility-Suite/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-options-derivatives
+- domain: deribit.com
+  bookmarkItem:
+  - id: 69
+    title: BTC DVOL — Deribit Volatility Index
+    url: https://www.deribit.com/statistics/BTC/volatility-index
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-options-derivatives
+- domain: btcsellput.com
+  bookmarkItem:
+  - id: 70
+    title: BTC Sell Put
+    url: http://btcsellput.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-options-derivatives
+- domain: hkoptionclass.com.hk
+  bookmarkItem:
+  - id: 71
+    title: 期權循環圖 — HKOptionClass
+    url: https://www.hkoptionclass.com.hk/cycleoptionpic
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-options-derivatives
+- domain: creditspreadalert.com
+  bookmarkItem:
+  - id: 72
+    title: Credit Spread Alert
+    url: https://www.creditspreadalert.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-options-derivatives
+- domain: ultrasound.money
+  bookmarkItem:
+  - id: 75
+    title: Ultra Sound Money — ETH
+    url: https://ultrasound.money/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: coinkarma.co
+  bookmarkItem:
+  - id: 78
+    title: CoinKarma
+    url: https://www.coinkarma.co/chart
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: bitinfocharts.com
+  bookmarkItem:
+  - id: 79
+    title: BitInfoCharts — Bitcoin
+    url: https://bitinfocharts.com/bitcoin/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: bitcointreasuries.net
+  bookmarkItem:
+  - id: 80
+    title: Bitcoin Treasuries
+    url: https://bitcointreasuries.net/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: charts.bgeometrics.com
+  bookmarkItem:
+  - id: 81
+    title: B Geometrics — Realized P&L Ratio
+    url: https://charts.bgeometrics.com/realized_profit_loss_ratio.html
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: hyperdash.info
+  bookmarkItem:
+  - id: 82
+    title: Hyperdash — Liquidation Map
+    url: https://hyperdash.info/liqmap
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: sosovalue.com
+  bookmarkItem:
+  - id: 83
+    title: Soso Value
+    url: https://sosovalue.com/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: validatorqueue.com
+  bookmarkItem:
+  - id: 84
+    title: ETH Validator Queue
+    url: https://www.validatorqueue.com/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: app.rwa.xyz
+  bookmarkItem:
+  - id: 85
+    title: RWA.xyz
+    url: https://app.rwa.xyz/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: miningpoolstats.stream
+  bookmarkItem:
+  - id: 86
+    title: Bitcoin Mining Pools
+    url: https://miningpoolstats.stream/bitcoin
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: newhedge.io
+  bookmarkItem:
+  - id: 87
+    title: BTC–US Equities Correlation — NewHedge
+    url: https://newhedge.io/bitcoin/us-equities-correlation
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: ether.fi
+  bookmarkItem:
+  - id: 88
+    title: EtherFi — Cash Membership
+    url: https://www.ether.fi/app/cash/my-membership
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: onboarding.lens.xyz
+  bookmarkItem:
+  - id: 89
+    title: Lens — Web3 Social
+    url: https://onboarding.lens.xyz/explore
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-on-chain-analytics
+- domain: medium.com
+  bookmarkItem:
+  - id: 93
+    title: Top 10 AI-Powered Crypto Trading GitHub Repos (Medium)
+    url: https://medium.com/@gwrx2005/top-10-ai-powered-crypto-trading-repositories-on-github-0041862546b6
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-trading-bots-apis
+- domain: alpaca.markets
+  bookmarkItem:
+  - id: 94
+    title: Alpaca — Algorithmic Trading API
+    url: https://alpaca.markets/algotrading
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-trading-bots-apis
+- domain: research.binance.com
+  bookmarkItem:
+  - id: 95
+    title: Crypto Data Tools — Binance Research (PDF)
+    url: https://research.binance.com/static/pdf/crypto-data-tools-what-you-need-to-know.pdf
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-trading-bots-apis
+- domain: rootdata.com
+  bookmarkItem:
+  - id: 96
+    title: RootData — Crypto Project Discovery
+    url: https://www.rootdata.com/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-projects-news
+- domain: theblockbeats.info
+  bookmarkItem:
+  - id: 97
+    title: BlockBeats — Blockchain News
+    url: https://www.theblockbeats.info/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-projects-news
+- domain: blocktempo.com
+  bookmarkItem:
+  - id: 98
+    title: BlockTempo — 動區動趨
+    url: https://www.blocktempo.com/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-projects-news
+- domain: moneysmart.hk
+  bookmarkItem:
+  - id: 99
+    title: OSL Exchange — HK Account
+    url: https://www.moneysmart.hk/zh-hk/online-brokerage/osl-digital-securities-account
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-projects-news
+- domain: collectorcrypt.com
+  bookmarkItem:
+  - id: 100
+    title: Collector Crypt — Digital Collectibles
+    url: https://collectorcrypt.com/
+    desc: ''
+    collection: crypto
+    tags: []
+    featured: false
+    collectionItem: crypto-projects-news
+- domain: goldprice.org
+  bookmarkItem:
+  - id: 101
+    title: Gold Price
+    url: https://goldprice.org/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-precious-metals
+- domain: macromicro.me
+  bookmarkItem:
+  - id: 102
+    title: Real Interest Rate vs Gold — MacroMicro
+    url: https://www.macromicro.me/charts/724/3month-bond-real-yield-gold-price
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-precious-metals
+- domain: metalcharts.org
+  bookmarkItem:
+  - id: 103
+    title: MetalCharts
+    url: https://metalcharts.org/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-precious-metals
+- domain: apmex.com
+  bookmarkItem:
+  - id: 104
+    title: APMEX — 1oz Silver Buffalo
+    url: https://www.apmex.com/product/44447/1-oz-silver-round-buffalo
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-precious-metals
+- domain: sdbullion.com
+  bookmarkItem:
+  - id: 105
+    title: SD Bullion — 2026 Silver Eagle
+    url: https://sdbullion.com/2026-1-oz-american-silver-eagle-coin-bu
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-precious-metals
+- domain: goldbar.com.hk
+  bookmarkItem:
+  - id: 106
+    title: GoldBar HK
+    url: https://www.goldbar.com.hk/?m=products&c=view&pid=84
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-precious-metals
+- domain: amazon.co.uk
+  bookmarkItem:
+  - id: 107
+    title: Amazon — Silver Round
+    url: https://www.amazon.co.uk/Second-Amendment-Right-Silver-Round/dp/B084732WRB
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-precious-metals
+- domain: property.hk
+  bookmarkItem:
+  - id: 108
+    title: Property HK Blog
+    url: https://www.property.hk/article/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-real-estate
+- domain: hkdata.centanet.com
+  bookmarkItem:
+  - id: 109
+    title: 中原樓市大數據 — 香港十八區
+    url: https://hkdata.centanet.com/BigData/%E9%A6%99%E6%B8%AF?field=WP_ER
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-real-estate
+- domain: creprice.cn
+  bookmarkItem:
+  - id: 110
+    title: Creprice — China Commercial Real Estate
+    url: https://www.creprice.cn/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-real-estate
+- domain: worlddata.info
+  bookmarkItem:
+  - id: 111
+    title: Cost of Living — World Data
+    url: https://www.worlddata.info/cost-of-living.php
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-real-estate
+- domain: etnet.com.hk
+  bookmarkItem:
+  - id: 115
+    title: Etnet — HK Stocks
+    url: https://www.etnet.com.hk/www/tc/stocks/ci_act_placing.php
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: finet.hk
+  bookmarkItem:
+  - id: 116
+    title: Finet HK
+    url: https://www.finet.hk/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: hkfdbinfo.wixsite.com
+  bookmarkItem:
+  - id: 117
+    title: HKFDB — Component Data
+    url: https://hkfdbinfo.wixsite.com/hkfdb/component-data
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: stoctaverse.com
+  bookmarkItem:
+  - id: 118
+    title: HK Participants — Stoctaverse
+    url: https://stoctaverse.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: quote.eastmoney.com
+  bookmarkItem:
+  - id: 121
+    title: East Money — Silver Futures
+    url: https://quote.eastmoney.com/qihuo/ag2602.html
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: wglh.com
+  bookmarkItem:
+  - id: 123
+    title: 乌龟量化 — 估值數據
+    url: https://wglh.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: ictnlife.com
+  bookmarkItem:
+  - id: 124
+    title: 交易生活
+    url: https://ictnlife.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: hkptrc.thinkific.com
+  bookmarkItem:
+  - id: 125
+    title: Hong Kong Program Trading Research Centre
+    url: https://hkptrc.thinkific.com/enrollments
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: hkgx.com.hk
+  bookmarkItem:
+  - id: 126
+    title: HKGX — Approved Courses
+    url: https://hkgx.com.hk/hk/registration/Approved%20Courses
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: forexfactory.com
+  bookmarkItem:
+  - id: 127
+    title: Forex Factory — Calendar
+    url: https://www.forexfactory.com/calendar
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: chinamoney.org.cn
+  bookmarkItem:
+  - id: 128
+    title: China Money — RMB FX Index
+    url: https://www.chinamoney.org.cn/chinese/bkrmbidx/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-forex-currancy
+- domain: chinamoney.com.cn
+  bookmarkItem:
+  - id: 129
+    title: 人民幣匯率 (chinamoney.com.cn)
+    url: https://www.chinamoney.com.cn/chinese/bkrmbidx/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-forex-currancy
+- domain: stats.gov.cn
+  bookmarkItem:
+  - id: 130
+    title: Stats Gov CN
+    url: https://www.stats.gov.cn/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: data.stats.gov.cn
+  bookmarkItem:
+  - id: 131
+    title: Data Stats Gov CN — Search
+    url: https://data.stats.gov.cn/search.htm
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: pbc.gov.cn
+  bookmarkItem:
+  - id: 132
+    title: PBC — Survey & Statistics
+    url: http://www.pbc.gov.cn/diaochatongjisi/116219/116319/4780803/index.html
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: tushare.org
+  bookmarkItem:
+  - id: 133
+    title: Tushare — China Financial Data API
+    url: http://tushare.org/bak.html
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: gdp.gotohui.com
+  bookmarkItem:
+  - id: 135
+    title: Gotohui — GDP
+    url: https://gdp.gotohui.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: fx678.com
+  bookmarkItem:
+  - id: 136
+    title: FX678 — Forex News
+    url: https://www.fx678.com/kx
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: en.wikipedia.org
+  bookmarkItem:
+  - id: 137
+    title: Benner Cycle (Wikipedia)
+    url: https://en.wikipedia.org/wiki/Benner_Cycle
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: tradingster.com
+  bookmarkItem:
+  - id: 138
+    title: Yen Short Position / Carry Trade (COT)
+    url: https://www.tradingster.com/cot/legacy-futures/097741
+    desc: ''
+    collection: finance
+    tags: [yen, position, carry-trade]
+    featured: false
+    collectionItem: finance-sentiment-analysis
+- domain: search.caixin.com
+  bookmarkItem:
+  - id: 140
+    title: Caixin — Search
+    url: https://search.caixin.com/newsearch/caixinsearch
+    desc: ''
+    collection: finance
+    tags: [news]
+    featured: false
+    collectionItem: finance-news
+- domain: tradingterminal.com
+  bookmarkItem:
+  - id: 141
+    title: Trading Terminal — Calendar
+    url: https://tradingterminal.com/calendar
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: longtermtrends.com
+  bookmarkItem:
+  - id: 142
+    title: Long Term Trends — Weekly Macro Report
+    url: https://www.longtermtrends.com/weekly-macro-report/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: daytrading.com
+  bookmarkItem:
+  - id: 143
+    title: Day Trading Guide 2025
+    url: https://www.daytrading.com/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-archive
+- domain: reddit.com
+  bookmarkItem:
+  - id: 144
+    title: Daytrading @ Reddit
+    url: https://www.reddit.com/r/Daytrading/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-archive
+- domain: stock.us
+  bookmarkItem:
+  - id: 145
+    title: 滬深公司公告
+    url: https://stock.us/hk/filing/cn
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+- domain: mtor.club
+  bookmarkItem:
+  - id: 146
+    title: mTor Club
+    url: https://mtor.club/
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+- domain: hello-algo.com
+  bookmarkItem:
+  - id: 147
+    title: Hello Algo — Data Structures & Algorithms
+    url: https://www.hello-algo.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: zh.javascript.info
+  bookmarkItem:
+  - id: 148
+    title: JavaScript Info (ZH)
+    url: https://zh.javascript.info/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: realpython.com
+  bookmarkItem:
+  - id: 150
+    title: Real Python — Pythonic Code Learning Path
+    url: https://realpython.com/learning-paths/writing-pythonic-code/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: liaoxuefeng.com
+  bookmarkItem:
+  - id: 151
+    title: 廖雪峰 Python Tutorial
+    url: https://liaoxuefeng.com/books/python/oop/access/index.html
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: boot.dev
+  bookmarkItem:
+  - id: 152
+    title: Boot.dev — Learn Linux
+    url: https://www.boot.dev/courses/learn-linux
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: roadmap.sh
+  bookmarkItem:
+  - id: 153
+    title: Roadmap.sh — Linux
+    url: https://roadmap.sh/linux
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: udemy.com
+  bookmarkItem:
+  - id: 154
+    title: Stephen Grider — Udemy
+    url: https://www.udemy.com/user/sgslo/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: vanilla-js.com
+  bookmarkItem:
+  - id: 156
+    title: Vanilla JS
+    url: http://vanilla-js.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: csdn.net
+  bookmarkItem:
+  - id: 159
+    title: CSDN
+    url: https://www.csdn.net/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: playwright.itest.info
+  bookmarkItem:
+  - id: 160
+    title: Playwright Tutorial — Video Testing Framework
+    url: https://playwright.itest.info/tags/video/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-learning-courses
+- domain: nextjsstarter.com
+  bookmarkItem:
+  - id: 162
+    title: All Next.js Starters & Boilerplates
+    url: https://nextjsstarter.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: halo.run
+  bookmarkItem:
+  - id: 163
+    title: Halo — Open Source CMS
+    url: https://www.halo.run/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: tailark.com
+  bookmarkItem:
+  - id: 166
+    title: Tailark — Tailwind UI
+    url: https://tailark.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: webstudio.is
+  bookmarkItem:
+  - id: 167
+    title: Web Studio
+    url: https://webstudio.is/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: designer.tesslate.com
+  bookmarkItem:
+  - id: 168
+    title: Tesslate Designer
+    url: https://designer.tesslate.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: blaze.vercel.app
+  bookmarkItem:
+  - id: 169
+    title: Blaze (Vercel)
+    url: https://blaze.vercel.app/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: functorz.com
+  bookmarkItem:
+  - id: 170
+    title: Zion — Functorz
+    url: https://www.functorz.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: d2lang.com
+  bookmarkItem:
+  - id: 171
+    title: D2 — Diagram Language
+    url: https://d2lang.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: jazz.tools
+  bookmarkItem:
+  - id: 172
+    title: Jazz Tools
+    url: https://jazz.tools/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-javascript-web-dev
+- domain: developer.android.com
+  bookmarkItem:
+  - id: 173
+    title: Android Basics with Compose — Google
+    url: https://developer.android.com/courses/android-basics-compose/course
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: play.kotlinlang.org
+  bookmarkItem:
+  - id: 174
+    title: Kotlin Koans
+    url: https://play.kotlinlang.org/koans/overview
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: jetpackcompose.net
+  bookmarkItem:
+  - id: 175
+    title: Jetpack Compose Introduction
+    url: https://www.jetpackcompose.net/buttons-in-jetpack-compose
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: composables.com
+  bookmarkItem:
+  - id: 176
+    title: Composables
+    url: https://composables.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: happycoding.io
+  bookmarkItem:
+  - id: 177
+    title: Happy Coding — Android Layouts
+    url: https://happycoding.io/tutorials/android/layouts
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: codingwithmitch.com
+  bookmarkItem:
+  - id: 179
+    title: CodingWithMitch
+    url: https://codingwithmitch.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: mp.weixin.qq.com
+  bookmarkItem:
+  - id: 181
+    title: WeChat Mini Program Portal
+    url: https://mp.weixin.qq.com/wxamp/home/guide
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: play.google.com
+  bookmarkItem:
+  - id: 182
+    title: Google Play Console — Dev Account Signup
+    url: https://play.google.com/console/u/0/signup
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: playacademy.withgoogle.com
+  bookmarkItem:
+  - id: 183
+    title: Google Play Academy Certificate
+    url: https://playacademy.withgoogle.com/certificate/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-android-mobile
+- domain: trendshift.io
+  bookmarkItem:
+  - id: 192
+    title: TrendShift
+    url: https://trendshift.io/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: runacap.com
+  bookmarkItem:
+  - id: 193
+    title: ROSS Index — Runacap
+    url: https://runacap.com/ross-index/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: openalternative.co
+  bookmarkItem:
+  - id: 194
+    title: Open Source Alternatives (openalternative.co)
+    url: https://openalternative.co/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: opensourcealternative.to
+  bookmarkItem:
+  - id: 195
+    title: OP Alternative
+    url: https://opensourcealternative.to/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: rapidapi.com
+  bookmarkItem:
+  - id: 197
+    title: RapidAPI Hub
+    url: https://rapidapi.com/hub
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: openapis.org
+  bookmarkItem:
+  - id: 198
+    title: OpenAPI Initiative
+    url: https://www.openapis.org/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: mlabonne.github.io
+  bookmarkItem:
+  - id: 200
+    title: MLabonne Blog (ML)
+    url: https://mlabonne.github.io/blog/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: datawhalechina.github.io
+  bookmarkItem:
+  - id: 201
+    title: Happy-LLM (Datawhale)
+    url: https://datawhalechina.github.io/happy-llm/#/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: ossinsight.io
+  bookmarkItem:
+  - id: 202
+    title: OSS Insight Collections
+    url: https://ossinsight.io/explore/collections
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: paradigm.xyz
+  bookmarkItem:
+  - id: 204
+    title: Paradigm OSS
+    url: https://www.paradigm.xyz/oss
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: landscape.cncf.io
+  bookmarkItem:
+  - id: 205
+    title: CNCF Landscape
+    url: https://landscape.cncf.io/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: free-for.dev
+  bookmarkItem:
+  - id: 207
+    title: Free for Developers
+    url: https://free-for.dev/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: docs.oracle.com
+  bookmarkItem:
+  - id: 208
+    title: Always Free Oracle Cloud Resources
+    url: https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: devhunt.org
+  bookmarkItem:
+  - id: 210
+    title: Dev Hunt — New Dev Tools Daily
+    url: https://devhunt.org/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: dev.to
+  bookmarkItem:
+  - id: 211
+    title: Dev.to
+    url: https://dev.to/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: kaggle.com
+  bookmarkItem:
+  - id: 212
+    title: Kaggle
+    url: https://www.kaggle.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: arxiv.org
+  bookmarkItem:
+  - id: 213
+    title: Arxiv
+    url: https://arxiv.org/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: toscrape.com
+  bookmarkItem:
+  - id: 214
+    title: Scraping Sandbox — toscrape.com
+    url: https://toscrape.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: blog.cashwu.com
+  bookmarkItem:
+  - id: 217
+    title: Cash Wu — GitHub Spec-Kit
+    url: https://blog.cashwu.com/blog/2025/github-spec-kit-first-experience
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: learn-anything.xyz
+  bookmarkItem:
+  - id: 218
+    title: Learn Anything
+    url: https://learn-anything.xyz/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-open-source-apis
+- domain: anthropic.com
+  bookmarkItem:
+  - id: 219
+    title: Anthropic News
+    url: https://www.anthropic.com/news
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-tech-blogs
+- domain: cybersecuritynews.com
+  bookmarkItem:
+  - id: 220
+    title: Cybersecurity News
+    url: https://cybersecuritynews.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-tech-blogs
+- domain: ai.meta.com
+  bookmarkItem:
+  - id: 235
+    title: SAM 3D (Meta AI)
+    url: https://ai.meta.com/sam3d/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-development-tools
+- domain: a2ui.org
+  bookmarkItem:
+  - id: 236
+    title: a2ui
+    url: https://a2ui.org/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-development-tools
+- domain: blade-components.com
+  bookmarkItem:
+  - id: 237
+    title: Blade Components
+    url: https://blade-components.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-development-tools
+- domain: pdfdrive.webs.nf
+  bookmarkItem:
+  - id: 238
+    title: PDF Drive
+    url: https://pdfdrive.webs.nf/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-development-tools
+- domain: 5sim.net
+  bookmarkItem:
+  - id: 239
+    title: 5sim (SMS Verification)
+    url: https://5sim.net/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-development-tools
+- domain: zulip.com
+  bookmarkItem:
+  - id: 240
+    title: Zulip
+    url: https://zulip.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-development-tools
+- domain: linuxjourney.com
+  bookmarkItem:
+  - id: 241
+    title: Linux Journey
+    url: https://linuxjourney.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: linux.vbird.org
+  bookmarkItem:
+  - id: 242
+    title: Linux Bird (鳥哥)
+    url: https://linux.vbird.org/linux_basic/centos7/0110whatislinux.php
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: runoob.com
+  bookmarkItem:
+  - id: 243
+    title: Runoob — Linux Remote Login
+    url: https://www.runoob.com/linux/linux-remote-login.html
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: labex.io
+  bookmarkItem:
+  - id: 244
+    title: Labex — Linux Journey
+    url: https://labex.io/linuxjourney
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: unraid.net
+  bookmarkItem:
+  - id: 248
+    title: Unraid
+    url: https://unraid.net/product
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: nextcloud.com
+  bookmarkItem:
+  - id: 249
+    title: NextCloud
+    url: https://nextcloud.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: filen.io
+  bookmarkItem:
+  - id: 250
+    title: Filen — E2E Encrypted Cloud Storage
+    url: https://filen.io/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: winutil.christitus.com
+  bookmarkItem:
+  - id: 251
+    title: Winutil Documentation
+    url: https://winutil.christitus.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: localwp.com
+  bookmarkItem:
+  - id: 252
+    title: LocalWP — Local WordPress Dev
+    url: https://localwp.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: joesandbox.com
+  bookmarkItem:
+  - id: 253
+    title: Joe Sandbox — Automated Malware Analysis
+    url: https://www.joesandbox.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-linux-infrastructure
+- domain: developers.google.com
+  bookmarkItem:
+  - id: 254
+    title: Google Search Central — Outbound Link SEO
+    url: https://developers.google.com/search/docs/crawling-indexing/qualify-outbound-links
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: validator.schema.org
+  bookmarkItem:
+  - id: 255
+    title: Schema.org Structured Data Validator
+    url: https://validator.schema.org/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: rankmath.com
+  bookmarkItem:
+  - id: 256
+    title: Rank Math — Yoast Alternative
+    url: https://rankmath.com/yoast-alternative/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: my.yoast.com
+  bookmarkItem:
+  - id: 257
+    title: MyYoast Login
+    url: https://my.yoast.com/login
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: seo.dns.com.tw
+  bookmarkItem:
+  - id: 258
+    title: SEO Research Institute (TW)
+    url: https://seo.dns.com.tw/archives/category/website-optimization
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: welly.hk
+  bookmarkItem:
+  - id: 259
+    title: Welly SEO — 法律010
+    url: https://welly.hk/clients/laws010
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: hype4academy.gumroad.com
+  bookmarkItem:
+  - id: 260
+    title: No Bullshit Guide to UX 2025 (eBook)
+    url: https://hype4academy.gumroad.com/l/guidetoux
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: playboard.co
+  bookmarkItem:
+  - id: 261
+    title: Playboard — YouTube Analytics
+    url: https://playboard.co/en/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: foreplay.co
+  bookmarkItem:
+  - id: 262
+    title: Foreplay — Ad Workflow & Ad Library
+    url: https://www.foreplay.co/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: mblm.com
+  bookmarkItem:
+  - id: 263
+    title: Brand Intimacy Study — MBLM
+    url: https://mblm.com/lab/brandintimacy-study/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: growth.design
+  bookmarkItem:
+  - id: 264
+    title: Growth Design
+    url: https://growth.design/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: shipfa.st
+  bookmarkItem:
+  - id: 265
+    title: ShipFast — Launch Startup Boilerplate
+    url: https://shipfa.st/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: dirstarter.com
+  bookmarkItem:
+  - id: 266
+    title: Dirstarter — Directory Website
+    url: https://dirstarter.com/
+    desc: ''
+    collection: dev
+    tags: []
+    featured: false
+    collectionItem: dev-seo-web-optimization
+- domain: siteinspire.com
+  bookmarkItem:
+  - id: 267
+    title: Siteinspire — Web Design Showcase
+    url: https://www.siteinspire.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: httpster.net
+  bookmarkItem:
+  - id: 268
+    title: Httpster — Website Design Inspiration
+    url: https://httpster.net/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: cnu.cc
+  bookmarkItem:
+  - id: 269
+    title: CNU视觉联盟
+    url: http://www.cnu.cc/selectedPage
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: are.na
+  bookmarkItem:
+  - id: 270
+    title: Are.na — Explore
+    url: https://www.are.na/explore
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: cosmos.so
+  bookmarkItem:
+  - id: 271
+    title: Cosmos
+    url: https://www.cosmos.so/home
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: same.energy
+  bookmarkItem:
+  - id: 272
+    title: Same Energy
+    url: https://same.energy/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: ordinaryfolk.co
+  bookmarkItem:
+  - id: 273
+    title: Ordinary Folk
+    url: https://www.ordinaryfolk.co/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: thiings.co
+  bookmarkItem:
+  - id: 274
+    title: The Thiings Collection
+    url: https://www.thiings.co/things
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: docs.lovable.dev
+  bookmarkItem:
+  - id: 275
+    title: Lovable Docs — Inspiration
+    url: https://docs.lovable.dev/use-case/inspiration
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: labnol.org
+  bookmarkItem:
+  - id: 276
+    title: Digital Inspiration — Tech How-Tos
+    url: https://www.labnol.org/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: streetsofzine.com
+  bookmarkItem:
+  - id: 277
+    title: StreetsOfZine
+    url: https://streetsofzine.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: moma.org
+  bookmarkItem:
+  - id: 278
+    title: MoMA — Postcard Exhibition
+    url: https://www.moma.org/calendar/exhibitions/5618
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: rxsy.net
+  bookmarkItem:
+  - id: 279
+    title: Photography — 大胆构图
+    url: http://www.rxsy.net/2024/04/between-you-and-sea/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: artsopolis.vercel.app
+  bookmarkItem:
+  - id: 280
+    title: Command Palette (Artsopolis)
+    url: https://artsopolis.vercel.app/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-visual-inspiration
+- domain: heroui.com
+  bookmarkItem:
+  - id: 281
+    title: HeroUI
+    url: https://www.heroui.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: magicui.design
+  bookmarkItem:
+  - id: 282
+    title: Magic UI
+    url: https://magicui.design/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: subframe.com
+  bookmarkItem:
+  - id: 283
+    title: Subframe
+    url: https://subframe.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: bg.ibelick.com
+  bookmarkItem:
+  - id: 284
+    title: iBelick — Backgrounds
+    url: https://bg.ibelick.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: hypermatic.com
+  bookmarkItem:
+  - id: 285
+    title: Hypermatic — Figma Plugins
+    url: https://www.hypermatic.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: designsystem.digital.gov
+  bookmarkItem:
+  - id: 286
+    title: U.S. Web Design System — Design Principles
+    url: https://designsystem.digital.gov/design-principles/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: uploads-ssl.webflow.com
+  bookmarkItem:
+  - id: 287
+    title: Brand Design Checklist (PDF)
+    url: https://uploads-ssl.webflow.com/61c5dfc8cb9ad62204867ed7/624894a4d8ca8b2e6d8092f7_%E5%93%81%E7%89%8C%E8%A8%AD%E8%A8%88%E8%B6%85%E5%AF%A6%E4%BD%9C%E6%B8%85%E5%96%AE.pdf
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: growthdesignkit.growmodo.com
+  bookmarkItem:
+  - id: 288
+    title: Growth Design Kit
+    url: https://growthdesignkit.growmodo.com/gdk-lp26
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: techinsights.com
+  bookmarkItem:
+  - id: 289
+    title: TechInsights — Semiconductor Platform
+    url: https://www.techinsights.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-design-systems-ui-kits
+- domain: growthmarketer.academy
+  bookmarkItem:
+  - id: 290
+    title: Growth Hacker Tools — 100 Tools List
+    url: https://www.growthmarketer.academy/en-hk/blog/growth-hacking
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-growth-marketing
+- domain: aceinterface.gumroad.com
+  bookmarkItem:
+  - id: 291
+    title: No-Nonsense UX Framework eBook
+    url: https://aceinterface.gumroad.com/l/doEGx
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-growth-marketing
+- domain: hububble.co
+  bookmarkItem:
+  - id: 292
+    title: HubSpot / Digital Marketing — Hububble
+    url: https://www.hububble.co/blog
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-growth-marketing
+- domain: progressier.com
+  bookmarkItem:
+  - id: 293
+    title: No-Code PWA & Web Push — Progressier
+    url: https://progressier.com/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-growth-marketing
+- domain: openstreetmap.org
+  bookmarkItem:
+  - id: 294
+    title: OpenStreetMap
+    url: https://www.openstreetmap.org/
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-growth-marketing
+- domain: news.ycombinator.com
+  bookmarkItem:
+  - id: 295
+    title: Hacker News
+    url: https://news.ycombinator.com/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: blog.darklab.hk
+  bookmarkItem:
+  - id: 297
+    title: Dark Lab — Negative SEO in Asia
+    url: https://blog.darklab.hk/2025/07/10/the-dark-side-of-seo-negative-seo-attacks-targeting-businesses-in-asia/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: forums.feedspot.com
+  bookmarkItem:
+  - id: 298
+    title: Top 25 Hacking Forums (Feedspot)
+    url: https://forums.feedspot.com/hacking_forums/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: cyble.com
+  bookmarkItem:
+  - id: 299
+    title: Top 10 Dark Web Forums 2025 (Cyble)
+    url: https://cyble.com/knowledge-hub/top-10-dark-web-forums/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: tryhackme.com
+  bookmarkItem:
+  - id: 300
+    title: TryHackMe — Offensive Security Intro
+    url: https://tryhackme.com/room/offensivesecurityintro
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: cyberflow-academy.framer.website
+  bookmarkItem:
+  - id: 301
+    title: CyberFlow Academy
+    url: https://cyberflow-academy.framer.website/courses
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: pchome.net
+  bookmarkItem:
+  - id: 302
+    title: PCHome — Taiwan Tech News
+    url: https://www.pchome.net/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: free.com.tw
+  bookmarkItem:
+  - id: 303
+    title: Free TW
+    url: https://free.com.tw/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-tech-security
+- domain: foreignaffairs.com
+  bookmarkItem:
+  - id: 304
+    title: Foreign Affairs Magazine
+    url: https://www.foreignaffairs.com/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-general-political-news
+- domain: politico.com
+  bookmarkItem:
+  - id: 305
+    title: Politico
+    url: https://www.politico.com/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-general-political-news
+- domain: theinformation.com
+  bookmarkItem:
+  - id: 306
+    title: The Information
+    url: https://www.theinformation.com/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-general-political-news
+- domain: mktnews.com
+  bookmarkItem:
+  - id: 309
+    title: MRT News
+    url: https://mktnews.com/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-general-political-news
+- domain: x.com
+  bookmarkItem:
+  - id: 310
+    title: iNewsroom (X/Twitter)
+    url: https://x.com/iNewsroom
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-general-political-news
+- domain: newsblur.com
+  bookmarkItem:
+  - id: 311
+    title: NewsBlur
+    url: https://newsblur.com/folder/everything
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-general-political-news
+- domain: qstheory.cn
+  bookmarkItem:
+  - id: 312
+    title: 求是網
+    url: https://www.qstheory.cn/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-general-political-news
+- domain: cls.cn
+  bookmarkItem:
+  - id: 313
+    title: 財聯社 (CLS)
+    url: https://www.cls.cn/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-china-hk-news
+- domain: guancha.cn
+  bookmarkItem:
+  - id: 314
+    title: 觀察者網
+    url: https://www.guancha.cn/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-china-hk-news
+- domain: 163.com
+  bookmarkItem:
+  - id: 315
+    title: 網易
+    url: https://www.163.com/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-china-hk-news
+- domain: hk01.com
+  bookmarkItem:
+  - id: 316
+    title: HK01 — 中國觀察
+    url: https://www.hk01.com/channel/458/%E4%B8%AD%E5%9C%8B%E8%A7%80%E5%AF%9F
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-china-hk-news
+- domain: trends24.in
+  bookmarkItem:
+  - id: 318
+    title: Twitter Trends 24
+    url: https://trends24.in/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-community-social
+- domain: 4chan.org
+  bookmarkItem:
+  - id: 319
+    title: 4chan
+    url: https://4chan.org/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-community-social
+- domain: alyssax.com
+  bookmarkItem:
+  - id: 320
+    title: Alyssa X
+    url: https://www.alyssax.com/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-community-social
+- domain: tilly.social
+  bookmarkItem:
+  - id: 321
+    title: Tilly Social
+    url: https://www.tilly.social/app/people
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-community-social
+- domain: app.hend.world
+  bookmarkItem:
+  - id: 322
+    title: Hend World
+    url: https://app.hend.world/
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-community-social
+- domain: linktr.ee
+  bookmarkItem:
+  - id: 323
+    title: gk.dsn Linktree
+    url: https://linktr.ee/gk.dsn
+    desc: ''
+    collection: news
+    tags: []
+    featured: false
+    collectionItem: news-community-social
+- domain: immich.app
+  bookmarkItem:
+  - id: 324
+    title: Immich — Self-hosted Photo Backup
+    url: https://immich.app/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-cloud-storage
+- domain: duplicati.com
+  bookmarkItem:
+  - id: 325
+    title: Duplicati — Backup Tool
+    url: https://duplicati.com/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-cloud-storage
+- domain: hackmd.io
+  bookmarkItem:
+  - id: 328
+    title: HackMD
+    url: https://hackmd.io/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: stackedit.io
+  bookmarkItem:
+  - id: 329
+    title: StackEdit — Markdown Editor
+    url: https://stackedit.io/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: docs.triliumnotes.org
+  bookmarkItem:
+  - id: 330
+    title: Trilium Notes Documentation
+    url: https://docs.triliumnotes.org/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: dynalist.io
+  bookmarkItem:
+  - id: 331
+    title: Dynalist
+    url: https://dynalist.io/d/m5BtjnKFi0te5O92bMsv_pSs
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: blank.page
+  bookmarkItem:
+  - id: 332
+    title: Blank Page
+    url: https://blank.page/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: scira.ai
+  bookmarkItem:
+  - id: 333
+    title: Scira — AI Search
+    url: https://scira.ai/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: musicca.com
+  bookmarkItem:
+  - id: 334
+    title: Musicca — Music Tools (TW)
+    url: https://www.musicca.com/tw/tools
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: nuclearplayer.com
+  bookmarkItem:
+  - id: 335
+    title: Nuclear Player
+    url: https://nuclearplayer.com/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: mp3cow.com
+  bookmarkItem:
+  - id: 336
+    title: MP3Cow
+    url: https://mp3cow.com/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-productivity-writing
+- domain: svgviewer.dev
+  bookmarkItem:
+  - id: 337
+    title: SVG Viewer
+    url: https://www.svgviewer.dev/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: it-tools.tech
+  bookmarkItem:
+  - id: 338
+    title: IT-Tools
+    url: https://it-tools.tech/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: omnitools.app
+  bookmarkItem:
+  - id: 339
+    title: Omni Tools
+    url: https://omnitools.app/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: tinytools.page
+  bookmarkItem:
+  - id: 340
+    title: Tiny Tools
+    url: https://tinytools.page/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: jam.dev
+  bookmarkItem:
+  - id: 341
+    title: CSV to JSON Converter (jam.dev)
+    url: https://jam.dev/utilities/csv-to-json
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: csv.ink
+  bookmarkItem:
+  - id: 342
+    title: CSVink
+    url: https://csv.ink/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: datarade.ai
+  bookmarkItem:
+  - id: 343
+    title: Datarade — Data Marketplace
+    url: https://datarade.ai/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: bewildcard.com
+  bookmarkItem:
+  - id: 344
+    title: WildCard — Virtual Payment
+    url: http://bewildcard.com/pay-service
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: markweavia.vercel.app
+  bookmarkItem:
+  - id: 345
+    title: Mark Weavia
+    url: https://markweavia.vercel.app/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: locallhost.me
+  bookmarkItem:
+  - id: 346
+    title: Localhost Tools (locallhost.me)
+    url: https://locallhost.me/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: sleazyfork.org
+  bookmarkItem:
+  - id: 347
+    title: SleazyFork — Userscript Repository
+    url: https://sleazyfork.org/en
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: userscript.zone
+  bookmarkItem:
+  - id: 348
+    title: Userscript.zone — Userscript Collection
+    url: https://www.userscript.zone/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-web-utilities-dev-tools
+- domain: virustotal.com
+  bookmarkItem:
+  - id: 349
+    title: VirusTotal
+    url: https://www.virustotal.com/gui/home/upload
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-security-privacy
+- domain: urlscan.io
+  bookmarkItem:
+  - id: 350
+    title: UrlScan.io
+    url: https://urlscan.io/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-security-privacy
+- domain: haveibeenpwned.com
+  bookmarkItem:
+  - id: 351
+    title: Have I Been Pwned
+    url: https://haveibeenpwned.com/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-security-privacy
+- domain: web-check.xyz
+  bookmarkItem:
+  - id: 352
+    title: Web-Check
+    url: https://web-check.xyz/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-security-privacy
+- domain: amiunique.org
+  bookmarkItem:
+  - id: 353
+    title: Am I Unique — Browser Fingerprint
+    url: https://amiunique.org/fingerprint
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-security-privacy
+- domain: unblock.academy
+  bookmarkItem:
+  - id: 354
+    title: Unblock Academy
+    url: https://www.unblock.academy/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-security-privacy
+- domain: map.gov.hk
+  bookmarkItem:
+  - id: 355
+    title: GeoInfo Map HK (HKSARG)
+    url: https://www.map.gov.hk/gm/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-maps-geo-data
+- domain: portal.csdi.gov.hk
+  bookmarkItem:
+  - id: 356
+    title: CSDI Portal — HK Spatial Data
+    url: https://portal.csdi.gov.hk/csdi-webpage/
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-maps-geo-data
+- domain: data.gov.hk
+  bookmarkItem:
+  - id: 357
+    title: HK Daily Passenger Traffic Stats
+    url: https://data.gov.hk/tc-data/dataset/hk-immd-set5-statistics-daily-passenger-traffic
+    desc: ''
+    collection: tools
+    tags: []
+    featured: false
+    collectionItem: tools-maps-geo-data
+- domain: docs.google.com
+  bookmarkItem:
+  - id: 361
+    title: 初學日語30短句 (Google Docs)
+    url: https://docs.google.com/document/d/1iROGNOORPCEmpITR-GrqWnUj-ZNemXCNCTurthVoB5c/edit
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-language-learning
+- domain: mazii.net
+  bookmarkItem:
+  - id: 362
+    title: Mazii — Japanese–English Dictionary
+    url: https://mazii.net/
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-language-learning
+- domain: jlptwehelp.com
+  bookmarkItem:
+  - id: 363
+    title: JLPT N2 Past Papers 2015–2021
+    url: https://www.jlptwehelp.com/zh/product-page/n2-pp-2021-2015-cn
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-language-learning
+- domain: books.com.tw
+  bookmarkItem:
+  - id: 364
+    title: 博客來 — ゼロから12ヵ国語マスター (Book)
+    url: https://www.books.com.tw/products/M010190572
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-language-learning
+- domain: en.knowledgefxg.com
+  bookmarkItem:
+  - id: 365
+    title: Learn English Resource
+    url: https://en.knowledgefxg.com/
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-language-learning
+- domain: lexfridman.com
+  bookmarkItem:
+  - id: 366
+    title: 'Lex Fridman #474 — DHH Transcript'
+    url: https://lexfridman.com/dhh-david-heinemeier-hansson-transcript
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-podcasts-talks
+- domain: danegalbraith.notion.site
+  bookmarkItem:
+  - id: 369
+    title: Dane Galbraith — Projects (Notion)
+    url: https://danegalbraith.notion.site/Dane-s-Projects-53c4290f965c47d4960ff9d71f29e25e
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-reference-research
+- domain: linsa.io
+  bookmarkItem:
+  - id: 370
+    title: Linsa.io
+    url: https://linsa.io/
+    desc: ''
+    collection: learning
+    tags: []
+    featured: false
+    collectionItem: learning-reference-research
+- domain: jellyfin.org
+  bookmarkItem:
+  - id: 401
+    title: Jellyfin — Free Media Server
+    url: https://jellyfin.org/
+    desc: ''
+    collection: misc
+    tags: []
+    featured: false
+    review: true
+- domain: bet365.com
+  bookmarkItem:
+  - id: 404
+    title: bet365
+    url: https://www.bet365.com/
+    desc: ''
+    collection: misc
+    tags: []
+    featured: false
+    review: true
+- domain: akaswap.com
+  bookmarkItem:
+  - id: 411
+    title: NFT/Art
+    url: https://akaswap.com/event/taiwan520
+    desc: ''
+    collection: misc
+    tags: []
+    featured: false
+    review: true
+- domain: bajgartoffice.com
+  bookmarkItem:
+  - id: 412
+    title: Portfolio/Design
+    url: https://bajgartoffice.com/
+    desc: ''
+    collection: misc
+    tags: []
+    featured: false
+    review: true
+- domain: once.com
+  bookmarkItem:
+  - id: 413
+    title: Introducing ONCE
+    url: https://once.com/
+    desc: Once upon a time you owned what you paid for, you controlled what you depended
+      on, and your privacy and security were your own business. We think it’s that
+      time again.
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-14'
+- domain: canirun.ai
+  bookmarkItem:
+  - id: 414
+    title: Tier List
+    url: https://www.canirun.ai/tier
+    desc: See which AI models your machine can run, ranked in a classic tier list.
+      Share your results.
+    collection: misc
+    tags: []
+    featured: false
+    added: 2026-04-1
