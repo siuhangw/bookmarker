@@ -5,6 +5,9 @@
 scripts/__pycache__/
 *.pyc
 
+# Advisory lock files next to data/bookmarks.yaml (created by sync_bookmarks.py)
+*.yaml.lock
+
 # Ai Code Asistant config
 .kilo/
 CLAUDE.md

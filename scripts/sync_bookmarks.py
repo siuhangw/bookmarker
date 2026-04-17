@@ -20,14 +20,22 @@ Options:
 """
 
 import argparse
+import os
 import re
 import shutil
 import sys
+import tempfile
+from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
 
 import yaml
+
+try:
+    import fcntl  # POSIX only; Windows falls back to no-op locking.
+except ImportError:  # pragma: no cover — Windows path
+    fcntl = None  # type: ignore[assignment]
 
 
 # ---------------------------------------------------------------------------
@@ -218,10 +226,73 @@ def frontmatter_to_bookmark(fm: dict, new_id: int) -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Cross-process locking + atomic writes
+# Prevents interleaved read-modify-write from concurrent clip-sync runs
+# (e.g. cron and a manual invocation racing) corrupting bookmarks.yaml.
+# ---------------------------------------------------------------------------
+@contextmanager
+def locked_yaml(yaml_path: Path):
+    """Acquire an exclusive advisory lock tied to the YAML file."""
+    if fcntl is None:
+        yield
+        return
+    lock_path = yaml_path.with_suffix(yaml_path.suffix + ".lock")
+    fd = os.open(str(lock_path), os.O_RDWR | os.O_CREAT, 0o644)
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX)
+        yield
+    finally:
+        try:
+            fcntl.flock(fd, fcntl.LOCK_UN)
+        finally:
+            os.close(fd)
+
+
+def _atomic_write_yaml(yaml_path: Path, data: dict) -> None:
+    """Write YAML via temp-file + fsync + rename so a crash mid-write cannot
+    corrupt the on-disk file."""
+    tmp_fd, tmp_path = tempfile.mkstemp(
+        prefix=yaml_path.name + ".",
+        suffix=".tmp",
+        dir=str(yaml_path.parent),
+    )
+    try:
+        with os.fdopen(tmp_fd, "w", encoding="utf-8") as f:
+            yaml.dump(
+                data,
+                f,
+                Dumper=BookmarkDumper,
+                allow_unicode=True,
+                sort_keys=False,
+                default_flow_style=False,
+            )
+            f.flush()
+            os.fsync(f.fileno())
+        # mkstemp creates files with mode 0600; preserve the original file's
+        # permissions so atomic swaps don't silently tighten access.
+        try:
+            original_mode = os.stat(yaml_path).st_mode & 0o777
+            os.chmod(tmp_path, original_mode)
+        except FileNotFoundError:
+            pass
+        os.replace(tmp_path, yaml_path)
+    except Exception:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
+
+
+# ---------------------------------------------------------------------------
 # YAML append
 # ---------------------------------------------------------------------------
 def append_to_yaml(yaml_path: Path, entry: dict) -> None:
-    """Insert a bookmark entry into the correct domain group in bookmarkList."""
+    """Insert a bookmark entry into the correct domain group in bookmarkList.
+
+    Caller is expected to hold `locked_yaml(yaml_path)` around any sequence
+    that reads state and appends, so concurrent writers cannot interleave.
+    """
     from urllib.parse import urlparse
 
     data = load_yaml_data(yaml_path)
@@ -239,8 +310,7 @@ def append_to_yaml(yaml_path: Path, entry: dict) -> None:
 
     data["bookmarkList"] = bookmark_list
 
-    with open(yaml_path, "w", encoding="utf-8") as f:
-        yaml.dump(data, f, Dumper=BookmarkDumper, allow_unicode=True, sort_keys=False, default_flow_style=False)
+    _atomic_write_yaml(yaml_path, data)
 
 
 # ---------------------------------------------------------------------------
@@ -330,10 +400,43 @@ def process_inbox(
     if not notes:
         return result
 
-    existing_urls = load_existing_urls(yaml_path)
-    valid_collections = load_valid_collections(yaml_path)
-    current_id = next_id(yaml_path)
+    # Hold the YAML lock across the whole batch: dedup check, id allocation,
+    # and atomic appends must all see a consistent view of the file.
+    lock_ctx = locked_yaml(yaml_path) if not dry_run else _nullcontext()
+    with lock_ctx:
+        existing_urls = load_existing_urls(yaml_path)
+        valid_collections = load_valid_collections(yaml_path)
+        current_id = next_id(yaml_path)
 
+        _process_notes(
+            notes,
+            yaml_path,
+            processed_dir,
+            dry_run,
+            existing_urls,
+            valid_collections,
+            current_id,
+            result,
+        )
+
+    return result
+
+
+@contextmanager
+def _nullcontext():
+    yield
+
+
+def _process_notes(
+    notes: list,
+    yaml_path: Path,
+    processed_dir: Path,
+    dry_run: bool,
+    existing_urls: set,
+    valid_collections: dict,
+    current_id: int,
+    result: SyncResult,
+) -> None:
     for note_path in notes:
         fm = parse_frontmatter(note_path)
         if fm is None:

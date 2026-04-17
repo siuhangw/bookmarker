@@ -22,6 +22,36 @@ if [[ "${1:-}" == "--dry-run" ]]; then
 fi
 
 # ---------------------------------------------------------------------------
+# Single-instance lock — prevents cron and a manual run from racing. Uses
+# mkdir (atomic on all POSIX filesystems) so we don't depend on util-linux
+# flock, which isn't present on stock macOS.
+# ---------------------------------------------------------------------------
+LOCKDIR="${TMPDIR:-/tmp}/bookmarker-clip-sync.lock"
+STALE_MINUTES=30
+if [[ -d "$LOCKDIR" ]]; then
+  # Treat a lock older than STALE_MINUTES as stale (previous run crashed).
+  if find "$LOCKDIR" -maxdepth 0 -mmin +"$STALE_MINUTES" | grep -q .; then
+    echo "[clip-sync] Removing stale lock: $LOCKDIR"
+    rmdir "$LOCKDIR" 2>/dev/null || true
+  fi
+fi
+if ! mkdir "$LOCKDIR" 2>/dev/null; then
+  echo "[clip-sync] Another instance is running (lock: $LOCKDIR). Exiting."
+  exit 0
+fi
+
+cleanup() {
+  # If a prior command left a rebase in progress, clear it so the next run
+  # isn't permanently blocked by "rebase in progress" errors.
+  if [[ -d .git/rebase-apply || -d .git/rebase-merge ]]; then
+    echo "[clip-sync] Aborting in-progress rebase..." >&2
+    git rebase --abort >/dev/null 2>&1 || true
+  fi
+  rmdir "$LOCKDIR" 2>/dev/null || true
+}
+trap cleanup EXIT
+
+# ---------------------------------------------------------------------------
 # Detect Python — Windows Git Bash uses "python", Unix uses "python3"
 # ---------------------------------------------------------------------------
 if command -v python3 &>/dev/null; then
@@ -61,14 +91,28 @@ fi
 
 echo "[clip-sync] ${ADDED_COUNT} new bookmark(s) — committing and pushing..."
 
-# Pull latest to avoid diverged history
-git pull --rebase origin main
+DELAYS=(2 4 8 16)
+
+# Pull latest to avoid diverged history. Retry on transient network failures;
+# on persistent failure, abort any half-finished rebase (trap also handles this)
+# and exit without committing so we don't build atop a broken state.
+pull_ok=0
+for delay in 0 "${DELAYS[@]}"; do
+  [[ "$delay" -gt 0 ]] && { echo "[clip-sync] Pull failed, retrying in ${delay}s..."; sleep "$delay"; }
+  if git pull --rebase origin main; then
+    pull_ok=1
+    break
+  fi
+done
+if [[ "$pull_ok" -eq 0 ]]; then
+  echo "[clip-sync] ERROR: git pull --rebase failed after retries." >&2
+  exit 1
+fi
 
 git add data/bookmarks.yaml bookmarks-processed/
 git commit -m "sync: add ${ADDED_COUNT} bookmark(s) from inbox"
 
 # Push with exponential backoff (up to 4 retries: 2s, 4s, 8s, 16s)
-DELAYS=(2 4 8 16)
 for delay in "${DELAYS[@]}"; do
   if git push -u origin main; then
     echo "[clip-sync] Pushed ${ADDED_COUNT} bookmark(s) to GitHub."
