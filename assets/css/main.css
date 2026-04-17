@@ -119,7 +119,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 12px;
+  gap: 8px;
 }
 @media (max-width: 1023px) { .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); } }
 @media (max-width: 639px) { .grid { grid-template-columns: 1fr; gap: 10px; } }
@@ -127,7 +127,7 @@
 /* Card */
 .card {
   display: block; background: var(--bg-card);
-  border: 1px solid var(--border); border-radius: 10px; padding: 16px;
+  border: 1px solid var(--border); border-radius: 4px; padding: 16px;
   transition: border-color 0.15s, box-shadow 0.2s, transform 0.2s;
 }
 .card:hover { border-color: var(--border-hover); box-shadow: var(--shadow); transform: translateY(-2px); }
