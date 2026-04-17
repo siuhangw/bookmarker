@@ -1790,16 +1790,6 @@ bookmarkList:
     tags: []
     featured: false
     collectionItem: crypto-projects-news
-- domain: blocktempo.com
-  bookmarkItem:
-  - id: 98
-    title: BlockTempo — 動區動趨
-    url: https://www.blocktempo.com/
-    desc: ''
-    collection: crypto
-    tags: []
-    featured: false
-    collectionItem: crypto-projects-news
 - domain: moneysmart.hk
   bookmarkItem:
   - id: 99
