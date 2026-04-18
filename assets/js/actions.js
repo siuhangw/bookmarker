@@ -1,13 +1,22 @@
 /* ═══ Actions ═══ */
-function selectCollection(id) {
-  state.activeCol = id; state.activeTag = null; state.showFeatured = false; state.activeSubcol = null;
+// Clears filter state not listed in `keep` and collapses the mobile sidebar.
+function resetFilters({ keep = [] } = {}) {
+  const defaults = { activeCol: "all", activeSubcol: null, activeTag: null, showFeatured: false };
+  for (const [k, v] of Object.entries(defaults)) {
+    if (!keep.includes(k)) state[k] = v;
+  }
   if (!isDesktop()) state.sidebarOpen = false;
+}
+
+function selectCollection(id) {
+  resetFilters();
+  state.activeCol = id;
   render();
 }
 function selectAndToggleCollection(id) {
-  state.activeCol = id; state.activeTag = null; state.showFeatured = false; state.activeSubcol = null;
+  resetFilters();
+  state.activeCol = id;
   if (state.expandedCols.has(id)) { state.expandedCols.delete(id); } else { state.expandedCols.add(id); }
-  if (!isDesktop()) state.sidebarOpen = false;
   render();
 }
 function selectSubcollection(id) {
@@ -16,13 +25,15 @@ function selectSubcollection(id) {
   render();
 }
 function toggleFavorites() {
-  state.showFeatured = !state.showFeatured; state.activeCol = "all"; state.activeTag = null; state.activeSubcol = null;
-  if (!isDesktop()) state.sidebarOpen = false;
+  const next = !state.showFeatured;
+  resetFilters();
+  state.showFeatured = next;
   render();
 }
 function selectTag(tag) {
-  state.activeTag = state.activeTag === tag ? null : tag; state.showFeatured = false; state.activeSubcol = null;
-  if (!isDesktop()) state.sidebarOpen = false;
+  const next = state.activeTag === tag ? null : tag;
+  resetFilters({ keep: ["activeCol"] });
+  state.activeTag = next;
   render();
 }
 function toggleColExpand(id) {

@@ -20,7 +20,8 @@ function parseYaml(yamlText) {
   const collections = (parsed.collectionList || [])
     .slice()
     .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity));
-  // Flatten bookmarkList[].bookmarkItem[] into a single array
+  // Flatten bookmarkList[].bookmarkItem[] into a single array.
+  // Precompute _domain and _favicon so we don't rederive them on every render.
   const bookmarks = (parsed.bookmarkList || []).flatMap((group) =>
     (group.bookmarkItem || []).map((bm) => ({
       ...bm,
@@ -29,9 +30,15 @@ function parseYaml(yamlText) {
       featured: bm.featured || false,
       desc: bm.desc || "",
       collectionItem: bm.collectionItem || null,
+      _domain: getDomain(bm.url),
+      _favicon: getFavicon(bm.url),
     }))
   );
-  return { meta, site, collections, bookmarks };
+  // Precompute tag frequency once per data load (memoized in getAllTags()).
+  const tagCounts = {};
+  bookmarks.forEach((b) => b.tags.forEach((t) => { tagCounts[t] = (tagCounts[t] || 0) + 1; }));
+  const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+  return { meta, site, collections, bookmarks, tags };
 }
 
 function readCache() {
@@ -54,6 +61,7 @@ async function loadData() {
   function applyParsed(parsed) {
     state.meta = parsed.meta; state.site = parsed.site;
     state.collections = parsed.collections; state.bookmarks = parsed.bookmarks;
+    state.tags = parsed.tags;
     state.error = null;
   }
 
@@ -93,7 +101,7 @@ async function loadData() {
     if (cache) { applyParsed(parseYaml(cache.data)); return; }
     state.meta = null;
     state.site = { name: "Markly", tagline: "", description: "" };
-    state.collections = []; state.bookmarks = [];
+    state.collections = []; state.bookmarks = []; state.tags = [];
     state.activeSubcol = null;
     state.error = "Could not load bookmarks from GitHub. Please try again later.";
   }
@@ -128,10 +136,9 @@ function getFiltered() {
   return list;
 }
 
+// Returns [[tag, count], ...] sorted by count desc. Memoized in parseYaml().
 function getAllTags() {
-  const map = {};
-  state.bookmarks.forEach((b) => b.tags.forEach((t) => { map[t] = (map[t] || 0) + 1; }));
-  return Object.entries(map).sort((a, b) => b[1] - a[1]);
+  return state.tags || [];
 }
 
 /* ═══ Theme ═══ */

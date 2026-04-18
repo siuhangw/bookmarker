@@ -9,6 +9,7 @@ let state = {
   meta: null,
   collections: [],
   bookmarks: [],
+  tags: [],
   activeCol: "all",
   activeSubcol: null,
   activeTag: null,

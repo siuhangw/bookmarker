@@ -126,13 +126,17 @@ def load_existing_urls(yaml_path: Path) -> set[str]:
     return {normalize_url(b["url"]) for b in _flat_bookmarks(data)}
 
 
-def load_valid_collections(yaml_path: Path) -> dict[str, set[str]]:
-    """Return {collection_id: {collectionItem_id, ...}} for validation."""
-    data = load_yaml_data(yaml_path)
+def _build_valid_collections(data: dict) -> dict[str, set[str]]:
+    """Return {collection_id: {collectionItem_id, ...}} from a parsed YAML doc."""
     return {
         col["id"]: {sub["id"] for sub in col.get("collectionItem", [])}
         for col in data.get("collectionList", [])
     }
+
+
+def load_valid_collections(yaml_path: Path) -> dict[str, set[str]]:
+    """Return {collection_id: {collectionItem_id, ...}} for validation."""
+    return _build_valid_collections(load_yaml_data(yaml_path))
 
 
 def next_id(yaml_path: Path) -> int:
@@ -144,6 +148,31 @@ def next_id(yaml_path: Path) -> int:
 # ---------------------------------------------------------------------------
 # Validation
 # ---------------------------------------------------------------------------
+def _check_collection_refs(
+    collection: str,
+    sub: str,
+    valid_collections: dict[str, set[str]],
+    prefix: str = "",
+) -> list[str]:
+    """Return error strings for invalid collection / collectionItem refs.
+
+    Used by both the inbox-entry validator and the full-file validator so the
+    two can't drift from each other.
+    """
+    errors = []
+    pfx = f"{prefix}: " if prefix else ""
+    if not collection or collection not in valid_collections:
+        known = ", ".join(sorted(valid_collections.keys()))
+        errors.append(f"{pfx}invalid 'collection': {collection!r} (known: {known})")
+    elif sub and sub not in valid_collections[collection]:
+        known_subs = ", ".join(sorted(valid_collections[collection]))
+        errors.append(
+            f"{pfx}invalid 'collectionItem': {sub!r} for collection "
+            f"{collection!r} (known: {known_subs or 'none'})"
+        )
+    return errors
+
+
 def validate_entry(fm: dict, valid_collections: dict[str, set[str]]) -> list[str]:
     """Return a list of error strings (empty = valid)."""
     errors = []
@@ -157,17 +186,8 @@ def validate_entry(fm: dict, valid_collections: dict[str, set[str]]) -> list[str
         errors.append(f"invalid 'url': {url!r}")
 
     collection = fm.get("collection", "")
-    if not collection or collection not in valid_collections:
-        known = ", ".join(sorted(valid_collections.keys()))
-        errors.append(f"invalid 'collection': {collection!r} (known: {known})")
-    else:
-        subcollection = fm.get("collectionItem") or fm.get("subcollection") or ""
-        if subcollection and subcollection not in valid_collections[collection]:
-            known_subs = ", ".join(sorted(valid_collections[collection]))
-            errors.append(
-                f"invalid 'collectionItem': {subcollection!r} for collection "
-                f"{collection!r} (known: {known_subs or 'none'})"
-            )
+    sub = fm.get("collectionItem") or fm.get("subcollection") or ""
+    errors.extend(_check_collection_refs(collection, str(sub).strip() if sub else "", valid_collections))
 
     return errors
 
@@ -347,10 +367,7 @@ def validate_yaml_file(yaml_path: Path) -> tuple[list[str], list[str]]:
     except yaml.YAMLError as exc:
         return [f"YAML parse error: {exc}"], []
 
-    valid_collections = {
-        col["id"]: {sub["id"] for sub in col.get("collectionItem", [])}
-        for col in data.get("collectionList", [])
-    }
+    valid_collections = _build_valid_collections(data)
 
     seen_ids: set[int] = set()
     seen_urls: set[str] = set()
@@ -373,14 +390,8 @@ def validate_yaml_file(yaml_path: Path) -> tuple[list[str], list[str]]:
             seen_urls.add(norm)
 
         col = bm.get("collection", "")
-        if col not in valid_collections:
-            errors.append(f"{prefix}: unknown collection {col!r}")
-        else:
-            sub = bm.get("collectionItem") or ""
-            if sub and sub not in valid_collections[col]:
-                errors.append(
-                    f"{prefix}: unknown collectionItem {sub!r} for collection {col!r}"
-                )
+        sub = bm.get("collectionItem") or ""
+        errors.extend(_check_collection_refs(col, sub, valid_collections, prefix))
 
     return errors, warnings
 

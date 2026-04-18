@@ -2,7 +2,7 @@
 function groupByDomain(bookmarks) {
   const map = {};
   bookmarks.forEach((bm) => {
-    const domain = getDomain(bm.url) || "unknown";
+    const domain = bm._domain || "unknown";
     if (!map[domain]) map[domain] = [];
     map[domain].push(bm);
   });
@@ -13,13 +13,15 @@ function groupByDomain(bookmarks) {
 
 /* ═══ Render ═══ */
 function render() {
-  const filtered = getFiltered();
-  const allTags = getAllTags();
-  const colData = state.collections.find((c) => c.id === state.activeCol);
-
-  // Site name
   document.getElementById("siteName").textContent = state.site.name;
+  renderSidebar();
+  const filtered = getFiltered();
+  renderHeader(filtered);
+  renderContent(filtered);
+  safeCreateIcons();
+}
 
+function renderSidebar() {
   // Menu button icon
   const menuBtn = document.getElementById("menuBtn");
   if (isDesktop()) {
@@ -28,7 +30,7 @@ function render() {
     menuBtn.innerHTML = `<i data-lucide="menu" style="width:20px;height:20px;"></i>`;
   }
 
-  // Sidebar state
+  // Sidebar container state
   const sidebar = document.getElementById("sidebar");
   const overlay = document.getElementById("overlay");
   if (isDesktop()) {
@@ -79,16 +81,18 @@ function render() {
     }
   });
 
+  const allTags = getAllTags();
   if (allTags.length > 0) {
     nav += `<div class="sidebar-hr"></div><div class="sidebar-label">Tags</div><div class="tags-wrap">`;
-    allTags.slice(0, 20).forEach(([tag]) => {
-      nav += `<button class="tag-btn${state.activeTag === tag ? " active" : ""}" onclick="selectTag('${esc(tag)}')">${esc(tag)}</button>`;
+    allTags.slice(0, SIDEBAR_TAG_LIMIT).forEach(([tag]) => {
+      nav += renderTagChip(tag, "sidebar");
     });
     nav += `</div>`;
   }
   document.getElementById("sidebarNav").innerHTML = nav;
+}
 
-  // Header controls
+function renderHeader(filtered) {
   document.getElementById("gridBtn").className = `view-btn${state.view === "grid" ? " active" : ""}`;
   document.getElementById("listBtn").className = `view-btn${state.view === "list" ? " active" : ""}`;
   document.getElementById("sortDefault").className = `sort-btn${state.sort === "default" ? " active" : ""}`;
@@ -97,8 +101,10 @@ function render() {
   document.getElementById("themeIcon").setAttribute("data-lucide", state.theme === "dark" ? "sun" : "moon");
   document.getElementById("itemCount").textContent = `${filtered.length} item${filtered.length !== 1 ? "s" : ""}`;
   document.getElementById("searchClear").style.display = state.search ? "flex" : "none";
+}
 
-  // Content
+function renderContent(filtered) {
+  const colData = state.collections.find((c) => c.id === state.activeCol);
   let html = "";
 
   if (state.error) {
@@ -144,7 +150,7 @@ function render() {
     groups.forEach((group) => {
       html += `<div class="domain-group">
         <div class="domain-header">
-          <img class="domain-favicon" src="${getFavicon(group.items[0].url)}" alt="" onerror="this.style.display='none'" />
+          <img class="domain-favicon" src="${group.items[0]._favicon}" alt="" onerror="this.style.display='none'" />
           <span class="domain-name">${esc(group.domain)}</span>
           <span class="domain-count">${group.items.length}</span>
         </div>`;
@@ -162,7 +168,6 @@ function render() {
   }
 
   document.getElementById("content").innerHTML = html;
-  safeCreateIcons();
 }
 
 function navItem(id, icon, label, count, active, extra = "") {
@@ -175,19 +180,15 @@ function navItem(id, icon, label, count, active, extra = "") {
 }
 
 function renderCard(bm, i) {
-  const col = state.collections.find((c) => c.id === bm.collection);
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;"></i>` : "";
-  let tags = "";
-  bm.tags.slice(0, 3).forEach((t) => {
-    tags += `<button class="inline-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
-  });
+  const tags = bm.tags.slice(0, CARD_TAG_LIMIT).map((t) => renderTagChip(t, "inline")).join("");
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
   return `<a href="${esc(bm.url)}" class="card fade-up" style="animation-delay:${i * 35}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
     <div class="card-top">
-      <div class="card-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
+      <div class="card-icon"><img src="${bm._favicon}" alt="" onerror="this.style.display='none'" /></div>
       <div class="card-info">
         <div class="card-title-row"><span class="card-title">${esc(bm.title)}</span>${fav}</div>
-        <span class="card-domain">${esc(getDomain(bm.url))}</span>
+        <span class="card-domain">${esc(bm._domain)}</span>
       </div>
       <i data-lucide="arrow-up-right" class="card-arrow" style="width:15px;height:15px;"></i>
     </div>
@@ -197,26 +198,20 @@ function renderCard(bm, i) {
 }
 
 function renderRow(bm, i) {
-  const col = state.collections.find((c) => c.id === bm.collection);
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;margin-left:5px;vertical-align:middle;"></i>` : "";
-  let tags = "";
-  bm.tags.slice(0, 2).forEach((t) => {
-    tags += `<button class="row-tag" onclick="event.preventDefault();event.stopPropagation();selectTag('${esc(t)}')">#${esc(t)}</button>`;
-  });
+  const tags = bm.tags.slice(0, ROW_TAG_LIMIT).map((t) => renderTagChip(t, "row")).join("");
   return `<a href="${esc(bm.url)}" class="row fade-up" style="animation-delay:${i * 20}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
-    <div class="row-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
+    <div class="row-icon"><img src="${bm._favicon}" alt="" onerror="this.style.display='none'" /></div>
     <span class="row-title">${esc(bm.title)}${fav}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
     ${tags}
-    <span class="row-domain">${esc(getDomain(bm.url))}</span>
+    <span class="row-domain">${esc(bm._domain)}</span>
     <i data-lucide="arrow-up-right" class="row-arrow" style="width:13px;height:13px;"></i>
   </a>`;
 }
 
 function renderModalContent(bm, col, subcol) {
-  const tags = bm.tags.map((t) =>
-    `<button class="tag-btn" onclick="closeModal();selectTag('${esc(t)}')">#${esc(t)}</button>`
-  ).join("");
+  const tags = bm.tags.map((t) => renderTagChip(t, "modal")).join("");
   const meta = [
     col ? esc(col.name) : null,
     subcol ? esc(subcol.name) : null,
@@ -224,10 +219,10 @@ function renderModalContent(bm, col, subcol) {
   ].filter(Boolean).join(" · ");
   return `
     <div class="modal-header">
-      <div class="modal-icon"><img src="${getFavicon(bm.url)}" alt="" onerror="this.style.display='none'" /></div>
+      <div class="modal-icon"><img src="${bm._favicon}" alt="" onerror="this.style.display='none'" /></div>
       <div class="modal-title-wrap">
         <h2 class="modal-title">${esc(bm.title)}</h2>
-        <a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="modal-domain">${esc(getDomain(bm.url))}</a>
+        <a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="modal-domain">${esc(bm._domain)}</a>
       </div>
       <button class="modal-close" onclick="closeModal()"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
     </div>
