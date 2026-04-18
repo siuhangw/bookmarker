@@ -55,11 +55,13 @@ function renderSidebar() {
     const isActive = state.activeCol === col.id && !state.showFeatured && !state.activeTag;
     const hasSubs = col.collectionItem && col.collectionItem.length > 0;
     const isExpanded = state.expandedCols.has(col.id);
+    const colId = esc(col.id);
     const chevron = hasSubs
-      ? `<button class="nav-chevron${isExpanded ? " expanded" : ""}" onclick="toggleColExpand('${col.id}')" aria-label="Toggle subcollections"><i data-lucide="chevron-right" style="width:13px;height:13px;"></i></button>`
+      ? `<button class="nav-chevron${isExpanded ? " expanded" : ""}" data-action="toggle-col-expand" data-col="${colId}" aria-label="Toggle subcollections"><i data-lucide="chevron-right" style="width:13px;height:13px;"></i></button>`
       : "";
+    const colAction = hasSubs ? "select-and-toggle-collection" : "select-collection";
     nav += `<div class="nav-collection-wrap">
-      <button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" onclick="${hasSubs ? "selectAndToggleCollection" : "selectCollection"}('${col.id}')">
+      <button class="nav-item${isActive && !state.activeSubcol ? " active" : ""}" data-action="${colAction}" data-col="${colId}">
         <span class="nav-icon"><i data-lucide="${col.icon || 'folder'}" style="width:15px;height:15px;"></i></span>
         <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(col.name)}</span>
         <span class="nav-count">${count}</span>
@@ -72,7 +74,7 @@ function renderSidebar() {
         .forEach((sub) => {
           const subCount = state.bookmarks.filter((b) => b.collection === col.id && b.collectionItem === sub.id).length;
           const subActive = state.activeSubcol === sub.id;
-          nav += `<button class="nav-item nav-subitem${subActive ? " active" : ""}" onclick="selectSubcollection('${sub.id}')">
+          nav += `<button class="nav-item nav-subitem${subActive ? " active" : ""}" data-action="select-subcollection" data-sub="${esc(sub.id)}">
             <span class="nav-icon"></span>
             <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">↳ ${esc(sub.name)}</span>
             <span class="nav-count">${subCount}</span>
@@ -112,7 +114,7 @@ function renderContent(filtered) {
       <i data-lucide="alert-circle" style="width:18px;height:18px;color:var(--accent);flex-shrink:0;margin-top:1px;"></i>
       <div>
         <p style="font-size:12px;color:var(--text-secondary);">${esc(state.error)}</p>
-        <button class="error-retry" onclick="reloadData()">Try again</button>
+        <button class="error-retry" data-action="reload-data">Try again</button>
       </div>
     </div>`;
   }
@@ -135,7 +137,7 @@ function renderContent(filtered) {
   html += `</div>`;
 
   if (state.activeTag) {
-    html += `<button class="active-tag-chip" onclick="clearTag()">#${esc(state.activeTag)} <i data-lucide="x" style="width:12px;height:12px;"></i></button>`;
+    html += `<button class="active-tag-chip" data-action="clear-tag">#${esc(state.activeTag)} <i data-lucide="x" style="width:12px;height:12px;"></i></button>`;
   }
 
   if (filtered.length === 0) {
@@ -150,7 +152,7 @@ function renderContent(filtered) {
     groups.forEach((group) => {
       html += `<div class="domain-group">
         <div class="domain-header">
-          <img class="domain-favicon" src="${group.items[0]._favicon}" alt="" onerror="this.style.display='none'" />
+          <img class="domain-favicon favicon" src="${group.items[0]._favicon}" alt="" />
           <span class="domain-name">${esc(group.domain)}</span>
           <span class="domain-count">${group.items.length}</span>
         </div>`;
@@ -171,8 +173,10 @@ function renderContent(filtered) {
 }
 
 function navItem(id, icon, label, count, active, extra = "") {
-  const action = id === "fav" ? "toggleFavorites()" : `selectCollection('${id}')`;
-  return `<button class="nav-item${active ? " active" : ""}" onclick="${action}">
+  const attrs = id === "fav"
+    ? `data-action="toggle-favorites"`
+    : `data-action="select-collection" data-col="${esc(id)}"`;
+  return `<button class="nav-item${active ? " active" : ""}" ${attrs}>
     <span class="nav-icon"><i data-lucide="${icon}" style="width:15px;height:15px;"${extra}></i></span>
     <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(label)}</span>
     <span class="nav-count">${count}</span>
@@ -183,9 +187,9 @@ function renderCard(bm, i) {
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;"></i>` : "";
   const tags = bm.tags.slice(0, CARD_TAG_LIMIT).map((t) => renderTagChip(t, "inline")).join("");
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
-  return `<a href="${esc(bm.url)}" class="card fade-up" style="animation-delay:${i * 35}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
+  return `<a href="${esc(bm.url)}" class="card fade-up" style="animation-delay:${i * 35}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
     <div class="card-top">
-      <div class="card-icon"><img src="${bm._favicon}" alt="" onerror="this.style.display='none'" /></div>
+      <div class="card-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
       <div class="card-info">
         <div class="card-title-row"><span class="card-title">${esc(bm.title)}</span>${fav}</div>
         <span class="card-domain">${esc(bm._domain)}</span>
@@ -200,8 +204,8 @@ function renderCard(bm, i) {
 function renderRow(bm, i) {
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;margin-left:5px;vertical-align:middle;"></i>` : "";
   const tags = bm.tags.slice(0, ROW_TAG_LIMIT).map((t) => renderTagChip(t, "row")).join("");
-  return `<a href="${esc(bm.url)}" class="row fade-up" style="animation-delay:${i * 20}ms;" onclick="event.preventDefault();openModal('${bm.id}');" rel="noopener noreferrer">
-    <div class="row-icon"><img src="${bm._favicon}" alt="" onerror="this.style.display='none'" /></div>
+  return `<a href="${esc(bm.url)}" class="row fade-up" style="animation-delay:${i * 20}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
+    <div class="row-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
     <span class="row-title">${esc(bm.title)}${fav}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
     ${tags}
@@ -219,12 +223,12 @@ function renderModalContent(bm, col, subcol) {
   ].filter(Boolean).join(" · ");
   return `
     <div class="modal-header">
-      <div class="modal-icon"><img src="${bm._favicon}" alt="" onerror="this.style.display='none'" /></div>
+      <div class="modal-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
       <div class="modal-title-wrap">
         <h2 class="modal-title">${esc(bm.title)}</h2>
         <a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="modal-domain">${esc(bm._domain)}</a>
       </div>
-      <button class="modal-close" onclick="closeModal()"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
+      <button class="modal-close" data-action="close-modal" aria-label="Close"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
     </div>
     ${bm.desc ? `<p class="modal-desc">${esc(bm.desc)}</p>` : ""}
     ${meta ? `<div class="modal-meta">${meta}</div>` : ""}

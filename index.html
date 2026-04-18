@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google.com; font-src https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; base-uri 'self'; form-action 'none'; object-src 'none'" />
   <title>Markly — Bookmark Showcase</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/sidebar.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -29,11 +30,11 @@
   <div id="app" class="app" style="display:none;">
 
     <!-- Overlay -->
-    <div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+    <div id="overlay" class="overlay" data-action="close-sidebar"></div>
 
     <!-- Bookmark Modal -->
-    <div id="bookmarkModal" class="modal-overlay" onclick="closeModal()">
-      <div class="modal-panel" onclick="event.stopPropagation()">
+    <div id="bookmarkModal" class="modal-overlay" data-action="close-modal">
+      <div class="modal-panel" data-action="noop">
         <div id="modalContent"></div>
       </div>
     </div>
@@ -48,7 +49,7 @@
           <span id="siteName" class="sidebar-title">Markly</span>
           <span class="sidebar-subtitle">Showcase</span>
         </div>
-        <button class="sidebar-close" onclick="closeSidebar()">
+        <button class="sidebar-close" data-action="close-sidebar" aria-label="Close sidebar">
           <i data-lucide="x" style="width:18px;height:18px;"></i>
         </button>
       </div>
@@ -58,35 +59,35 @@
     <!-- Main -->
     <main class="main">
       <header class="header">
-        <button class="header-btn" id="menuBtn" onclick="toggleSidebar()"></button>
+        <button class="header-btn" id="menuBtn" data-action="toggle-sidebar" aria-label="Toggle sidebar"></button>
         <div class="search-wrap">
           <i data-lucide="search" style="width:15px;height:15px;color:var(--text-dim);flex-shrink:0;"></i>
-          <input class="search-input" id="searchInput" placeholder="Search…" oninput="onSearch()" />
-          <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display:none;">
+          <input class="search-input" id="searchInput" placeholder="Search…" aria-label="Search bookmarks" />
+          <button class="search-clear" id="searchClear" data-action="clear-search" style="display:none;" aria-label="Clear search">
             <i data-lucide="x" style="width:14px;height:14px;"></i>
           </button>
         </div>
         <div class="spacer"></div>
         <div class="view-toggle">
-          <button class="view-btn active" id="gridBtn" onclick="setView('grid')">
+          <button class="view-btn active" id="gridBtn" data-action="set-view" data-view="grid" aria-label="Grid view">
             <i data-lucide="grid-3x3" style="width:14px;height:14px;"></i>
           </button>
-          <button class="view-btn" id="listBtn" onclick="setView('list')">
+          <button class="view-btn" id="listBtn" data-action="set-view" data-view="list" aria-label="List view">
             <i data-lucide="list" style="width:14px;height:14px;"></i>
           </button>
         </div>
         <div class="sort-toggle">
-          <button class="sort-btn active" id="sortDefault" onclick="setSort('default')" title="Default order">
+          <button class="sort-btn active" id="sortDefault" data-action="set-sort" data-sort="default" title="Default order" aria-label="Default order">
             <i data-lucide="arrow-up-down" style="width:14px;height:14px;"></i>
           </button>
-          <button class="sort-btn" id="sortAlpha" onclick="setSort('alpha')" title="A → Z">
+          <button class="sort-btn" id="sortAlpha" data-action="set-sort" data-sort="alpha" title="A → Z" aria-label="Sort alphabetically">
             <i data-lucide="a-z" style="width:14px;height:14px;"></i>
           </button>
-          <button class="sort-btn" id="sortDate" onclick="setSort('date')" title="Newest first">
+          <button class="sort-btn" id="sortDate" data-action="set-sort" data-sort="date" title="Newest first" aria-label="Sort by newest">
             <i data-lucide="calendar" style="width:14px;height:14px;"></i>
           </button>
         </div>
-        <button class="theme-btn" onclick="toggleTheme()">
+        <button class="theme-btn" data-action="toggle-theme" aria-label="Toggle theme">
           <i id="themeIcon" data-lucide="moon" style="width:15px;height:15px;"></i>
         </button>
         <a href="https://github.com/siuhangw/bookmarker" target="_blank" rel="noopener noreferrer" class="github-btn" aria-label="View on GitHub">

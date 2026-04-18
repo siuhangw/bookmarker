@@ -33,11 +33,11 @@ const renderTagChip = (tag, variant) => {
   const t = esc(tag);
   if (variant === "sidebar") {
     const active = state.activeTag === tag ? " active" : "";
-    return `<button class="tag-btn${active}" onclick="selectTag('${t}')">${t}</button>`;
+    return `<button class="tag-btn${active}" data-action="select-tag" data-tag="${t}">${t}</button>`;
   }
   if (variant === "modal") {
-    return `<button class="tag-btn" onclick="closeModal();selectTag('${t}')">#${t}</button>`;
+    return `<button class="tag-btn" data-action="select-tag-from-modal" data-tag="${t}">#${t}</button>`;
   }
   const cls = variant === "row" ? "row-tag" : "inline-tag";
-  return `<button class="${cls}" onclick="event.preventDefault();event.stopPropagation();selectTag('${t}')">#${t}</button>`;
+  return `<button class="${cls}" data-action="select-tag" data-tag="${t}">#${t}</button>`;
 };

@@ -90,6 +90,75 @@ async function reloadData() {
   render();
 }
 
+/* ═══ Event delegation ═══
+   CSP forbids inline event handlers; everything routes through one click
+   listener that dispatches on `data-action`. Each handler receives
+   (el, event), where `el` is the closest `[data-action]` ancestor.
+*/
+const ACTIONS = {
+  "close-sidebar":               ()     => closeSidebar(),
+  "toggle-sidebar":              ()     => toggleSidebar(),
+  "toggle-theme":                ()     => toggleTheme(),
+  "toggle-favorites":            ()     => toggleFavorites(),
+  "clear-search":                ()     => clearSearch(),
+  "clear-tag":                   ()     => clearTag(),
+  "reload-data":                 ()     => reloadData(),
+  "close-modal":                 ()     => closeModal(),
+  "noop":                        ()     => {},
+  "set-view":                    (el)   => setView(el.dataset.view),
+  "set-sort":                    (el)   => setSort(el.dataset.sort),
+  "select-collection":           (el)   => selectCollection(el.dataset.col),
+  "select-and-toggle-collection":(el)   => selectAndToggleCollection(el.dataset.col),
+  "select-subcollection":        (el)   => selectSubcollection(el.dataset.sub),
+  "toggle-col-expand":           (el)   => toggleColExpand(el.dataset.col),
+  "select-tag":                  (el)   => selectTag(el.dataset.tag),
+  "select-tag-from-modal":       (el)   => { closeModal(); selectTag(el.dataset.tag); },
+  "open-modal":                  (el)   => openModal(el.dataset.id),
+};
+
+// Suppress default navigation for anchors that act as modal openers, and
+// swallow bubbled clicks inside the modal panel so they don't hit the overlay.
+function handleActionClick(e) {
+  const el = e.target.closest("[data-action]");
+  if (!el) return;
+  const action = el.dataset.action;
+  const handler = ACTIONS[action];
+  if (!handler) return;
+  // Anchors with data-action="open-modal" shouldn't navigate; tag chips inside
+  // a card anchor shouldn't bubble up and trigger the card's open-modal.
+  if (el.tagName === "A") e.preventDefault();
+  if (action === "select-tag" || action === "select-tag-from-modal") {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  if (action === "noop") { e.stopPropagation(); return; }
+  handler(el, e);
+}
+
+// Favicon images can't use inline `onerror=` under CSP. Hide any broken
+// favicons after each render pass.
+function hideBrokenFavicons(root = document) {
+  root.querySelectorAll("img.favicon").forEach((img) => {
+    if (img.dataset.errBound === "1") return;
+    img.dataset.errBound = "1";
+    img.addEventListener("error", () => { img.style.display = "none"; }, { once: true });
+    if (img.complete && img.naturalWidth === 0) img.style.display = "none";
+  });
+}
+
+// Wrap render() so every pass re-binds favicon error handlers.
+const _renderOrig = render;
+render = function patchedRender() {
+  _renderOrig();
+  hideBrokenFavicons();
+};
+
+// Debounce search input: rendering on every keystroke is wasteful at 500+ items.
+function debounce(fn, ms) {
+  let t;
+  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
 /* ═══ Responsive ═══ */
 window.addEventListener("resize", () => {
   if (isDesktop() && !state.sidebarOpen) { state.sidebarOpen = true; }
@@ -101,6 +170,9 @@ window.addEventListener("resize", () => {
 (async function init() {
   safeCreateIcons();
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  document.addEventListener("click", handleActionClick);
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) searchInput.addEventListener("input", debounce(onSearch, 120));
   await loadData();
   applyThemeFromMeta();
   document.getElementById("loading").style.display = "none";
