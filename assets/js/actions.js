@@ -5,7 +5,14 @@ function resetFilters({ keep = [] } = {}) {
   for (const [k, v] of Object.entries(defaults)) {
     if (!keep.includes(k)) state[k] = v;
   }
+  state.showStats = false;
   if (!isDesktop()) state.sidebarOpen = false;
+}
+
+function toggleStats() {
+  state.showStats = !state.showStats;
+  if (!isDesktop()) state.sidebarOpen = false;
+  render();
 }
 
 function selectCollection(id) {
@@ -141,6 +148,7 @@ const ACTIONS = {
   "close-sidebar":               ()     => closeSidebar(),
   "toggle-sidebar":              ()     => toggleSidebar(),
   "toggle-theme":                ()     => toggleTheme(),
+  "toggle-stats":                ()     => toggleStats(),
   "toggle-favorites":            ()     => toggleFavorites(),
   "clear-search":                ()     => clearSearch(),
   "clear-tag":                   ()     => clearTag(),

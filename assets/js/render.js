@@ -15,6 +15,12 @@ function groupByDomain(bookmarks) {
 function render() {
   document.getElementById("siteName").textContent = state.site.name;
   renderSidebar();
+  if (state.showStats) {
+    renderHeader([]);
+    renderStats();
+    safeCreateIcons();
+    return;
+  }
   const filtered = getFiltered();
   renderHeader(filtered);
   renderContent(filtered);
@@ -101,7 +107,11 @@ function renderHeader(filtered) {
   document.getElementById("sortAlpha").className   = `sort-btn${state.sort === "alpha"   ? " active" : ""}`;
   document.getElementById("sortDate").className    = `sort-btn${state.sort === "date"    ? " active" : ""}`;
   document.getElementById("themeIcon").setAttribute("data-lucide", state.theme === "dark" ? "sun" : "moon");
-  document.getElementById("itemCount").textContent = `${filtered.length} item${filtered.length !== 1 ? "s" : ""}`;
+  const statsBtn = document.getElementById("statsBtn");
+  if (statsBtn) statsBtn.classList.toggle("active", !!state.showStats);
+  document.getElementById("itemCount").textContent = state.showStats
+    ? ""
+    : `${filtered.length} item${filtered.length !== 1 ? "s" : ""}`;
   document.getElementById("searchClear").style.display = state.search ? "flex" : "none";
 }
 
@@ -250,4 +260,89 @@ function renderModalContent(bm, col, subcol) {
         Visit site <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i>
       </a>
     </div>`;
+}
+
+/* ═══ Stats view ═══ */
+const SPARKLINE_W = 480;
+const SPARKLINE_H = 90;
+
+function renderStatsSparkline(months) {
+  if (!months.length) return `<p class="stats-empty">No dated bookmarks yet.</p>`;
+  const max = Math.max(...months.map((m) => m.count), 1);
+  const n = months.length;
+  const step = n > 1 ? SPARKLINE_W / (n - 1) : 0;
+  const pts = months.map((m, i) => {
+    const x = i * step;
+    const y = SPARKLINE_H - (m.count / max) * (SPARKLINE_H - 10) - 4;
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(" ");
+  const area = `0,${SPARKLINE_H} ${pts} ${SPARKLINE_W},${SPARKLINE_H}`;
+  const firstLabel = months[0].month;
+  const lastLabel = months[months.length - 1].month;
+  const total = months.reduce((s, m) => s + m.count, 0);
+  return `
+    <div class="stats-sparkline-wrap">
+      <svg viewBox="0 0 ${SPARKLINE_W} ${SPARKLINE_H}" preserveAspectRatio="none" class="stats-sparkline" aria-label="Bookmarks added per month">
+        <polygon points="${area}" fill="var(--accent)" opacity="0.12" />
+        <polyline points="${pts}" fill="none" stroke="var(--accent)" stroke-width="2" />
+      </svg>
+      <div class="stats-sparkline-axis">
+        <span>${esc(firstLabel)}</span>
+        <span>${total} added across ${n} month${n !== 1 ? "s" : ""}</span>
+        <span>${esc(lastLabel)}</span>
+      </div>
+    </div>`;
+}
+
+function renderStats() {
+  const total = state.bookmarks.length;
+  const featured = state.bookmarks.filter((b) => b.featured).length;
+  const byCol = statsByCollection();
+  const allTags = getAllTags();
+  const maxCol = Math.max(...byCol.map((c) => c.count), 1);
+  const months = statsByMonth();
+
+  const colRows = byCol.map((c) => {
+    const pct = (c.count / maxCol) * 100;
+    const color = esc(c.color || "var(--accent)");
+    return `<div class="stats-row">
+      <span class="stats-row-label">${esc(c.name)}</span>
+      <div class="stats-row-bar"><span class="stats-row-fill" style="width:${pct.toFixed(1)}%;background:${color};"></span></div>
+      <span class="stats-row-count">${c.count}</span>
+    </div>`;
+  }).join("");
+
+  const tagChips = allTags.slice(0, 30).map(([tag, count]) =>
+    `<button class="stats-tag-chip" data-action="select-tag" data-tag="${esc(tag)}">
+       <span>${esc(tag)}</span><span class="stats-tag-count">${count}</span>
+     </button>`
+  ).join("");
+
+  document.getElementById("content").innerHTML = `
+    <div class="title-section">
+      <h2 class="page-title">Stats</h2>
+      <p class="page-subtitle">Overview of your bookmark collection.</p>
+    </div>
+
+    <div class="stats-summary">
+      <div class="stats-card"><span class="stats-card-value">${total}</span><span class="stats-card-label">Total</span></div>
+      <div class="stats-card"><span class="stats-card-value">${state.collections.length}</span><span class="stats-card-label">Collections</span></div>
+      <div class="stats-card"><span class="stats-card-value">${allTags.length}</span><span class="stats-card-label">Tags</span></div>
+      <div class="stats-card"><span class="stats-card-value">${featured}</span><span class="stats-card-label">Favorites</span></div>
+    </div>
+
+    <section class="stats-section">
+      <h3 class="stats-heading">Added per month</h3>
+      ${renderStatsSparkline(months)}
+    </section>
+
+    <section class="stats-section">
+      <h3 class="stats-heading">By collection</h3>
+      <div class="stats-rows">${colRows}</div>
+    </section>
+
+    <section class="stats-section">
+      <h3 class="stats-heading">Top tags</h3>
+      <div class="stats-tags">${tagChips || `<p class="stats-empty">No tags yet.</p>`}</div>
+    </section>`;
 }
