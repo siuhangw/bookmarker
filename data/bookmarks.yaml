@@ -546,6 +546,25 @@ bookmarkList:
     tags: []
     featured: false
     collectionItem: dev-linux-infrastructure
+  - id: 419
+    title: 'google/tf-quant-finance: High-performance TensorFlow library for quantitative
+      finance.'
+    url: https://github.com/google/tf-quant-finance
+    desc: High-performance TensorFlow library for quantitative finance. - google/tf-quant-finance
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-20'
+  - id: 420
+    title: 'wilsonfreitas/awesome-quant: A curated list of insanely awesome libraries,
+      packages and resources for Quants (Quantitative Finance)'
+    url: https://github.com/wilsonfreitas/awesome-quant?tab=readme-ov-file#technical-indicators
+    desc: A curated list of insanely awesome libraries, packages and resources for
+      Quants (Quantitative Finance) - wilsonfreitas/awesome-quant
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-20'
 - domain: youtube.com
   bookmarkItem:
   - id: 372
@@ -4002,6 +4021,48 @@ bookmarkList:
     url: https://bandcamp.com/
     desc: Discover amazing music and directly support the artists who make it.
     collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-20'
+- domain: developer.gs.com
+  bookmarkItem:
+  - id: 418
+    title: GS Quant
+    url: https://developer.gs.com/docs/gsquant/
+    desc: Developer Documentation for GS Quant
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-20'
+- domain: fullratio.com
+  bookmarkItem:
+  - id: 421
+    title: PE ratio by industry - FullRatio
+    url: https://fullratio.com/pe-ratio-by-industry#
+    desc: Learn how the average PE (Price-to-Earnings) ratio can be used to evaluate
+      the financial health and performance of companies across different industries.
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-20'
+- domain: research.google
+  bookmarkItem:
+  - id: 422
+    title: Google Research - Explore Our Latest Research in Science and AI
+    url: https://research.google/
+    desc: Discover Google Research. We publish research papers across a wide range
+      of domains and share our latest developments in AI and science research.
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-20'
+- domain: wind.com.cn
+  bookmarkItem:
+  - id: 423
+    title: Wind - 指数
+    url: https://www.wind.com.cn/portal/zh/WindIndex/detail.html?id=22&v=1
+    desc: ''
+    collection: finance
     tags: []
     featured: false
     added: '2026-04-20'
