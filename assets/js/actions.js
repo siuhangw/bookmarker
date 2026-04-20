@@ -54,8 +54,16 @@ function clearSearch() {
   document.getElementById("searchInput").value = "";
   render();
 }
-function setView(v) { state.view = v; render(); }
-function setSort(v) { state.sort = v; render(); }
+function setView(v) {
+  state.view = v;
+  try { localStorage.setItem("view", v); } catch { /* storage full — skip */ }
+  render();
+}
+function setSort(v) {
+  state.sort = v;
+  try { localStorage.setItem("sort", v); } catch { /* storage full — skip */ }
+  render();
+}
 function toggleTheme() {
   state.theme = state.theme === "dark" ? "light" : "dark";
   document.body.setAttribute("data-theme", state.theme);
@@ -193,6 +201,16 @@ function debounce(fn, ms) {
   return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
 }
 
+// Load saved sort/view preferences. Mobile is forced to grid regardless.
+function loadPrefs() {
+  try {
+    const sort = localStorage.getItem("sort");
+    if (sort === "default" || sort === "alpha" || sort === "date") state.sort = sort;
+    const view = localStorage.getItem("view");
+    if ((view === "grid" || view === "list") && !isMobile()) state.view = view;
+  } catch { /* private mode — skip */ }
+}
+
 /* ═══ Responsive ═══ */
 window.addEventListener("resize", () => {
   if (isDesktop() && !state.sidebarOpen) { state.sidebarOpen = true; }
@@ -203,6 +221,10 @@ window.addEventListener("resize", () => {
 /* ═══ Init ═══ */
 (async function init() {
   safeCreateIcons();
+<<<<<<< HEAD
+=======
+  loadPrefs();
+>>>>>>> cedb3c45c7d63ea0f02c588352c3af718231f290
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeModal(); return; }
     // Don't steal shortcuts while the user is typing.

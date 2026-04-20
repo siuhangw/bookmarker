@@ -29,6 +29,7 @@
 .sidebar-logo {
   width: 32px; height: 32px; border-radius: 8px; background: var(--text-secondary);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  visibility: hidden; /* Hide default icon, will be replaced by JS */
 }
 .sidebar-title { font-weight: 700; font-size: 17px; letter-spacing: -0.02em; }
 .sidebar-subtitle { font-size: 11px; color: var(--text-dim); display: block; margin-top: -1px; }
