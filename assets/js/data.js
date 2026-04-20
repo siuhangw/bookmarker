@@ -58,11 +58,12 @@ async function loadData() {
   const isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1";
   const url = isLocal ? "./data/bookmarks.yaml" : `${REPO_BASE}/data/bookmarks.yaml`;
 
-  function applyParsed(parsed) {
+  function applyParsed(parsed, { stale = false, fetchedAt = null } = {}) {
     state.meta = parsed.meta; state.site = parsed.site;
     state.collections = parsed.collections; state.bookmarks = parsed.bookmarks;
     state.tags = parsed.tags;
     state.error = null;
+    state.fromCache = stale ? { fetchedAt } : null;
   }
 
   try {
@@ -98,11 +99,12 @@ async function loadData() {
     console.error("Fetch failed:", e);
     // Fall back to stale cache rather than showing an error
     const cache = readCache();
-    if (cache) { applyParsed(parseYaml(cache.data)); return; }
+    if (cache) { applyParsed(parseYaml(cache.data), { stale: true, fetchedAt: cache.fetchedAt }); return; }
     state.meta = null;
     state.site = { name: "Markly", tagline: "", description: "" };
     state.collections = []; state.bookmarks = []; state.tags = [];
     state.activeSubcol = null;
+    state.fromCache = null;
     state.error = "Could not load bookmarks from GitHub. Please try again later.";
   }
 }

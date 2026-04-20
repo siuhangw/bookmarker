@@ -22,4 +22,5 @@ let state = {
   expandedCols: new Set(),
   activeModal: null,
   error: null,
+  fromCache: null,   // { fetchedAt: ms } when serving stale data after a failed refresh
 };

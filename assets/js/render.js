@@ -109,8 +109,17 @@ function renderContent(filtered) {
   const colData = state.collections.find((c) => c.id === state.activeCol);
   let html = "";
 
+  if (state.fromCache) {
+    const when = new Date(state.fromCache.fetchedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    html += `<div class="stale-banner fade-up" role="status">
+      <i data-lucide="wifi-off" style="width:15px;height:15px;flex-shrink:0;"></i>
+      Offline — showing cached data from ${esc(when)}
+      <button class="error-retry" data-action="reload-data" style="margin-left:auto;">Retry</button>
+    </div>`;
+  }
+
   if (state.error) {
-    html += `<div class="error-banner fade-up">
+    html += `<div class="error-banner fade-up" role="alert">
       <i data-lucide="alert-circle" style="width:18px;height:18px;color:var(--accent);flex-shrink:0;margin-top:1px;"></i>
       <div>
         <p style="font-size:12px;color:var(--text-secondary);">${esc(state.error)}</p>
@@ -225,7 +234,7 @@ function renderModalContent(bm, col, subcol) {
     <div class="modal-header">
       <div class="modal-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
       <div class="modal-title-wrap">
-        <h2 class="modal-title">${esc(bm.title)}</h2>
+        <h2 class="modal-title" id="modalTitle">${esc(bm.title)}</h2>
         <a href="${esc(bm.url)}" target="_blank" rel="noopener noreferrer" class="modal-domain">${esc(bm._domain)}</a>
       </div>
       <button class="modal-close" data-action="close-modal" aria-label="Close"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
