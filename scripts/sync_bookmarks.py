@@ -17,11 +17,13 @@ Options:
   --dry-run           Parse and validate without writing any files
   --validate-only     Only validate bookmarks.yaml, skip inbox processing
   --report-duplicates Find near-duplicate bookmarks (canonical URL or shared title/host) and exit
+  --generate-tags     Regenerate data/tags.json from the current bookmarks.yaml and exit
   --quiet             Suppress informational output; emit machine-readable summary
 """
 
 import argparse
 import contextlib
+import json
 import os
 import re
 import shutil
@@ -546,6 +548,61 @@ def _process_notes(
 
 
 # ---------------------------------------------------------------------------
+# Tags JSON
+# ---------------------------------------------------------------------------
+def generate_tags_json(yaml_path: Path, output_path: Path) -> list[str]:
+    """
+    Read bookmarks.yaml, compute tag frequency, and write data/tags.json.
+
+    Format::
+
+        {
+          "updated": "YYYY-MM-DD",
+          "count": 42,
+          "tags": [
+            {"tag": "ai", "count": 18},
+            ...
+          ]
+        }
+
+    Tags are sorted by frequency descending, then alphabetically.
+    Returns the sorted list of tag strings (for tests / callers).
+    """
+    from datetime import date as _date
+
+    data = load_yaml_data(yaml_path)
+    counts: dict[str, int] = {}
+    for bm in _flat_bookmarks(data):
+        for tag in bm.get("tags") or []:
+            tag = str(tag).strip()
+            if tag:
+                counts[tag] = counts.get(tag, 0) + 1
+
+    sorted_tags = sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))
+    payload = {
+        "updated": str(_date.today()),
+        "count": len(sorted_tags),
+        "tags": [{"tag": t, "count": c} for t, c in sorted_tags],
+    }
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_fd, tmp_name = tempfile.mkstemp(dir=output_path.parent, prefix=".tags-", suffix=".tmp")
+    try:
+        with os.fdopen(tmp_fd, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
+            f.write("\n")
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_name, output_path)
+    except Exception:
+        with contextlib.suppress(OSError):
+            os.unlink(tmp_name)
+        raise
+
+    return [t for t, _ in sorted_tags]
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 def main() -> int:
@@ -562,6 +619,13 @@ def main() -> int:
         action="store_true",
         help="Print groups of near-duplicate bookmarks (canonical URL or shared title on same host) and exit",
     )
+    parser.add_argument(
+        "--generate-tags",
+        action="store_true",
+        help="Regenerate data/tags.json from the current bookmarks.yaml and exit",
+    )
+    parser.add_argument("--tags-output", default=str(repo_root / "data" / "tags.json"),
+                        help="Output path for tags.json (default: data/tags.json)")
     parser.add_argument("--quiet", action="store_true", help="Suppress informational output; emit machine-readable summary line")
     args = parser.parse_args()
 
@@ -572,6 +636,15 @@ def main() -> int:
     if not yaml_path.exists():
         print(f"Error: {yaml_path} not found", file=sys.stderr)
         return 1
+
+    tags_output = Path(args.tags_output)
+
+    # --- Generate-tags mode ---
+    if args.generate_tags:
+        tags = generate_tags_json(yaml_path, tags_output)
+        if not args.quiet:
+            print(f"Generated {tags_output} — {len(tags)} tag(s).")
+        return 0
 
     # --- Duplicate-report mode ---
     if args.report_duplicates:
@@ -669,6 +742,14 @@ def main() -> int:
     # Machine-readable summary line for clip-sync.sh
     if args.quiet:
         print(f"Added: {len(result.added)}")
+
+    # Regenerate tags.json whenever new bookmarks were written, so the list
+    # stays fresh for Obsidian Web Clipper autocomplete without a separate run.
+    if result.added and not args.dry_run:
+        try:
+            generate_tags_json(yaml_path, tags_output)
+        except Exception as exc:  # non-fatal — sync already succeeded
+            print(f"[warn] Could not update {tags_output}: {exc}", file=sys.stderr)
 
     return 1 if result.skipped_errors else 0
 
