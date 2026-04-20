@@ -171,6 +171,45 @@ function getAllTags() {
   return state.tags || [];
 }
 
+/* ═══ Stats ═══ */
+// Counts per collection, sorted descending by count.
+function statsByCollection() {
+  const counts = {};
+  state.bookmarks.forEach((b) => { counts[b.collection] = (counts[b.collection] || 0) + 1; });
+  return state.collections
+    .map((c) => ({ id: c.id, name: c.name, color: c.color, count: counts[c.id] || 0 }))
+    .sort((a, b) => b.count - a.count);
+}
+
+// Added-per-month: [{ month: "YYYY-MM", count }] covering every month from the
+// earliest `added` date to the current month — zero-filled so the sparkline
+// has a continuous baseline. Returns [] if no bookmark has an `added` date.
+function statsByMonth() {
+  const dates = state.bookmarks.map((b) => b.added).filter(Boolean).map((d) => String(d));
+  if (!dates.length) return [];
+  const counts = {};
+  dates.forEach((d) => {
+    const ym = d.slice(0, 7);
+    counts[ym] = (counts[ym] || 0) + 1;
+  });
+  const sorted = Object.keys(counts).sort();
+  const first = sorted[0];
+  const [fy, fm] = first.split("-").map(Number);
+  const now = new Date();
+  const months = [];
+  let y = fy, m = fm;
+  const endY = now.getFullYear();
+  const endM = now.getMonth() + 1;
+  while (y < endY || (y === endY && m <= endM)) {
+    const ym = `${y}-${String(m).padStart(2, "0")}`;
+    months.push({ month: ym, count: counts[ym] || 0 });
+    m += 1;
+    if (m === 13) { m = 1; y += 1; }
+    if (months.length > 240) break; // safety: 20y max
+  }
+  return months;
+}
+
 /* ═══ Theme ═══ */
 function applyThemeFromMeta() {
   if (!state.meta) return;

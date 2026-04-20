@@ -18,6 +18,7 @@ let state = {
   view: "grid",
   sort: "default",   // "default" | "alpha" | "date"
   theme: "light",
+  showStats: false,
   sidebarOpen: window.innerWidth >= 1024,
   expandedCols: new Set(),
   activeModal: null,

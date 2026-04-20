@@ -242,3 +242,44 @@
 
 /* ─── Star icon ─── */
 .star-icon { color: var(--text-dim); flex-shrink: 0; }
+
+/* ─── Stats view ─── */
+.stats-summary {
+  display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  margin-bottom: 28px;
+}
+.stats-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;
+}
+.stats-card-value { font-size: 22px; font-weight: 600; color: var(--text); }
+.stats-card-label { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.stats-section { margin-bottom: 28px; }
+.stats-heading { font-size: 13px; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; }
+.stats-empty { color: var(--text-dim); font-size: 13px; }
+
+.stats-rows { display: flex; flex-direction: column; gap: 8px; }
+.stats-row { display: grid; grid-template-columns: 160px 1fr 40px; gap: 12px; align-items: center; font-size: 13px; }
+@media (max-width: 639px) { .stats-row { grid-template-columns: 100px 1fr 30px; } }
+.stats-row-label { color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stats-row-bar { height: 8px; background: var(--bg-input); border-radius: 4px; overflow: hidden; }
+.stats-row-fill { display: block; height: 100%; border-radius: 4px; transition: width 0.3s; }
+.stats-row-count { color: var(--text-secondary); font-variant-numeric: tabular-nums; text-align: right; }
+
+.stats-sparkline-wrap { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.stats-sparkline { width: 100%; height: 90px; display: block; }
+.stats-sparkline-axis { display: flex; justify-content: space-between; gap: 12px; font-size: 11px; color: var(--text-dim); margin-top: 6px; }
+
+.stats-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.stats-tag-chip {
+  background: var(--bg-input); color: var(--text-secondary); border: 1px solid var(--border);
+  border-radius: 999px; padding: 4px 10px; font-size: 12px;
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+}
+.stats-tag-chip:hover { border-color: var(--border-hover); color: var(--text); }
+.stats-tag-count {
+  background: var(--bg-hover); color: var(--text-dim); border-radius: 999px;
+  padding: 0 6px; font-size: 10px; font-variant-numeric: tabular-nums;
+}
+.theme-btn.active { color: var(--accent); }
