@@ -2,7 +2,7 @@
 title: "Precious Metals Charts and Data"
 url: "https://www.macrotrends.net/charts/precious-metals"
 description: "A series of current and historical precious metals charts.  Gold prices, silver prices, platinum prices and much more."
-collection:
+collection: finance
 subcollection:
 tags:
 featured:

@@ -3973,3 +3973,14 @@ bookmarkList:
     tags: []
     featured: false
     added: 2026-04-1
+- domain: macrotrends.net
+  bookmarkItem:
+  - id: 415
+    title: Precious Metals Charts and Data
+    url: https://www.macrotrends.net/charts/precious-metals
+    desc: A series of current and historical precious metals charts.  Gold prices,
+      silver prices, platinum prices and much more.
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-20'
