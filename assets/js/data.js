@@ -54,6 +54,27 @@ function writeCache(yamlText, etag) {
   } catch { /* storage full — silently skip */ }
 }
 
+// Fetch the dead-links report and mark flagged bookmarks. Silent on failure —
+// the report is optional metadata, not critical to the app.
+async function loadDeadLinks(isLocal) {
+  const url = isLocal ? "./data/dead-links.json" : `${REPO_BASE}/data/dead-links.json`;
+  try {
+    const res = await fetchWithTimeout(url);
+    if (!res.ok) return new Map();
+    const report = await res.json();
+    const map = new Map();
+    (report.dead || []).forEach((d) => map.set(String(d.id), { status: d.status, reason: d.reason }));
+    return map;
+  } catch { return new Map(); }
+}
+
+function applyDeadLinks(bookmarks, deadMap) {
+  bookmarks.forEach((bm) => {
+    const info = deadMap.get(String(bm.id));
+    bm._dead = info ? { status: info.status, reason: info.reason } : null;
+  });
+}
+
 async function loadData() {
   const isLocal = location.hostname === "localhost" || location.hostname === "127.0.0.1";
   const url = isLocal ? "./data/bookmarks.yaml" : `${REPO_BASE}/data/bookmarks.yaml`;
@@ -72,6 +93,7 @@ async function loadData() {
     // Within TTL — use cache without any network request
     if (!isLocal && cache && (Date.now() - cache.fetchedAt) < CACHE_TTL) {
       applyParsed(parseYaml(cache.data));
+      applyDeadLinks(state.bookmarks, await loadDeadLinks(isLocal));
       return;
     }
 
@@ -85,6 +107,7 @@ async function loadData() {
       // Not modified — bump timestamp, keep cached data
       writeCache(cache.data, cache.etag);
       applyParsed(parseYaml(cache.data));
+      applyDeadLinks(state.bookmarks, await loadDeadLinks(isLocal));
       return;
     }
 
@@ -94,12 +117,17 @@ async function loadData() {
     const yamlText = await res.text();
     writeCache(yamlText, res.headers.get("etag") || "");
     applyParsed(parseYaml(yamlText));
+    applyDeadLinks(state.bookmarks, await loadDeadLinks(isLocal));
 
   } catch (e) {
     console.error("Fetch failed:", e);
     // Fall back to stale cache rather than showing an error
     const cache = readCache();
-    if (cache) { applyParsed(parseYaml(cache.data), { stale: true, fetchedAt: cache.fetchedAt }); return; }
+    if (cache) {
+      applyParsed(parseYaml(cache.data), { stale: true, fetchedAt: cache.fetchedAt });
+      applyDeadLinks(state.bookmarks, await loadDeadLinks(isLocal));
+      return;
+    }
     state.meta = null;
     state.site = { name: "Markly", tagline: "", description: "" };
     state.collections = []; state.bookmarks = []; state.tags = [];
