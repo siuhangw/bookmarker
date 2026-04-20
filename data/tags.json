@@ -1,0 +1,54 @@
+{
+  "updated": "2026-04-20",
+  "count": 12,
+  "tags": [
+    {
+      "tag": "news",
+      "count": 3
+    },
+    {
+      "tag": "insider-trading",
+      "count": 2
+    },
+    {
+      "tag": "pe-ratio",
+      "count": 2
+    },
+    {
+      "tag": "valuation",
+      "count": 2
+    },
+    {
+      "tag": "carry-trade",
+      "count": 1
+    },
+    {
+      "tag": "derivatives",
+      "count": 1
+    },
+    {
+      "tag": "earnings-calendar",
+      "count": 1
+    },
+    {
+      "tag": "options",
+      "count": 1
+    },
+    {
+      "tag": "politics",
+      "count": 1
+    },
+    {
+      "tag": "position",
+      "count": 1
+    },
+    {
+      "tag": "yen",
+      "count": 1
+    },
+    {
+      "tag": "yield-curve",
+      "count": 1
+    }
+  ]
+}

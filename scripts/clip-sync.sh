@@ -117,6 +117,8 @@ if [[ "$pull_ok" -eq 0 ]]; then
 fi
 
 git add data/bookmarks.yaml bookmarks-processed/
+# Include tags.json if it was regenerated alongside the sync.
+[[ -f data/tags.json ]] && git add data/tags.json
 git commit -m "sync: add ${ADDED_COUNT} bookmark(s) from inbox"
 
 # Push with exponential backoff (up to 4 retries: 2s, 4s, 8s, 16s)

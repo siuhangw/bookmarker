@@ -411,3 +411,71 @@ class TestFindDuplicateGroups:
             {"id": 2, "title": "Has", "url": "https://x.com"},
         ]
         assert sb.find_duplicate_groups(bms) == []
+
+
+# ---------------------------------------------------------------------------
+# generate_tags_json
+# ---------------------------------------------------------------------------
+class TestGenerateTagsJson:
+    def _make_yaml(self, tmp_path, bookmarks):
+        p = tmp_path / "bookmarks.yaml"
+        import yaml as _yaml
+        p.write_text(_yaml.safe_dump({
+            "collectionList": [{"id": "dev", "name": "Dev"}],
+            "bookmarkList": [{"domain": "x.com", "bookmarkItem": bookmarks}],
+        }))
+        return p
+
+    def test_basic_output_structure(self, tmp_path):
+        import json
+        yaml_path = self._make_yaml(tmp_path, [
+            {"id": 1, "title": "A", "url": "https://a.com", "collection": "dev", "tags": ["ai", "python"]},
+            {"id": 2, "title": "B", "url": "https://b.com", "collection": "dev", "tags": ["ai"]},
+        ])
+        out = tmp_path / "tags.json"
+        sb.generate_tags_json(yaml_path, out)
+        data = json.loads(out.read_text())
+        assert data["count"] == 2
+        assert data["tags"][0] == {"tag": "ai", "count": 2}
+        assert data["tags"][1] == {"tag": "python", "count": 1}
+        assert "updated" in data
+        assert out.read_text().endswith("\n")
+
+    def test_sorted_frequency_then_alpha(self, tmp_path):
+        import json
+        yaml_path = self._make_yaml(tmp_path, [
+            {"id": 1, "title": "A", "url": "https://a.com", "collection": "dev", "tags": ["zzz", "aaa"]},
+            {"id": 2, "title": "B", "url": "https://b.com", "collection": "dev", "tags": ["aaa"]},
+        ])
+        out = tmp_path / "tags.json"
+        sb.generate_tags_json(yaml_path, out)
+        tags = [t["tag"] for t in json.loads(out.read_text())["tags"]]
+        assert tags[0] == "aaa"   # higher count
+        assert tags[1] == "zzz"   # lower count, comes after
+
+    def test_empty_tags_still_writes_file(self, tmp_path):
+        import json
+        yaml_path = self._make_yaml(tmp_path, [
+            {"id": 1, "title": "No tags", "url": "https://a.com", "collection": "dev"},
+        ])
+        out = tmp_path / "tags.json"
+        sb.generate_tags_json(yaml_path, out)
+        data = json.loads(out.read_text())
+        assert data["count"] == 0
+        assert data["tags"] == []
+
+    def test_returns_sorted_tag_list(self, tmp_path):
+        yaml_path = self._make_yaml(tmp_path, [
+            {"id": 1, "title": "A", "url": "https://a.com", "collection": "dev", "tags": ["b", "a", "b"]},
+        ])
+        out = tmp_path / "out.json"
+        result = sb.generate_tags_json(yaml_path, out)
+        assert result == ["b", "a"]  # "b" has count 2, "a" count 1
+
+    def test_creates_parent_directories(self, tmp_path):
+        yaml_path = self._make_yaml(tmp_path, [
+            {"id": 1, "title": "A", "url": "https://a.com", "collection": "dev", "tags": ["x"]},
+        ])
+        out = tmp_path / "nested" / "deep" / "tags.json"
+        sb.generate_tags_json(yaml_path, out)
+        assert out.exists()
