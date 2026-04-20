@@ -40,6 +40,7 @@ if ! mkdir "$LOCKDIR" 2>/dev/null; then
   exit 0
 fi
 
+# shellcheck disable=SC2317  # `cleanup` is invoked via `trap ... EXIT`
 cleanup() {
   # If a prior command left a rebase in progress, clear it so the next run
   # isn't permanently blocked by "rebase in progress" errors.
