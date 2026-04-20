@@ -168,7 +168,8 @@
 /* ─── List ─── */
 .list { display: flex; flex-direction: column; gap: 2px; }
 .row {
-  display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+  display: flex; align-items: center; gap: 12px; 
+  /* padding: 10px 12px; */
   border-radius: 6px; transition: background 0.12s;
 }
 .row:hover { background: var(--bg-card); }
@@ -197,7 +198,9 @@
 }
 .row-domain {
   font-size: 11px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace;
-  flex-shrink: 0; width: 100px; text-align: right;
+  flex-shrink: 0; 
+  /* width: 100px;  */
+  text-align: right;
 }
 .row-arrow { color: var(--text-dim); flex-shrink: 0; transition: color 0.15s; }
 .row:hover .row-arrow { color: var(--text); }
