@@ -194,13 +194,14 @@ function navItem(id, icon, label, count, active, extra = "") {
 
 function renderCard(bm, i) {
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;"></i>` : "";
+  const dead = bm._dead ? `<span class="dead-dot" title="Link may be broken (HTTP ${esc(String(bm._dead.status ?? "error"))})"></span>` : "";
   const tags = bm.tags.slice(0, CARD_TAG_LIMIT).map((t) => renderTagChip(t, "inline")).join("");
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
-  return `<a href="${esc(bm.url)}" class="card fade-up" style="animation-delay:${i * 35}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
+  return `<a href="${esc(bm.url)}" class="card fade-up${bm._dead ? " card-dead" : ""}" style="animation-delay:${i * 35}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
     <div class="card-top">
       <div class="card-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
       <div class="card-info">
-        <div class="card-title-row"><span class="card-title">${esc(bm.title)}</span>${fav}</div>
+        <div class="card-title-row"><span class="card-title">${esc(bm.title)}</span>${fav}${dead}</div>
         <span class="card-domain">${esc(bm._domain)}</span>
       </div>
       <i data-lucide="arrow-up-right" class="card-arrow" style="width:15px;height:15px;"></i>
@@ -212,10 +213,11 @@ function renderCard(bm, i) {
 
 function renderRow(bm, i) {
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;margin-left:5px;vertical-align:middle;"></i>` : "";
+  const dead = bm._dead ? `<span class="dead-dot" title="Link may be broken (HTTP ${esc(String(bm._dead.status ?? "error"))})" style="margin-left:5px;vertical-align:middle;"></span>` : "";
   const tags = bm.tags.slice(0, ROW_TAG_LIMIT).map((t) => renderTagChip(t, "row")).join("");
-  return `<a href="${esc(bm.url)}" class="row fade-up" style="animation-delay:${i * 20}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
+  return `<a href="${esc(bm.url)}" class="row fade-up${bm._dead ? " card-dead" : ""}" style="animation-delay:${i * 20}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
     <div class="row-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
-    <span class="row-title">${esc(bm.title)}${fav}</span>
+    <span class="row-title">${esc(bm.title)}${fav}${dead}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
     ${tags}
     <span class="row-domain">${esc(bm._domain)}</span>
@@ -240,6 +242,7 @@ function renderModalContent(bm, col, subcol) {
       <button class="modal-close" data-action="close-modal" aria-label="Close"><i data-lucide="x" style="width:18px;height:18px;"></i></button>
     </div>
     ${bm.desc ? `<p class="modal-desc">${esc(bm.desc)}</p>` : ""}
+    ${bm._dead ? `<div class="modal-dead" role="status"><span class="dead-dot"></span>Link may be broken — last check returned HTTP ${esc(String(bm._dead.status ?? "error"))}${bm._dead.reason ? ` (${esc(bm._dead.reason)})` : ""}.</div>` : ""}
     ${meta ? `<div class="modal-meta">${meta}</div>` : ""}
     ${bm.tags.length ? `<div class="modal-tags">${tags}</div>` : ""}
     <div class="modal-footer">

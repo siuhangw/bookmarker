@@ -1,0 +1,40 @@
+name: Check dead links
+
+on:
+  schedule:
+    # Weekly on Mondays at 03:00 UTC
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    name: Probe bookmark URLs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Check links
+        run: python3 scripts/check_links.py --workers 12 --timeout 20
+
+      - name: Commit report if changed
+        run: |
+          if [[ -n "$(git status --porcelain data/dead-links.json)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/dead-links.json
+            git commit -m "chore: update dead-links report [skip ci]"
+            git push
+          else
+            echo "No changes to dead-links.json."
+          fi
