@@ -34,7 +34,7 @@
 
     <!-- Bookmark Modal -->
     <div id="bookmarkModal" class="modal-overlay" data-action="close-modal">
-      <div class="modal-panel" data-action="noop">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle" data-action="noop">
         <div id="modalContent"></div>
       </div>
     </div>
@@ -61,8 +61,9 @@
       <header class="header">
         <button class="header-btn" id="menuBtn" data-action="toggle-sidebar" aria-label="Toggle sidebar"></button>
         <div class="search-wrap">
+          <label for="searchInput" class="sr-only">Search bookmarks</label>
           <i data-lucide="search" style="width:15px;height:15px;color:var(--text-dim);flex-shrink:0;"></i>
-          <input class="search-input" id="searchInput" placeholder="Search…" aria-label="Search bookmarks" />
+          <input class="search-input" id="searchInput" placeholder="Search…" />
           <button class="search-clear" id="searchClear" data-action="clear-search" style="display:none;" aria-label="Clear search">
             <i data-lucide="x" style="width:14px;height:14px;"></i>
           </button>

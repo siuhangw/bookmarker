@@ -65,8 +65,12 @@ fi
 
 # ---------------------------------------------------------------------------
 # Run the Python sync script
+# In dry-run mode skip --quiet so the full per-bookmark detail is shown.
 # ---------------------------------------------------------------------------
-SYNC_OUTPUT=$("$PYTHON" scripts/sync_bookmarks.py --quiet ${DRY_RUN} 2>&1) || {
+QUIET_FLAG="--quiet"
+[[ -n "$DRY_RUN" ]] && QUIET_FLAG=""
+
+SYNC_OUTPUT=$("$PYTHON" scripts/sync_bookmarks.py $QUIET_FLAG ${DRY_RUN} 2>&1) || {
   echo "[clip-sync] ERROR: sync_bookmarks.py failed:"
   echo "$SYNC_OUTPUT"
   exit 1
@@ -82,10 +86,12 @@ if [[ "$ADDED_COUNT" -eq 0 ]]; then
 fi
 
 # ---------------------------------------------------------------------------
-# Dry-run: report and exit without git operations
+# Dry-run: print full detail and exit without git operations
 # ---------------------------------------------------------------------------
 if [[ -n "$DRY_RUN" ]]; then
-  echo "[clip-sync] Dry-run: would add ${ADDED_COUNT} bookmark(s)."
+  echo "[clip-sync] Dry-run — no files written, no git operations performed."
+  [[ -n "$SYNC_OUTPUT" ]] && echo "$SYNC_OUTPUT"
+  echo "[clip-sync] Would commit and push ${ADDED_COUNT} bookmark(s)."
   exit 0
 fi
 

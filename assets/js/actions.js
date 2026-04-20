@@ -65,21 +65,54 @@ function toggleTheme() {
 function toggleSidebar() { state.sidebarOpen = !state.sidebarOpen; render(); }
 function closeSidebar() { state.sidebarOpen = false; render(); }
 
-/* ═══ Modal ═══ */
+/* ═══ Modal + focus trap ═══ */
+let _focusBefore = null;
+
+function getFocusable(container) {
+  return [...container.querySelectorAll(
+    'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+  )].filter((el) => el.offsetParent !== null);
+}
+
+function trapFocus(e) {
+  if (e.key !== "Tab") return;
+  const panel = document.querySelector(".modal-panel");
+  if (!panel) return;
+  const focusable = getFocusable(panel);
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last  = focusable[focusable.length - 1];
+  if (e.shiftKey) {
+    if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+  } else {
+    if (document.activeElement === last)  { e.preventDefault(); first.focus(); }
+  }
+}
+
 function openModal(id) {
   const bm = state.bookmarks.find((b) => b.id === id);
   if (!bm) return;
   const col = state.collections.find((c) => c.id === bm.collection);
   const subcol = col?.collectionItem?.find((s) => s.id === bm.collectionItem);
+  _focusBefore = document.activeElement;
   document.getElementById("modalContent").innerHTML = renderModalContent(bm, col, subcol);
   document.getElementById("bookmarkModal").classList.add("active");
   document.body.style.overflow = "hidden";
   safeCreateIcons();
   hideBrokenFavicons(document.getElementById("modalContent"));
+  document.addEventListener("keydown", trapFocus);
+  // Move focus into modal after paint so screen readers announce the dialog.
+  requestAnimationFrame(() => {
+    const closeBtn = document.querySelector(".modal-close");
+    if (closeBtn) closeBtn.focus();
+  });
 }
+
 function closeModal() {
+  document.removeEventListener("keydown", trapFocus);
   document.getElementById("bookmarkModal").classList.remove("active");
   document.body.style.overflow = "";
+  if (_focusBefore) { _focusBefore.focus(); _focusBefore = null; }
 }
 async function reloadData() {
   document.getElementById("app").style.display = "none";
@@ -170,7 +203,22 @@ window.addEventListener("resize", () => {
 /* ═══ Init ═══ */
 (async function init() {
   safeCreateIcons();
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") { closeModal(); return; }
+    // Don't steal shortcuts while the user is typing.
+    const active = document.activeElement;
+    if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) return;
+    // Don't fire if modal is open (focus trap handles Tab there).
+    if (document.getElementById("bookmarkModal")?.classList.contains("active")) return;
+    if (e.key === "/" && !e.metaKey && !e.ctrlKey) {
+      e.preventDefault();
+      document.getElementById("searchInput")?.focus();
+    } else if (e.key === "g" && !e.metaKey && !e.ctrlKey) {
+      setView("grid");
+    } else if (e.key === "l" && !e.metaKey && !e.ctrlKey) {
+      setView("list");
+    }
+  });
   document.addEventListener("click", handleActionClick);
   const searchInput = document.getElementById("searchInput");
   if (searchInput) searchInput.addEventListener("input", debounce(onSearch, 120));
