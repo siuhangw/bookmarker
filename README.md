@@ -100,6 +100,28 @@ python3 scripts/sync_bookmarks.py --validate-only
 
 CI runs the same check on every push touching `data/bookmarks.yaml`.
 
+## Development
+
+```bash
+pip install -r requirements-dev.txt       # PyYAML + pytest + ruff
+pytest                                    # run the test suite
+ruff check scripts/ tests/                # lint Python
+shellcheck scripts/*.sh                   # lint shell
+```
+
+CI (`.github/workflows/validate.yml`) runs all four — YAML validation,
+ruff, pytest, and shellcheck — on every push and PR.
+
+### Enable the pre-commit hook
+
+```bash
+git config core.hooksPath .githooks
+```
+
+With that set, each `git commit` runs `sync_bookmarks.py --validate-only`
+against `data/bookmarks.yaml`, plus ruff, pytest, and shellcheck on any
+staged files of matching types. Use `git commit --no-verify` to skip.
+
 ## Further docs
 
 - [`CLAUDE.md`](./CLAUDE.md) — full architecture notes, Obsidian template

@@ -20,6 +20,7 @@ Options:
 """
 
 import argparse
+import contextlib
 import os
 import re
 import shutil
@@ -76,8 +77,13 @@ class SyncResult:
 # URL normalisation (dedup key)
 # ---------------------------------------------------------------------------
 def normalize_url(url: str) -> str:
-    """Lowercase, strip trailing slash, strip URL fragment."""
-    return url.lower().rstrip("/").split("#")[0]
+    """Lowercase, strip URL fragment, then strip trailing slash.
+
+    Order matters: `https://x.com/path/#top` should dedupe against
+    `https://x.com/path`, which only works if the fragment is removed
+    before the trailing slash.
+    """
+    return url.lower().split("#")[0].rstrip("/")
 
 
 # ---------------------------------------------------------------------------
@@ -297,10 +303,8 @@ def _atomic_write_yaml(yaml_path: Path, data: dict) -> None:
             pass
         os.replace(tmp_path, yaml_path)
     except Exception:
-        try:
+        with contextlib.suppress(OSError):
             os.unlink(tmp_path)
-        except OSError:
-            pass
         raise
 
 
