@@ -221,10 +221,7 @@ window.addEventListener("resize", () => {
 /* ═══ Init ═══ */
 (async function init() {
   safeCreateIcons();
-<<<<<<< HEAD
-=======
   loadPrefs();
->>>>>>> cedb3c45c7d63ea0f02c588352c3af718231f290
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeModal(); return; }
     // Don't steal shortcuts while the user is typing.
