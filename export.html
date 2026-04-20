@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src https://fonts.gstatic.com; connect-src 'self' https://raw.githubusercontent.com; base-uri 'self'; form-action 'none'; object-src 'none'" />
+  <title>Markly — Export</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/export.css" />
+</head>
+<body data-theme="light">
+  <main class="export-main">
+    <header class="export-header">
+      <a href="./index.html" class="export-back" aria-label="Back to bookmarks">
+        <span aria-hidden="true">←</span> Back
+      </a>
+      <h1 class="export-title">Export</h1>
+      <p class="export-sub">Download your bookmarks in portable formats.</p>
+    </header>
+
+    <section class="export-status" id="status" role="status">Loading bookmarks…</section>
+
+    <section class="export-formats" id="formats" hidden>
+      <article class="export-card">
+        <h2 class="export-card-title">JSON</h2>
+        <p class="export-card-desc">Flat array of every bookmark — title, URL, description, collection, tags, featured, added. Canonical format for migration or scripting.</p>
+        <div class="export-card-actions">
+          <button class="export-btn export-btn-primary" data-action="download" data-format="json">Download .json</button>
+          <button class="export-btn" data-action="preview" data-format="json">Preview</button>
+        </div>
+      </article>
+
+      <article class="export-card">
+        <h2 class="export-card-title">OPML</h2>
+        <p class="export-card-desc">Hierarchical XML — imports into most browsers' bookmark manager and RSS readers. Grouped by collection.</p>
+        <div class="export-card-actions">
+          <button class="export-btn export-btn-primary" data-action="download" data-format="opml">Download .opml</button>
+          <button class="export-btn" data-action="preview" data-format="opml">Preview</button>
+        </div>
+      </article>
+
+      <article class="export-card">
+        <h2 class="export-card-title">RSS</h2>
+        <p class="export-card-desc">Feed of the 50 most-recently-added bookmarks (by <code>added</code> date). Subscribe a reader to keep up with additions.</p>
+        <div class="export-card-actions">
+          <button class="export-btn export-btn-primary" data-action="download" data-format="rss">Download .xml</button>
+          <button class="export-btn" data-action="preview" data-format="rss">Preview</button>
+        </div>
+      </article>
+
+      <article class="export-card">
+        <h2 class="export-card-title">CSV</h2>
+        <p class="export-card-desc">Spreadsheet-friendly. Columns: id, title, url, description, collection, collectionItem, tags, featured, added.</p>
+        <div class="export-card-actions">
+          <button class="export-btn export-btn-primary" data-action="download" data-format="csv">Download .csv</button>
+          <button class="export-btn" data-action="preview" data-format="csv">Preview</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="export-preview" id="previewWrap" hidden>
+      <div class="export-preview-head">
+        <span id="previewLabel"></span>
+        <button class="export-btn" data-action="copy" aria-label="Copy preview to clipboard">Copy</button>
+        <button class="export-btn" data-action="close-preview" aria-label="Close preview">Close</button>
+      </div>
+      <pre class="export-preview-body" id="previewBody"></pre>
+    </section>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/export.js"></script>
+</body>
+</html>
