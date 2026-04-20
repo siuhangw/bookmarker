@@ -3973,3 +3973,35 @@ bookmarkList:
     tags: []
     featured: false
     added: 2026-04-1
+- domain: macrotrends.net
+  bookmarkItem:
+  - id: 415
+    title: Precious Metals Charts and Data
+    url: https://www.macrotrends.net/charts/precious-metals
+    desc: A series of current and historical precious metals charts.  Gold prices,
+      silver prices, platinum prices and much more.
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-20'
+- domain: worldperatio.com
+  bookmarkItem:
+  - id: 416
+    title: Global P/E Ratios by Country
+    url: https://worldperatio.com/
+    desc: Find out the P/E ratio for all countries. What are the cheapest markets?
+      Which are the most expensive? P/E ratios ​​and statistics are available here
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-20'
+- domain: bandcamp.com
+  bookmarkItem:
+  - id: 417
+    title: Bandcamp
+    url: https://bandcamp.com/
+    desc: Discover amazing music and directly support the artists who make it.
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-20'

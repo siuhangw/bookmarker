@@ -344,3 +344,70 @@ class TestProcessInbox:
         assert result.added == []
         assert len(result.skipped_errors) == 1
         assert list(inbox.glob("*.md"))  # bad notes stay in inbox for manual fix
+
+
+# ---------------------------------------------------------------------------
+# --report-duplicates
+# ---------------------------------------------------------------------------
+class TestCanonicalUrlKey:
+    def test_strips_scheme_www_trailing_slash_query_fragment(self):
+        assert sb.canonical_url_key("https://www.example.com/a?x=1") \
+            == sb.canonical_url_key("http://example.com/a#top")
+        assert sb.canonical_url_key("https://example.com/a/") \
+            == sb.canonical_url_key("https://example.com/a")
+
+    def test_distinct_paths_stay_distinct(self):
+        assert sb.canonical_url_key("https://example.com/a") != sb.canonical_url_key("https://example.com/b")
+
+    def test_root_path_normalized(self):
+        assert sb.canonical_url_key("https://example.com") == sb.canonical_url_key("https://example.com/")
+
+
+class TestFindDuplicateGroups:
+    def test_finds_canonical_url_duplicates(self):
+        bms = [
+            {"id": 1, "title": "GitHub", "url": "https://github.com/?utm=a"},
+            {"id": 2, "title": "GH",     "url": "https://www.github.com#top"},
+            {"id": 3, "title": "Other",  "url": "https://example.com"},
+        ]
+        groups = sb.find_duplicate_groups(bms)
+        assert len(groups) == 1
+        g = groups[0]
+        assert g["kind"] == "url"
+        assert {b["id"] for b in g["bookmarks"]} == {1, 2}
+
+    def test_finds_same_title_on_same_host(self):
+        bms = [
+            {"id": 1, "title": "Docs",  "url": "https://example.com/v1"},
+            {"id": 2, "title": "docs",  "url": "https://example.com/v2"},
+            {"id": 3, "title": "Docs",  "url": "https://other.com/docs"},
+        ]
+        groups = sb.find_duplicate_groups(bms)
+        kinds = {g["kind"] for g in groups}
+        assert "title" in kinds
+        title_grp = next(g for g in groups if g["kind"] == "title")
+        assert {b["id"] for b in title_grp["bookmarks"]} == {1, 2}
+
+    def test_does_not_double_report_url_and_title_overlap(self):
+        # Same canonical URL AND same title — one group, not two.
+        bms = [
+            {"id": 1, "title": "Home", "url": "https://x.com/"},
+            {"id": 2, "title": "Home", "url": "https://www.x.com"},
+        ]
+        groups = sb.find_duplicate_groups(bms)
+        assert len(groups) == 1
+        assert groups[0]["kind"] == "url"
+
+    def test_no_duplicates_returns_empty(self):
+        bms = [
+            {"id": 1, "title": "A", "url": "https://a.com"},
+            {"id": 2, "title": "B", "url": "https://b.com"},
+        ]
+        assert sb.find_duplicate_groups(bms) == []
+
+    def test_skips_entries_without_url(self):
+        bms = [
+            {"id": 1, "title": "No URL"},
+            {"id": 2, "title": "Has", "url": "https://x.com"},
+        ]
+        assert sb.find_duplicate_groups(bms) == []

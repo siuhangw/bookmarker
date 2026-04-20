@@ -16,6 +16,7 @@ Options:
   --processed PATH    Processed notes dir (default: bookmarks-processed/)
   --dry-run           Parse and validate without writing any files
   --validate-only     Only validate bookmarks.yaml, skip inbox processing
+  --report-duplicates Find near-duplicate bookmarks (canonical URL or shared title/host) and exit
   --quiet             Suppress informational output; emit machine-readable summary
 """
 
@@ -30,6 +31,7 @@ from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
+from urllib.parse import urlparse
 
 import yaml
 
@@ -84,6 +86,64 @@ def normalize_url(url: str) -> str:
     before the trailing slash.
     """
     return url.lower().split("#")[0].rstrip("/")
+
+
+def canonical_url_key(url: str) -> str:
+    """
+    Return a key that considers two URLs duplicates if only scheme, subdomain
+    `www.`, trailing slash, query string, or fragment differ. Used only by the
+    --report-duplicates mode; the exact dedup key (normalize_url) is stricter.
+    """
+    try:
+        p = urlparse(url.lower())
+    except ValueError:
+        return url.lower()
+    host = p.netloc.removeprefix("www.")
+    path = p.path.rstrip("/") or "/"
+    return f"{host}{path}"
+
+
+def _normalize_title(title: str) -> str:
+    """Collapse whitespace, lowercase, strip, for rough title comparison."""
+    return re.sub(r"\s+", " ", (title or "").strip().lower())
+
+
+def find_duplicate_groups(bookmarks: list[dict]) -> list[dict]:
+    """
+    Return groups of suspected duplicates.
+
+    Each group is {"kind": "url" | "title", "key": str, "bookmarks": [bm, ...]}.
+    `kind=url` groups URLs whose canonical key matches (host+path modulo
+    query/fragment/scheme/www). `kind=title` groups entries with identical
+    normalized titles on the same host. Single-entry groups are excluded.
+    """
+    url_groups: dict[str, list[dict]] = {}
+    title_groups: dict[str, list[dict]] = {}
+    for bm in bookmarks:
+        url = bm.get("url") or ""
+        if not url:
+            continue
+        url_groups.setdefault(canonical_url_key(url), []).append(bm)
+        title = _normalize_title(bm.get("title", ""))
+        if title:
+            host = urlparse(url.lower()).netloc.removeprefix("www.")
+            title_groups.setdefault(f"{host}::{title}", []).append(bm)
+
+    out: list[dict] = []
+    seen_ids: set[tuple] = set()
+    for key, items in url_groups.items():
+        if len(items) > 1:
+            out.append({"kind": "url", "key": key, "bookmarks": items})
+            seen_ids.add(tuple(sorted(str(b.get("id")) for b in items)))
+    for key, items in title_groups.items():
+        if len(items) > 1:
+            ids = tuple(sorted(str(b.get("id")) for b in items))
+            # Don't double-report a group we already flagged via URL.
+            if ids in seen_ids:
+                continue
+            out.append({"kind": "title", "key": key, "bookmarks": items})
+    out.sort(key=lambda g: (g["kind"], g["key"]))
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -497,6 +557,11 @@ def main() -> int:
     parser.add_argument("--processed", default=str(repo_root / "bookmarks-processed"), help="Processed notes directory")
     parser.add_argument("--dry-run", action="store_true", help="Parse and validate without writing any files")
     parser.add_argument("--validate-only", action="store_true", help="Validate bookmarks.yaml, skip inbox")
+    parser.add_argument(
+        "--report-duplicates",
+        action="store_true",
+        help="Print groups of near-duplicate bookmarks (canonical URL or shared title on same host) and exit",
+    )
     parser.add_argument("--quiet", action="store_true", help="Suppress informational output; emit machine-readable summary line")
     args = parser.parse_args()
 
@@ -507,6 +572,25 @@ def main() -> int:
     if not yaml_path.exists():
         print(f"Error: {yaml_path} not found", file=sys.stderr)
         return 1
+
+    # --- Duplicate-report mode ---
+    if args.report_duplicates:
+        data = load_yaml_data(yaml_path)
+        groups = find_duplicate_groups(_flat_bookmarks(data))
+        if not groups:
+            if not args.quiet:
+                print("No duplicates found.")
+            return 0
+        if not args.quiet:
+            print(f"Found {len(groups)} duplicate group(s):")
+            for g in groups:
+                label = "URL" if g["kind"] == "url" else "TITLE"
+                print(f"\n[{label}] {g['key']}")
+                for bm in g["bookmarks"]:
+                    print(f"  #{bm.get('id')}  {bm.get('title', '?')}  <{bm.get('url', '')}>")
+        else:
+            print(f"Duplicates: {len(groups)}")
+        return 1 if groups else 0
 
     # --- Validate-only mode ---
     if args.validate_only:
