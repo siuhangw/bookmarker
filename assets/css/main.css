@@ -145,6 +145,17 @@
   transition: border-color 0.15s, box-shadow 0.2s, transform 0.2s;
 }
 .card:hover { border-color: var(--border-hover); box-shadow: var(--shadow); transform: translateY(-2px); }
+.card-dead .card-title, .card-dead .row-title { text-decoration: line-through; text-decoration-color: rgba(220, 38, 38, 0.5); }
+.dead-dot {
+  display: inline-block; width: 7px; height: 7px; border-radius: 50%;
+  background: #dc2626; flex-shrink: 0;
+}
+.modal-dead {
+  display: flex; align-items: center; gap: 8px; margin: 12px 0;
+  padding: 10px 12px; border-radius: 6px;
+  background: rgba(220, 38, 38, 0.08); color: var(--text);
+  font-size: 12px; border: 1px solid rgba(220, 38, 38, 0.2);
+}
 @media (max-width: 639px) { .card { padding: 14px; } }
 .card-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
 .card-icon {
