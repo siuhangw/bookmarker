@@ -75,6 +75,7 @@ function openModal(id) {
   document.getElementById("bookmarkModal").classList.add("active");
   document.body.style.overflow = "hidden";
   safeCreateIcons();
+  hideBrokenFavicons(document.getElementById("modalContent"));
 }
 function closeModal() {
   document.getElementById("bookmarkModal").classList.remove("active");
