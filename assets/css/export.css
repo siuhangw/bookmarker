@@ -1,0 +1,58 @@
+/* ─── Export page ─── */
+.export-main {
+  max-width: 960px; margin: 0 auto; padding: 40px 24px;
+}
+@media (max-width: 639px) { .export-main { padding: 24px 14px; } }
+
+.export-header { margin-bottom: 32px; }
+.export-back {
+  display: inline-block; font-size: 12px; color: var(--text-secondary);
+  text-decoration: none; margin-bottom: 14px;
+}
+.export-back:hover { color: var(--accent); }
+.export-title { font-size: 28px; font-weight: 600; color: var(--text); margin: 0 0 6px; }
+.export-sub { color: var(--text-secondary); font-size: 14px; margin: 0; }
+
+.export-status {
+  padding: 12px 14px; background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 6px; font-size: 13px; color: var(--text-secondary); margin-bottom: 24px;
+}
+.export-status-error { color: var(--accent); border-color: rgba(232,69,60,0.25); }
+
+.export-formats {
+  display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-bottom: 28px;
+}
+.export-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px;
+}
+.export-card-title { font-size: 16px; font-weight: 600; color: var(--text); margin: 0; }
+.export-card-desc { font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+.export-card-actions { display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap; }
+
+.export-btn {
+  font: inherit; padding: 7px 12px; border-radius: 6px;
+  border: 1px solid var(--border); background: var(--bg-input); color: var(--text);
+  cursor: pointer; font-size: 12px; font-weight: 500;
+}
+.export-btn:hover { border-color: var(--border-hover); }
+.export-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.export-btn-primary:hover { filter: brightness(1.05); border-color: var(--accent); }
+
+.export-preview {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  overflow: hidden; margin-bottom: 40px;
+}
+.export-preview-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-bottom: 1px solid var(--border);
+  font-size: 12px; color: var(--text-secondary);
+}
+.export-preview-head > :first-child { flex: 1; }
+.export-preview-body {
+  margin: 0; padding: 14px; max-height: 540px; overflow: auto;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.5;
+  color: var(--text); background: var(--bg);
+  white-space: pre; word-wrap: normal;
+}
