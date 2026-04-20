@@ -3995,3 +3995,13 @@ bookmarkList:
     tags: []
     featured: false
     added: '2026-04-20'
+- domain: bandcamp.com
+  bookmarkItem:
+  - id: 417
+    title: Bandcamp
+    url: https://bandcamp.com/
+    desc: Discover amazing music and directly support the artists who make it.
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-20'
