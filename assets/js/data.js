@@ -137,28 +137,129 @@ async function loadData() {
   }
 }
 
+/* ═══ Query parser ═══
+   Free-text search with operator prefixes and negation:
+     tag:ai site:github.com collection:dev is:featured is:dead -tag:news
+   Tokens are whitespace-separated; unknown prefixes fall through to plain text.
+   Short text tokens (≥3 chars) also match as a title subsequence — "ghb"
+   finds "github".
+*/
+const KNOWN_OPS = new Set(["tag", "site", "collection", "is"]);
+
+function parseQuery(raw) {
+  return (raw || "").trim().split(/\s+/).filter(Boolean).map((tok) => {
+    const neg = tok.length > 1 && tok.startsWith("-");
+    const body = neg ? tok.slice(1) : tok;
+    const i = body.indexOf(":");
+    if (i > 0) {
+      const op = body.slice(0, i).toLowerCase();
+      const val = body.slice(i + 1).toLowerCase();
+      if (KNOWN_OPS.has(op) && val) return { op, val, neg };
+    }
+    return { op: "text", val: body.toLowerCase(), neg };
+  });
+}
+
+function fuzzySubseq(hay, needle) {
+  let j = 0;
+  for (let i = 0; i < hay.length && j < needle.length; i++) {
+    if (hay[i] === needle[j]) j += 1;
+  }
+  return j === needle.length;
+}
+
+function matchTerm(bm, term) {
+  const { op, val } = term;
+  if (op === "tag") {
+    return (bm.tags || []).some((t) => t.toLowerCase().includes(val));
+  }
+  if (op === "site") {
+    return (bm._domain || "").toLowerCase().includes(val) ||
+           (bm.url || "").toLowerCase().includes(val);
+  }
+  if (op === "collection") {
+    return (bm.collection || "").toLowerCase() === val ||
+           (bm.collectionItem || "").toLowerCase() === val;
+  }
+  if (op === "is") {
+    if (val === "featured") return !!bm.featured;
+    if (val === "dead") return !!bm._dead;
+    return false;
+  }
+  // Plain text: substring across title/desc/url/tags, plus title subsequence.
+  const title = (bm.title || "").toLowerCase();
+  const desc = (bm.desc || "").toLowerCase();
+  const url = (bm.url || "").toLowerCase();
+  const tagBlob = (bm.tags || []).join(" ").toLowerCase();
+  if (title.includes(val) || desc.includes(val) || url.includes(val) || tagBlob.includes(val)) return true;
+  if (val.length >= 3 && fuzzySubseq(title, val)) return true;
+  return false;
+}
+
+// Higher score = better match. Only used when sort === "default" and the
+// search has terms; other sorts keep their own ordering.
+function scoreBookmark(bm, terms) {
+  let score = 0;
+  const title = (bm.title || "").toLowerCase();
+  const url = (bm.url || "").toLowerCase();
+  const desc = (bm.desc || "").toLowerCase();
+  const tags = (bm.tags || []).map((t) => t.toLowerCase());
+  for (const { op, val, neg } of terms) {
+    if (neg) continue;
+    if (op === "text") {
+      if (title === val) score += 200;
+      else if (title.startsWith(val)) score += 120;
+      else if (title.includes(val)) score += 80;
+      if (url.includes(val)) score += 20;
+      if (desc.includes(val)) score += 15;
+      if (tags.includes(val)) score += 40;
+      else if (tags.some((t) => t.includes(val))) score += 10;
+    } else if (op === "tag") {
+      if (tags.includes(val)) score += 50;
+      else if (tags.some((t) => t.includes(val))) score += 20;
+    } else if (op === "site" || op === "collection") {
+      score += 30;
+    } else if (op === "is") {
+      score += 15;
+    }
+  }
+  if (bm.featured) score += 2; // tie-break: featured first
+  return score;
+}
+
 /* ═══ Filtering ═══ */
 function getFiltered() {
+  const terms = state.search ? parseQuery(state.search) : [];
+
   // In admin mode the user's pending edits should drive filter behavior
   // (e.g. freshly-starred items show up under Favorites immediately).
-  let list = state.bookmarks.filter((base) => {
+  const candidates = state.bookmarks.filter((base) => {
     const b = state.adminMode ? getEffectiveBookmark(base) : base;
     if (state.activeCol !== "all" && b.collection !== state.activeCol) return false;
     if (state.activeSubcol && b.collectionItem !== state.activeSubcol) return false;
     if (state.activeTag && !b.tags.includes(state.activeTag)) return false;
     if (state.showFeatured && !b.featured) return false;
-    if (state.search) {
-      const q = state.search.toLowerCase();
-      return b.title.toLowerCase().includes(q) || b.desc.toLowerCase().includes(q) ||
-        b.url.toLowerCase().includes(q) || b.tags.some((t) => t.toLowerCase().includes(q));
+    for (const t of terms) {
+      const hit = matchTerm(b, t);
+      if (t.neg ? hit : !hit) return false;
     }
     return true;
   });
 
-  if (state.sort === "alpha") {
-    list = list.slice().sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
+  let list = candidates;
+  if (terms.length && state.sort === "default") {
+    // Rank by relevance when the user is actively searching on default sort.
+    list = candidates
+      .map((base) => {
+        const b = state.adminMode ? getEffectiveBookmark(base) : base;
+        return { base, score: scoreBookmark(b, terms) };
+      })
+      .sort((a, b) => b.score - a.score)
+      .map((x) => x.base);
+  } else if (state.sort === "alpha") {
+    list = candidates.slice().sort((a, b) => a.title.toLowerCase().localeCompare(b.title.toLowerCase()));
   } else if (state.sort === "date") {
-    list = list.slice().sort((a, b) => {
+    list = candidates.slice().sort((a, b) => {
       if (!a.added && !b.added) return 0;
       if (!a.added) return 1;
       if (!b.added) return -1;

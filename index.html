@@ -63,10 +63,24 @@
         <div class="search-wrap">
           <label for="searchInput" class="sr-only">Search bookmarks</label>
           <i data-lucide="search" style="width:15px;height:15px;color:var(--text-dim);flex-shrink:0;"></i>
-          <input class="search-input" id="searchInput" placeholder="Search…" />
+          <input class="search-input" id="searchInput" placeholder="Search… try tag:ai or site:github.com" />
+          <button class="search-help" type="button" data-action="toggle-search-help" aria-label="Search syntax help" title="Search syntax">
+            <i data-lucide="help-circle" style="width:14px;height:14px;"></i>
+          </button>
           <button class="search-clear" id="searchClear" data-action="clear-search" style="display:none;" aria-label="Clear search">
             <i data-lucide="x" style="width:14px;height:14px;"></i>
           </button>
+          <div id="searchHelp" class="search-help-popover" role="dialog" aria-label="Search syntax">
+            <div class="search-help-title">Search operators</div>
+            <ul class="search-help-list">
+              <li><code>tag:ai</code> — match a tag</li>
+              <li><code>site:github.com</code> — match domain/URL</li>
+              <li><code>collection:dev</code> — filter by collection or subcollection id</li>
+              <li><code>is:featured</code> / <code>is:dead</code> — flag filters</li>
+              <li><code>-tag:news</code> — exclude (prefix any operator with <code>-</code>)</li>
+              <li>Plain words fuzzy-match title (e.g. <code>ghb</code> finds <em>github</em>)</li>
+            </ul>
+          </div>
         </div>
         <div class="spacer"></div>
         <div class="view-toggle">

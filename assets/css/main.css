@@ -15,6 +15,7 @@
   flex: 1; display: flex; align-items: center; gap: 8px;
   background: var(--bg-input); border-radius: 10px; padding: 0 12px;
   border: 1px solid var(--border); transition: border-color 0.15s;
+  position: relative;
 }
 @media (min-width: 1024px) { .search-wrap { max-width: 400px; } }
 .search-wrap:focus-within { border-color: var(--border-hover); }
@@ -23,7 +24,28 @@
   color: var(--text); font-size: 13px; outline: none; min-width: 0;
 }
 @media (max-width: 639px) { .search-input { padding: 10px 0; font-size: 14px; } }
-.search-clear { background: none; border: none; color: var(--text-dim); display: flex; flex-shrink: 0; }
+.search-clear { background: none; border: none; color: var(--text-dim); display: flex; flex-shrink: 0; cursor: pointer; }
+.search-help { background: none; border: none; color: var(--text-dim); display: flex; flex-shrink: 0; cursor: pointer; padding: 0; }
+.search-help:hover { color: var(--text); }
+
+.search-help-popover {
+  position: absolute; top: calc(100% + 8px); right: 0;
+  width: 320px; max-width: calc(100vw - 24px);
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  font-size: 12px; color: var(--text-secondary);
+  display: none; z-index: 9000;
+}
+.search-help-popover.open { display: block; }
+.search-help-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim); margin-bottom: 8px; }
+.search-help-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.search-help-list li { color: var(--text); }
+.search-help-list code {
+  background: var(--bg-input); border: 1px solid var(--border); border-radius: 4px;
+  padding: 1px 5px; font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--accent);
+}
+.search-help-list em { color: var(--text-secondary); font-style: italic; }
 
 .view-toggle {
   display: flex; gap: 2px; background: var(--bg-input); border-radius: 6px; padding: 3px; flex-shrink: 0;
