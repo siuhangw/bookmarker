@@ -61,6 +61,24 @@ function clearSearch() {
   document.getElementById("searchInput").value = "";
   render();
 }
+function toggleSearchHelp() {
+  const el = document.getElementById("searchHelp");
+  if (!el) return;
+  const willOpen = !el.classList.contains("open");
+  el.classList.toggle("open", willOpen);
+  if (willOpen) {
+    // Close on outside click (bound once, in a microtask so this same click doesn't trigger it).
+    setTimeout(() => {
+      const handler = (ev) => {
+        if (el.contains(ev.target)) return;
+        if (ev.target.closest('[data-action="toggle-search-help"]')) return;
+        el.classList.remove("open");
+        document.removeEventListener("click", handler);
+      };
+      document.addEventListener("click", handler);
+    }, 0);
+  }
+}
 function setView(v) {
   state.view = v;
   try { localStorage.setItem("view", v); } catch { /* storage full — skip */ }
@@ -258,6 +276,7 @@ const ACTIONS = {
   "toggle-stats":                ()     => toggleStats(),
   "toggle-favorites":            ()     => toggleFavorites(),
   "clear-search":                ()     => clearSearch(),
+  "toggle-search-help":          ()     => toggleSearchHelp(),
   "clear-tag":                   ()     => clearTag(),
   "reload-data":                 ()     => reloadData(),
   "close-modal":                 ()     => closeModal(),
