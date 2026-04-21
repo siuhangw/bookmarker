@@ -19,6 +19,8 @@ let state = {
   sort: "default",   // "default" | "alpha" | "date"
   theme: "light",
   showStats: false,
+  adminMode: false,
+  adminChanges: {},   // { [bookmarkId]: { featured?, tags? } } — local-only edits
   sidebarOpen: window.innerWidth >= 1024,
   expandedCols: new Set(),
   activeModal: null,

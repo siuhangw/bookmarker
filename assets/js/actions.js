@@ -80,6 +80,112 @@ function toggleTheme() {
 function toggleSidebar() { state.sidebarOpen = !state.sidebarOpen; render(); }
 function closeSidebar() { state.sidebarOpen = false; render(); }
 
+/* ═══ Admin mode (local-only bulk edits, gated by #admin) ═══ */
+function syncAdminModeFromHash() {
+  const on = location.hash === "#admin";
+  if (on === state.adminMode) return false;
+  state.adminMode = on;
+  if (!on) state.adminChanges = {};
+  return true;
+}
+
+function adminGetChange(id) {
+  if (!state.adminChanges[id]) state.adminChanges[id] = {};
+  return state.adminChanges[id];
+}
+
+function adminPruneChange(id, bm) {
+  const ch = state.adminChanges[id];
+  if (!ch) return;
+  if (Object.prototype.hasOwnProperty.call(ch, "featured") && !!ch.featured === !!bm.featured) {
+    delete ch.featured;
+  }
+  if (Object.prototype.hasOwnProperty.call(ch, "tags")) {
+    const a = ch.tags || [];
+    const b = bm.tags || [];
+    const same = a.length === b.length && a.every((t, i) => t === b[i]);
+    if (same) delete ch.tags;
+  }
+  if (Object.keys(ch).length === 0) delete state.adminChanges[id];
+}
+
+function toggleAdminFeatured(id) {
+  if (!state.adminMode) return;
+  const bm = state.bookmarks.find((b) => String(b.id) === String(id));
+  if (!bm) return;
+  const ch = adminGetChange(bm.id);
+  const current = Object.prototype.hasOwnProperty.call(ch, "featured") ? ch.featured : bm.featured;
+  ch.featured = !current;
+  adminPruneChange(bm.id, bm);
+  render();
+}
+
+function editAdminTags(id) {
+  if (!state.adminMode) return;
+  const bm = state.bookmarks.find((b) => String(b.id) === String(id));
+  if (!bm) return;
+  const ch = adminGetChange(bm.id);
+  const current = Object.prototype.hasOwnProperty.call(ch, "tags") ? ch.tags : (bm.tags || []);
+  const input = window.prompt(`Edit tags for "${bm.title}"\n(comma-separated, lowercase):`, current.join(", "));
+  if (input === null) return;
+  const next = input
+    .split(",")
+    .map((t) => t.trim().toLowerCase())
+    .filter(Boolean);
+  // Dedupe while preserving order.
+  const seen = new Set();
+  ch.tags = next.filter((t) => (seen.has(t) ? false : (seen.add(t), true)));
+  adminPruneChange(bm.id, bm);
+  render();
+}
+
+// Build a YAML document listing just the changed bookmarks (id + overrides).
+// Users paste this into data/bookmarks.yaml manually — we never write remotely.
+function buildAdminYamlDiff() {
+  const entries = Object.keys(state.adminChanges)
+    .map((id) => {
+      const bm = state.bookmarks.find((b) => String(b.id) === String(id));
+      if (!bm) return null;
+      const ch = state.adminChanges[id];
+      const out = { id: isNaN(Number(bm.id)) ? bm.id : Number(bm.id), title: bm.title };
+      if (Object.prototype.hasOwnProperty.call(ch, "featured")) out.featured = !!ch.featured;
+      if (Object.prototype.hasOwnProperty.call(ch, "tags")) out.tags = ch.tags.slice();
+      return out;
+    })
+    .filter(Boolean);
+  if (!entries.length) return "";
+  return jsyaml.dump(entries, { lineWidth: 100, noRefs: true });
+}
+
+async function copyAdminYaml() {
+  const text = buildAdminYamlDiff();
+  if (!text) return;
+  try {
+    await navigator.clipboard.writeText(text);
+    flashAdminToolbar("Copied YAML to clipboard");
+  } catch {
+    // Clipboard blocked — fall back to a prompt so the user can copy manually.
+    window.prompt("Copy this YAML:", text);
+  }
+}
+
+function discardAdmin() {
+  if (!Object.keys(state.adminChanges).length) return;
+  if (!window.confirm("Discard all pending admin changes?")) return;
+  state.adminChanges = {};
+  render();
+}
+
+function flashAdminToolbar(msg) {
+  const bar = document.getElementById("adminToolbar");
+  if (!bar) return;
+  const status = bar.querySelector(".admin-toolbar-status");
+  if (!status) return;
+  const prev = status.textContent;
+  status.textContent = msg;
+  setTimeout(() => { status.textContent = prev; }, 1500);
+}
+
 /* ═══ Modal + focus trap ═══ */
 let _focusBefore = null;
 
@@ -105,8 +211,9 @@ function trapFocus(e) {
 }
 
 function openModal(id) {
-  const bm = state.bookmarks.find((b) => b.id === id);
-  if (!bm) return;
+  const base = state.bookmarks.find((b) => b.id === id);
+  if (!base) return;
+  const bm = state.adminMode ? getEffectiveBookmark(base) : base;
   const col = state.collections.find((c) => c.id === bm.collection);
   const subcol = col?.collectionItem?.find((s) => s.id === bm.collectionItem);
   _focusBefore = document.activeElement;
@@ -164,6 +271,10 @@ const ACTIONS = {
   "select-tag":                  (el)   => selectTag(el.dataset.tag),
   "select-tag-from-modal":       (el)   => { closeModal(); selectTag(el.dataset.tag); },
   "open-modal":                  (el)   => openModal(el.dataset.id),
+  "admin-toggle-featured":       (el)   => toggleAdminFeatured(el.dataset.id),
+  "admin-edit-tags":             (el)   => editAdminTags(el.dataset.id),
+  "admin-copy-yaml":             ()     => copyAdminYaml(),
+  "admin-discard":               ()     => discardAdmin(),
 };
 
 // Suppress default navigation for anchors that act as modal openers, and
@@ -178,6 +289,12 @@ function handleActionClick(e) {
   // a card anchor shouldn't bubble up and trigger the card's open-modal.
   if (el.tagName === "A") e.preventDefault();
   if (action === "select-tag" || action === "select-tag-from-modal") {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  // Admin controls live inside the card anchor — don't let the click bubble
+  // up and navigate/open-modal.
+  if (action === "admin-toggle-featured" || action === "admin-edit-tags") {
     e.preventDefault();
     e.stopPropagation();
   }
@@ -230,6 +347,10 @@ window.addEventListener("resize", () => {
 (async function init() {
   safeCreateIcons();
   loadPrefs();
+  syncAdminModeFromHash();
+  window.addEventListener("hashchange", () => {
+    if (syncAdminModeFromHash()) render();
+  });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeModal(); return; }
     // Don't steal shortcuts while the user is typing.

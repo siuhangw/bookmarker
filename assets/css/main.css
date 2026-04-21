@@ -283,3 +283,46 @@
   padding: 0 6px; font-size: 10px; font-variant-numeric: tabular-nums;
 }
 .theme-btn.active { color: var(--accent); }
+
+/* ─── Admin mode (local-only bulk edits, gated by URL hash #admin) ─── */
+.admin-mode .content { padding-bottom: 72px; } /* room for floating toolbar */
+
+.admin-controls {
+  display: inline-flex; align-items: center; gap: 4px; margin-left: 6px;
+  flex-shrink: 0; z-index: 2;
+}
+.admin-btn {
+  width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg-input); border: 1px solid var(--border); border-radius: 6px;
+  color: var(--text-dim); cursor: pointer; padding: 0; transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.admin-btn:hover { color: var(--text); border-color: var(--border-hover); background: var(--bg-hover); }
+.admin-btn.admin-star.on { color: var(--accent); border-color: var(--accent); }
+.card.admin-dirty, .row.admin-dirty {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.admin-dirty .admin-controls::after {
+  content: ""; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); flex-shrink: 0;
+}
+
+.admin-toolbar {
+  position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 8px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 999px;
+  padding: 6px 10px; box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  z-index: 9000; max-width: calc(100vw - 24px); font-size: 12px;
+}
+.admin-toolbar-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--accent); color: #fff; border-radius: 999px;
+  padding: 3px 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+}
+.admin-toolbar-status { color: var(--text-secondary); padding: 0 4px; }
+.admin-toolbar-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--bg-input); color: var(--text); border: 1px solid var(--border);
+  border-radius: 999px; padding: 5px 12px; font-size: 12px; cursor: pointer;
+}
+.admin-toolbar-btn:hover:not(:disabled) { border-color: var(--border-hover); background: var(--bg-hover); }
+.admin-toolbar-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.admin-toolbar-btn-danger { color: var(--accent); }

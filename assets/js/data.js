@@ -139,7 +139,10 @@ async function loadData() {
 
 /* ═══ Filtering ═══ */
 function getFiltered() {
-  let list = state.bookmarks.filter((b) => {
+  // In admin mode the user's pending edits should drive filter behavior
+  // (e.g. freshly-starred items show up under Favorites immediately).
+  let list = state.bookmarks.filter((base) => {
+    const b = state.adminMode ? getEffectiveBookmark(base) : base;
     if (state.activeCol !== "all" && b.collection !== state.activeCol) return false;
     if (state.activeSubcol && b.collectionItem !== state.activeSubcol) return false;
     if (state.activeTag && !b.tags.includes(state.activeTag)) return false;
@@ -169,6 +172,32 @@ function getFiltered() {
 // Returns [[tag, count], ...] sorted by count desc. Memoized in parseYaml().
 function getAllTags() {
   return state.tags || [];
+}
+
+// Admin mode keeps edits in state.adminChanges[id] until the user copies the
+// YAML diff. For rendering, merge the pending changes onto the base bookmark.
+function getEffectiveBookmark(bm) {
+  const change = state.adminChanges?.[bm.id];
+  if (!change) return bm;
+  const merged = { ...bm };
+  if (Object.prototype.hasOwnProperty.call(change, "featured")) merged.featured = !!change.featured;
+  if (Object.prototype.hasOwnProperty.call(change, "tags")) merged.tags = change.tags.slice();
+  return merged;
+}
+
+// True when the pending change differs from the base bookmark. Used to drive
+// the "dirty" indicator in the admin UI.
+function adminChangeIsDirty(bm) {
+  const change = state.adminChanges?.[bm.id];
+  if (!change) return false;
+  if (Object.prototype.hasOwnProperty.call(change, "featured") && !!change.featured !== !!bm.featured) return true;
+  if (Object.prototype.hasOwnProperty.call(change, "tags")) {
+    const a = change.tags || [];
+    const b = bm.tags || [];
+    if (a.length !== b.length) return true;
+    for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return true;
+  }
+  return false;
 }
 
 /* ═══ Stats ═══ */

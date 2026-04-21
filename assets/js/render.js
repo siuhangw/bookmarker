@@ -14,7 +14,9 @@ function groupByDomain(bookmarks) {
 /* ═══ Render ═══ */
 function render() {
   document.getElementById("siteName").textContent = state.site.name;
+  document.body.classList.toggle("admin-mode", !!state.adminMode);
   renderSidebar();
+  renderAdminToolbar();
   if (state.showStats) {
     renderHeader([]);
     renderStats();
@@ -25,6 +27,33 @@ function render() {
   renderHeader(filtered);
   renderContent(filtered);
   safeCreateIcons();
+}
+
+function renderAdminToolbar() {
+  const existing = document.getElementById("adminToolbar");
+  if (!state.adminMode) {
+    if (existing) existing.remove();
+    return;
+  }
+  const count = Object.keys(state.adminChanges || {}).length;
+  const bar = existing || (() => {
+    const el = document.createElement("div");
+    el.id = "adminToolbar";
+    el.className = "admin-toolbar";
+    el.setAttribute("role", "region");
+    el.setAttribute("aria-label", "Admin mode");
+    document.body.appendChild(el);
+    return el;
+  })();
+  bar.innerHTML = `
+    <span class="admin-toolbar-badge"><i data-lucide="shield" style="width:12px;height:12px;"></i>ADMIN</span>
+    <span class="admin-toolbar-status">${count} modified</span>
+    <button class="admin-toolbar-btn" data-action="admin-copy-yaml" ${count ? "" : "disabled"}>
+      <i data-lucide="clipboard" style="width:13px;height:13px;"></i>Copy YAML
+    </button>
+    <button class="admin-toolbar-btn admin-toolbar-btn-danger" data-action="admin-discard" ${count ? "" : "disabled"}>
+      <i data-lucide="trash-2" style="width:13px;height:13px;"></i>Discard
+    </button>`;
 }
 
 function renderSidebar() {
@@ -52,7 +81,7 @@ function renderSidebar() {
   // Sidebar nav
   let nav = "";
   nav += navItem("all", "layers", "All Resources", state.bookmarks.length, state.activeCol === "all" && !state.showFeatured && !state.activeTag);
-  const favCount = state.bookmarks.filter((b) => b.featured).length;
+  const favCount = state.bookmarks.filter((b) => (state.adminMode ? getEffectiveBookmark(b).featured : b.featured)).length;
   nav += navItem("fav", "star", "Favorites", favCount, state.showFeatured, "");
   nav += `<div class="sidebar-hr"></div><div class="sidebar-label">Collections</div>`;
 
@@ -202,18 +231,37 @@ function navItem(id, icon, label, count, active, extra = "") {
   </button>`;
 }
 
-function renderCard(bm, i) {
+function renderAdminBadge(baseBm) {
+  if (!state.adminMode) return "";
+  const dirty = adminChangeIsDirty(baseBm);
+  const eff = getEffectiveBookmark(baseBm);
+  const starred = eff.featured;
+  const id = esc(baseBm.id);
+  return `<span class="admin-controls${dirty ? " dirty" : ""}">
+      <button class="admin-btn admin-star${starred ? " on" : ""}" data-action="admin-toggle-featured" data-id="${id}" title="Toggle featured" aria-label="Toggle featured">
+        <i data-lucide="star" style="width:13px;height:13px;"></i>
+      </button>
+      <button class="admin-btn" data-action="admin-edit-tags" data-id="${id}" title="Edit tags" aria-label="Edit tags">
+        <i data-lucide="tag" style="width:13px;height:13px;"></i>
+      </button>
+    </span>`;
+}
+
+function renderCard(baseBm, i) {
+  const bm = state.adminMode ? getEffectiveBookmark(baseBm) : baseBm;
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:12px;height:12px;"></i>` : "";
   const dead = bm._dead ? `<span class="dead-dot" title="Link may be broken (HTTP ${esc(String(bm._dead.status ?? "error"))})"></span>` : "";
   const tags = bm.tags.slice(0, CARD_TAG_LIMIT).map((t) => renderTagChip(t, "inline")).join("");
   const desc = bm.desc ? `<p class="card-desc">${esc(bm.desc)}</p>` : "";
-  return `<a href="${esc(bm.url)}" class="card fade-up${bm._dead ? " card-dead" : ""}" style="animation-delay:${i * 35}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
+  const dirty = state.adminMode && adminChangeIsDirty(baseBm) ? " admin-dirty" : "";
+  return `<a href="${esc(bm.url)}" class="card fade-up${bm._dead ? " card-dead" : ""}${dirty}" style="animation-delay:${i * 35}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
     <div class="card-top">
       <div class="card-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
       <div class="card-info">
         <div class="card-title-row"><span class="card-title">${esc(bm.title)}</span>${fav}${dead}</div>
         <span class="card-domain">${esc(bm._domain)}</span>
       </div>
+      ${renderAdminBadge(baseBm)}
       <i data-lucide="arrow-up-right" class="card-arrow" style="width:15px;height:15px;"></i>
     </div>
     ${desc}
@@ -221,16 +269,19 @@ function renderCard(bm, i) {
   </a>`;
 }
 
-function renderRow(bm, i) {
+function renderRow(baseBm, i) {
+  const bm = state.adminMode ? getEffectiveBookmark(baseBm) : baseBm;
   const fav = bm.featured ? `<i data-lucide="star" class="star-icon" style="width:10px;height:10px;margin-left:5px;vertical-align:middle;"></i>` : "";
   const dead = bm._dead ? `<span class="dead-dot" title="Link may be broken (HTTP ${esc(String(bm._dead.status ?? "error"))})" style="margin-left:5px;vertical-align:middle;"></span>` : "";
   const tags = bm.tags.slice(0, ROW_TAG_LIMIT).map((t) => renderTagChip(t, "row")).join("");
-  return `<a href="${esc(bm.url)}" class="row fade-up${bm._dead ? " card-dead" : ""}" style="animation-delay:${i * 20}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
+  const dirty = state.adminMode && adminChangeIsDirty(baseBm) ? " admin-dirty" : "";
+  return `<a href="${esc(bm.url)}" class="row fade-up${bm._dead ? " card-dead" : ""}${dirty}" style="animation-delay:${i * 20}ms;" data-action="open-modal" data-id="${esc(bm.id)}" rel="noopener noreferrer">
     <div class="row-icon"><img class="favicon" src="${bm._favicon}" alt="" /></div>
     <span class="row-title">${esc(bm.title)}${fav}${dead}</span>
     <span class="row-desc">${esc(bm.desc)}</span>
     ${tags}
     <span class="row-domain">${esc(bm._domain)}</span>
+    ${renderAdminBadge(baseBm)}
     <i data-lucide="arrow-up-right" class="row-arrow" style="width:13px;height:13px;"></i>
   </a>`;
 }
