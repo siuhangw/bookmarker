@@ -141,6 +141,9 @@ collectionList:
   - id: design-growth-marketing
     name: Growth & Marketing
     order: 3
+  - id: design-tools
+    name: Tools
+    order: 4
 - id: news
   name: News & Media
   icon: newspaper
@@ -851,6 +854,33 @@ bookmarkList:
     tags: []
     featured: false
     collectionItem: dev-system-design
+- domain: data.eastmoney.com
+  bookmarkItem:
+  - id: 122
+    title: HK GDP (East Money)
+    url: https://data.eastmoney.com/cjsj/foreign_8_4.html
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+  - id: 134
+    title: Data Eastmoney — PPI
+    url: https://data.eastmoney.com/cjsj/ppi.html
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-macro-economic-data
+  - id: 435
+    title: 数据中心 _ 东方财富网
+    url: https://data.eastmoney.com/
+    desc: 东方财富网数据中心提供证券市场全面的数据服务,将股票数据、基金数据、经济数据进行优化整合,为您的投资提供重要依据
+    collection: finance
+    tags: [china, data]
+    featured: false
+    collectionItem: finance-hk-china-markets
+    added: '2026-04-22'
 - domain: explainthis.io
   bookmarkItem:
   - id: 8
@@ -941,24 +971,6 @@ bookmarkList:
     tags: []
     featured: false
     collectionItem: finance-hk-china-markets
-- domain: data.eastmoney.com
-  bookmarkItem:
-  - id: 122
-    title: HK GDP (East Money)
-    url: https://data.eastmoney.com/cjsj/foreign_8_4.html
-    desc: ''
-    collection: finance
-    tags: []
-    featured: false
-    collectionItem: finance-hk-china-markets
-  - id: 134
-    title: Data Eastmoney — PPI
-    url: https://data.eastmoney.com/cjsj/ppi.html
-    desc: ''
-    collection: finance
-    tags: []
-    featured: false
-    collectionItem: finance-macro-economic-data
 - domain: devdocs.io
   bookmarkItem:
   - id: 157
@@ -1049,6 +1061,26 @@ bookmarkList:
     tags: []
     featured: false
     review: true
+- domain: legulegu.com
+  bookmarkItem:
+  - id: 433
+    title: 股债利差_乐咕乐股网
+    url: https://legulegu.com/stockdata/equity-bond-spread
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+    added: '2026-04-22'
+  - id: 434
+    title: 市场宽度（A股）_申万1级_每日更新_乐咕乐股网
+    url: https://legulegu.com/stockdata/sw-market-width
+    desc: 市场宽度具体是指收盘价大于MA20的比例，横向是行业近N日的变化，纵向是每个行业之间的强弱区别。市场宽度可以够迅速地发现市场的热点板块以及观测行业间的强弱区别，也可以从整体观测市场的一段时间以来的强弱变化。
+    collection: finance
+    tags: []
+    featured: false
+    collectionItem: finance-hk-china-markets
+    added: '2026-04-22'
 - domain: vercel.com
   bookmarkItem:
   - id: 1
@@ -4066,3 +4098,110 @@ bookmarkList:
     tags: []
     featured: false
     added: '2026-04-20'
+- domain: thedailyshot.com
+  bookmarkItem:
+  - id: 424
+    title: The Daily Shot – Global Macro Currents Visualized
+    url: https://thedailyshot.com/
+    desc: finance
+    collection: news
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: storage.to
+  bookmarkItem:
+  - id: 425
+    title: Fast File Sharing
+    url: https://storage.to/
+    desc: Send files up to 25GB. No signup. No ads. No tracking. Fast, private file
+      sharing powered by Cloudflare.
+    collection: tools
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: schwab.wallst.com
+  bookmarkItem:
+  - id: 426
+    title: All Holdings
+    url: https://www.schwab.wallst.com/schwab/Prospect/research/etfs/schwabETF/index.asp?type=holdings&symbol=SPY
+    desc: ''
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: fincept.in
+  bookmarkItem:
+  - id: 427
+    title: Financial Intelligence for Professionals
+    url: https://fincept.in/
+    desc: Institutional-grade financial terminal used by portfolio managers, analysts,
+      and hedge funds. Real-time market data across 19,000+ instruments, AI-powered
+      equity research, economic indicators, and advanced charting. Open-source, cross-platform,
+      free forever.
+    collection: finance
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: scrapling.readthedocs.io
+  bookmarkItem:
+  - id: 428
+    title: Index
+    url: https://scrapling.readthedocs.io/en/latest/index.html
+    desc: Scrapling - Effortless Web Scraping for the Modern Web!
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: magento-lucknow.github.io
+  bookmarkItem:
+  - id: 429
+    title: Home
+    url: https://magento-lucknow.github.io/certification-notes/#/
+    desc: Magento 2 Certified Professional Developer Notes
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: mcd.adapttive.com
+  bookmarkItem:
+  - id: 430
+    title: Magento Certifications Analytics Dashboard
+    url: https://mcd.adapttive.com/
+    desc: Why get Magento 2 Certification? Get clear analytics on the Magento Certifications!
+      Mage Certs a unique, redesigned, one of a kind dashboard for certified developers.
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: nav.edumails.cn
+  bookmarkItem:
+  - id: 431
+    title: 学生教育优惠项目导航 - edu邮箱认证
+    url: https://nav.edumails.cn/
+    desc: 我们为学生收集整理了各类软件工具、购物优惠、娱乐服务和AI工具的学生专享福利，帮助学生节省费用，提高学习效率。
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: bxkp.org
+  bookmarkItem:
+  - id: 432
+    title: 精选全球影视资源
+    url: https://bxkp.org/
+    desc: 网盘、在线、磁力，你的一站式优质影视资源导航站。
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-22'
+- domain: ardot.tencent.com
+  bookmarkItem:
+  - id: 436
+    title: AI 驱动的智能设计工具
+    url: https://ardot.tencent.com/
+    desc: 腾讯设计 Ardot 是一款 AI 驱动的智能设计工具。支持文生 UI、图片转设计稿、矢量编辑、动态布局系统、设计系统管理，以及从设计到开发的完整交付流程。免费使用，支持
+      macOS 客户端和网页端。
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-tools
+    added: '2026-04-22'

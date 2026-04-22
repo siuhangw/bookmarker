@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-20",
-  "count": 12,
+  "updated": "2026-04-22",
+  "count": 14,
   "tags": [
     {
       "tag": "news",
@@ -20,6 +20,14 @@
     },
     {
       "tag": "carry-trade",
+      "count": 1
+    },
+    {
+      "tag": "china",
+      "count": 1
+    },
+    {
+      "tag": "data",
       "count": 1
     },
     {
