@@ -144,6 +144,9 @@ collectionList:
   - id: design-tools
     name: Tools
     order: 4
+  - id: design-motion
+    name: Motion Design
+    order: 5
 - id: news
   name: News & Media
   icon: newspaper
@@ -568,6 +571,39 @@ bookmarkList:
     tags: []
     featured: false
     added: '2026-04-20'
+  - id: 445
+    title: 'Dakkshin/after-effects-mcp: MCP Server for Adobe After Effects. Enables
+      remote control (compositions, text, shapes, solids, properties) via the Model
+      Context Protocol using ExtendScript.'
+    url: https://github.com/Dakkshin/after-effects-mcp
+    desc: MCP Server for Adobe After Effects. Enables remote control (compositions,
+      text, shapes, solids, properties) via the Model Context Protocol using ExtendScript.
+      - Dakkshin/after-effects-mcp
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+  - id: 446
+    title: 'heygen-com/hyperframes: Write HTML. Render video. Built for agents.'
+    url: https://github.com/heygen-com/hyperframes
+    desc: Write HTML. Render video. Built for agents. Contribute to heygen-com/hyperframes
+      development by creating an account on GitHub.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+  - id: 447
+    title: 'remotion-dev/remotion: 🎥      Make videos programmatically with React'
+    url: https://github.com/remotion-dev/remotion
+    desc: 🎥      Make videos programmatically with React. Contribute to remotion-dev/remotion
+      development by creating an account on GitHub.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
 - domain: youtube.com
   bookmarkItem:
   - id: 372
@@ -4204,4 +4240,101 @@ bookmarkList:
     tags: []
     featured: false
     collectionItem: design-tools
+    added: '2026-04-22'
+- domain: battleaxe.co
+  bookmarkItem:
+  - id: 437
+    title: Battle Axe
+    url: https://battleaxe.co/
+    desc: Brutal tools for design and animation. The home of Overlord, Rubberhose,
+      Buttcapper, Void and more.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+- domain: jakeinmotion.com
+  bookmarkItem:
+  - id: 438
+    title: Railcut
+    url: https://www.jakeinmotion.com/railcut
+    desc: Railcut brings NLE-style editing tools to After Effects. Make ripple edits,
+      rolling edits, slip, slide, overwrites, and more, all without leaving After
+      Effects.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+- domain: mtmograph.com
+  bookmarkItem:
+  - id: 439
+    title: Mt. Mograph - Software for Motion Designers
+    url: https://mtmograph.com/
+    desc: Our popular Motion, Boombox and Wander extensions help you achieve keyframe
+      nirvana in Adobe After Effects and Adobe Premiere.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+- domain: framerate.tv
+  bookmarkItem:
+  - id: 440
+    title: FrameRate - The New Standard for Video Professionals
+    url: https://framerate.tv/
+    desc: Home of the best video & filmmakers. Join our community of artists sharing
+      their work. Upload, share, and discover amazing content on FrameRate.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+- domain: cavalry.studio
+  bookmarkItem:
+  - id: 441
+    title: Free 2D animation & motion graphics software for Mac and Windows
+    url: https://cavalry.studio/en/
+    desc: Download Cavalry free on Mac or Windows. Real-time 2D animation, motion
+      design, and data-driven workflows - built for animators and motion designers.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+- domain: scenery.io
+  bookmarkItem:
+  - id: 442
+    title: Scenery Scenes
+    url: https://scenery.io/scenes
+    desc: ''
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+- domain: rive.app
+  bookmarkItem:
+  - id: 443
+    title: Rive — the interactive experience engine
+    url: https://rive.app/
+    desc: Behind Spotify Wrapped, Duolingo, and products reaching 2 billion users.
+      Design, animate, and code in one place. Ship everywhere.
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
+    added: '2026-04-22'
+- domain: lottiefiles.com
+  bookmarkItem:
+  - id: 444
+    title: 'LottieFiles: Download Free lightweight animations for website & apps.'
+    url: https://lottiefiles.com/
+    desc: Effortlessly bring the smallest, free, ready-to-use motion graphics for
+      the web, app, social, and designs. Create, edit, test, collaborate, and ship
+      Lottie animations in no time!
+    collection: design
+    tags: []
+    featured: false
+    collectionItem: design-motion
     added: '2026-04-22'
