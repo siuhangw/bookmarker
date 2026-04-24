@@ -4338,3 +4338,77 @@ bookmarkList:
     featured: false
     collectionItem: design-motion
     added: '2026-04-22'
+- domain: snipp.in
+  bookmarkItem:
+  - id: 448
+    title: Snipp.in - In browser notes and code snippets
+    url: https://snipp.in/
+    desc: Lite weight and Fast in-browser snipppet manager and code editor
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-24'
+- domain: claudemarketplaces.com
+  bookmarkItem:
+  - id: 449
+    title: wordpress/agent-skills Skills | Claude Code Skills
+    url: https://claudemarketplaces.com/skills/wordpress/agent-skills
+    desc: Browse 13 skills from wordpress/agent-skills for Claude Code.
+    collection: ai
+    tags: []
+    featured: false
+    added: '2026-04-24'
+- domain: skills.sh
+  bookmarkItem:
+  - id: 450
+    title: The Agent Skills Directory
+    url: https://skills.sh/
+    desc: Discover and install skills for AI agents.
+    collection: ai
+    tags: []
+    featured: false
+    added: '2026-04-24'
+- domain: sulu.io
+  bookmarkItem:
+  - id: 451
+    title: Sulu, the Symfony CMS
+    url: https://sulu.io/
+    desc: Deliver awesome, robust, reliable websites with Sulu CMS. The ideal combination
+      of PHP developer experience and agency platform. A Full-Stack Symfony CMS for
+      enterprise projects.
+    collection: dev
+    tags: [php, cms]
+    featured: false
+    added: '2026-04-24'
+- domain: craftcms.com
+  bookmarkItem:
+  - id: 452
+    title: Pricing
+    url: https://craftcms.com/pricing
+    desc: Whether you're building a website for yourself or something professional,
+      we have a tier to suit every need.
+    collection: dev
+    tags: [php, cms]
+    featured: false
+    added: '2026-04-24'
+- domain: statamic.com
+  bookmarkItem:
+  - id: 453
+    title: Statamic Pricing
+    url: https://statamic.com/pricing
+    desc: We offer single site and various options for volume licensing, as well as
+      teacher and student educational discounts. There's something for everyone.
+    collection: dev
+    tags: [php, cms]
+    featured: false
+    added: '2026-04-24'
+- domain: octobercms.com
+  bookmarkItem:
+  - id: 454
+    title: October CMS pricing plans
+    url: https://octobercms.com/pricing
+    desc: Choose the right October CMS pricing plan for you
+    collection: dev
+    tags: [php, cms]
+    featured: false
+    added: '2026-04-24'
