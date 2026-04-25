@@ -604,6 +604,26 @@ bookmarkList:
     featured: false
     collectionItem: design-motion
     added: '2026-04-22'
+  - id: 455
+    title: 'sissbruecker/linkding: Self-hosted bookmark manager that is designed be
+      to be minimal, fast, and easy to set up using Docker.'
+    url: https://github.com/sissbruecker/linkding
+    desc: Self-hosted bookmark manager that is designed be to be minimal, fast, and
+      easy to set up using Docker. - sissbruecker/linkding
+    collection: misc
+    tags: []
+    featured: false
+    added: '2026-04-25'
+  - id: 456
+    title: 'ChrisTitusTech/winutil: Chris Titus Tech''s Windows Utility - Install
+      Programs, Tweaks, Fixes, and Updates'
+    url: https://github.com/christitustech/winutil
+    desc: Chris Titus Tech's Windows Utility - Install Programs, Tweaks, Fixes, and
+      Updates - ChrisTitusTech/winutil
+    collection: tools
+    tags: []
+    featured: false
+    added: '2026-04-25'
 - domain: youtube.com
   bookmarkItem:
   - id: 372
