@@ -1,0 +1,133 @@
+{
+  "checked_at": "2026-04-27T05:48:44Z",
+  "total": 434,
+  "dead_count": 18,
+  "dead": [
+    {
+      "id": "6",
+      "url": "https://playbooks.com/prompts",
+      "title": "AI Prompt Library — ChatGPT, Claude, Gemini, Grok",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "31",
+      "url": "https://ai-bot.cn/",
+      "title": "AI-Bot.cn",
+      "status": 502,
+      "reason": "Bad Gateway"
+    },
+    {
+      "id": "82",
+      "url": "https://hyperdash.info/liqmap",
+      "title": "Hyperdash — Liquidation Map",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "88",
+      "url": "https://www.ether.fi/app/cash/my-membership",
+      "title": "EtherFi — Cash Membership",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "118",
+      "url": "https://stoctaverse.com/",
+      "title": "HK Participants — Stoctaverse",
+      "status": null,
+      "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
+    },
+    {
+      "id": "121",
+      "url": "https://quote.eastmoney.com/qihuo/ag2602.html",
+      "title": "East Money — Silver Futures",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "128",
+      "url": "https://www.chinamoney.org.cn/chinese/bkrmbidx/",
+      "title": "China Money — RMB FX Index",
+      "status": null,
+      "reason": "[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1016)"
+    },
+    {
+      "id": "145",
+      "url": "https://stock.us/hk/filing/cn",
+      "title": "滬深公司公告",
+      "status": null,
+      "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
+    },
+    {
+      "id": "159",
+      "url": "https://www.csdn.net/",
+      "title": "CSDN",
+      "status": 521,
+      "reason": ""
+    },
+    {
+      "id": "163",
+      "url": "https://www.halo.run/",
+      "title": "Halo — Open Source CMS",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "202",
+      "url": "https://ossinsight.io/explore/collections",
+      "title": "OSS Insight Collections",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "212",
+      "url": "https://www.kaggle.com/",
+      "title": "Kaggle",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "275",
+      "url": "https://docs.lovable.dev/use-case/inspiration",
+      "title": "Lovable Docs — Inspiration",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "302",
+      "url": "https://www.pchome.net/",
+      "title": "PCHome — Taiwan Tech News",
+      "status": null,
+      "reason": "Remote end closed connection without response"
+    },
+    {
+      "id": "340",
+      "url": "https://tinytools.page/",
+      "title": "Tiny Tools",
+      "status": null,
+      "reason": "[Errno -2] Name or service not known"
+    },
+    {
+      "id": "354",
+      "url": "https://www.unblock.academy/",
+      "title": "Unblock Academy",
+      "status": null,
+      "reason": "[Errno -3] Temporary failure in name resolution"
+    },
+    {
+      "id": "370",
+      "url": "https://linsa.io/",
+      "title": "Linsa.io",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "418",
+      "url": "https://developer.gs.com/docs/gsquant/",
+      "title": "GS Quant",
+      "status": null,
+      "reason": "The read operation timed out"
+    }
+  ]
+}
