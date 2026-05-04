@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-04-27T05:48:44Z",
+  "checked_at": "2026-05-04T05:58:54Z",
   "total": 434,
   "dead_count": 18,
   "dead": [
@@ -11,11 +11,11 @@
       "reason": "Not Found"
     },
     {
-      "id": "31",
-      "url": "https://ai-bot.cn/",
-      "title": "AI-Bot.cn",
-      "status": 502,
-      "reason": "Bad Gateway"
+      "id": "58",
+      "url": "https://relativerotationgraphs.com/login/",
+      "title": "Relative Rotation Graphs",
+      "status": null,
+      "reason": "[Errno -3] Temporary failure in name resolution"
     },
     {
       "id": "82",
