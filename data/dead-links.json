@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-04T05:58:54Z",
+  "checked_at": "2026-05-11T06:33:17Z",
   "total": 434,
   "dead_count": 18,
   "dead": [
@@ -9,13 +9,6 @@
       "title": "AI Prompt Library — ChatGPT, Claude, Gemini, Grok",
       "status": 404,
       "reason": "Not Found"
-    },
-    {
-      "id": "58",
-      "url": "https://relativerotationgraphs.com/login/",
-      "title": "Relative Rotation Graphs",
-      "status": null,
-      "reason": "[Errno -3] Temporary failure in name resolution"
     },
     {
       "id": "82",
@@ -100,6 +93,13 @@
       "title": "PCHome — Taiwan Tech News",
       "status": null,
       "reason": "Remote end closed connection without response"
+    },
+    {
+      "id": "313",
+      "url": "https://www.cls.cn/",
+      "title": "財聯社 (CLS)",
+      "status": 418,
+      "reason": ""
     },
     {
       "id": "340",
