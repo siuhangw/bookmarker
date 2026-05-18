@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-05-11T06:33:17Z",
+  "checked_at": "2026-05-18T06:51:56Z",
   "total": 434,
-  "dead_count": 18,
+  "dead_count": 19,
   "dead": [
     {
       "id": "6",
@@ -67,6 +67,13 @@
       "reason": "Not Found"
     },
     {
+      "id": "168",
+      "url": "https://designer.tesslate.com/",
+      "title": "Tesslate Designer",
+      "status": null,
+      "reason": "[Errno -5] No address associated with hostname"
+    },
+    {
       "id": "202",
       "url": "https://ossinsight.io/explore/collections",
       "title": "OSS Insight Collections",
@@ -92,7 +99,7 @@
       "url": "https://www.pchome.net/",
       "title": "PCHome — Taiwan Tech News",
       "status": null,
-      "reason": "Remote end closed connection without response"
+      "reason": "_ssl.c:999: The handshake operation timed out"
     },
     {
       "id": "313",
