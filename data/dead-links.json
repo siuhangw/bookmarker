@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-05-18T06:51:56Z",
+  "checked_at": "2026-05-25T07:09:10Z",
   "total": 434,
   "dead_count": 19,
   "dead": [
@@ -53,6 +53,13 @@
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
     },
     {
+      "id": "150",
+      "url": "https://realpython.com/learning-paths/writing-pythonic-code/",
+      "title": "Real Python — Pythonic Code Learning Path",
+      "status": null,
+      "reason": "The read operation timed out"
+    },
+    {
       "id": "159",
       "url": "https://www.csdn.net/",
       "title": "CSDN",
@@ -99,14 +106,7 @@
       "url": "https://www.pchome.net/",
       "title": "PCHome — Taiwan Tech News",
       "status": null,
-      "reason": "_ssl.c:999: The handshake operation timed out"
-    },
-    {
-      "id": "313",
-      "url": "https://www.cls.cn/",
-      "title": "財聯社 (CLS)",
-      "status": 418,
-      "reason": ""
+      "reason": "Remote end closed connection without response"
     },
     {
       "id": "340",
