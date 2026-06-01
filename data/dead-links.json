@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-05-25T07:09:10Z",
+  "checked_at": "2026-06-01T08:30:02Z",
   "total": 434,
-  "dead_count": 19,
+  "dead_count": 20,
   "dead": [
     {
       "id": "6",
@@ -53,13 +53,6 @@
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
     },
     {
-      "id": "150",
-      "url": "https://realpython.com/learning-paths/writing-pythonic-code/",
-      "title": "Real Python — Pythonic Code Learning Path",
-      "status": null,
-      "reason": "The read operation timed out"
-    },
-    {
       "id": "159",
       "url": "https://www.csdn.net/",
       "title": "CSDN",
@@ -93,6 +86,13 @@
       "title": "Kaggle",
       "status": 404,
       "reason": "Not Found"
+    },
+    {
+      "id": "242",
+      "url": "https://linux.vbird.org/linux_basic/centos7/0110whatislinux.php",
+      "title": "Linux Bird (鳥哥)",
+      "status": null,
+      "reason": "[Errno -3] Temporary failure in name resolution"
     },
     {
       "id": "275",
@@ -135,6 +135,13 @@
       "title": "GS Quant",
       "status": null,
       "reason": "The read operation timed out"
+    },
+    {
+      "id": "424",
+      "url": "https://thedailyshot.com/",
+      "title": "The Daily Shot – Global Macro Currents Visualized",
+      "status": 415,
+      "reason": "Unsupported Media Type"
     }
   ]
 }
