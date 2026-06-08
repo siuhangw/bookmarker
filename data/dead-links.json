@@ -1,14 +1,42 @@
 {
-  "checked_at": "2026-06-01T08:30:02Z",
+  "checked_at": "2026-06-08T07:27:49Z",
   "total": 434,
-  "dead_count": 20,
+  "dead_count": 29,
   "dead": [
+    {
+      "id": "3",
+      "url": "https://github.com/microsoft/poml",
+      "title": "microsoft/poml: Prompt Orchestration Markup Language",
+      "status": 504,
+      "reason": "Gateway Time-out"
+    },
+    {
+      "id": "5",
+      "url": "https://academy.openai.com/public/tags/prompt-packs-6849a0f98c613939acef841c",
+      "title": "OpenAI Prompt Packs",
+      "status": 404,
+      "reason": "Not Found"
+    },
     {
       "id": "6",
       "url": "https://playbooks.com/prompts",
       "title": "AI Prompt Library — ChatGPT, Claude, Gemini, Grok",
       "status": 404,
       "reason": "Not Found"
+    },
+    {
+      "id": "17",
+      "url": "https://github.com/midday-ai/midday",
+      "title": "midday-ai/midday (GitHub)",
+      "status": 504,
+      "reason": "Gateway Time-out"
+    },
+    {
+      "id": "38",
+      "url": "https://github.com/huggingface/aisheets",
+      "title": "HuggingFace/aisheets — AI-powered spreadsheet datasets",
+      "status": 504,
+      "reason": "Gateway Time-out"
     },
     {
       "id": "82",
@@ -23,6 +51,13 @@
       "title": "EtherFi — Cash Membership",
       "status": 404,
       "reason": "Not Found"
+    },
+    {
+      "id": "90",
+      "url": "https://github.com/freqtrade/freqtrade",
+      "title": "freqtrade — Open Source Crypto Trading Bot",
+      "status": 504,
+      "reason": "Gateway Time-out"
     },
     {
       "id": "118",
@@ -53,6 +88,20 @@
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
     },
     {
+      "id": "149",
+      "url": "https://github.com/leonardomso/33-js-concepts",
+      "title": "33 JS Concepts (GitHub)",
+      "status": 504,
+      "reason": "Gateway Time-out"
+    },
+    {
+      "id": "155",
+      "url": "https://github.com/akfamily/akshare",
+      "title": "AKShare — Python Financial Data Library",
+      "status": 504,
+      "reason": "Gateway Time-out"
+    },
+    {
       "id": "159",
       "url": "https://www.csdn.net/",
       "title": "CSDN",
@@ -74,6 +123,13 @@
       "reason": "[Errno -5] No address associated with hostname"
     },
     {
+      "id": "190",
+      "url": "https://github.com/GitHubDaily/GitHubDaily",
+      "title": "GitHubDaily",
+      "status": 504,
+      "reason": "Gateway Time-out"
+    },
+    {
       "id": "202",
       "url": "https://ossinsight.io/explore/collections",
       "title": "OSS Insight Collections",
@@ -88,11 +144,18 @@
       "reason": "Not Found"
     },
     {
-      "id": "242",
-      "url": "https://linux.vbird.org/linux_basic/centos7/0110whatislinux.php",
-      "title": "Linux Bird (鳥哥)",
-      "status": null,
-      "reason": "[Errno -3] Temporary failure in name resolution"
+      "id": "215",
+      "url": "https://github.com/remoteintech/remote-jobs",
+      "title": "Remote Jobs in Tech",
+      "status": 504,
+      "reason": "Gateway Time-out"
+    },
+    {
+      "id": "229",
+      "url": "https://github.com/GoogleChromeLabs/squoosh",
+      "title": "GoogleChromeLabs/squoosh",
+      "status": 504,
+      "reason": "Gateway Time-out"
     },
     {
       "id": "275",
@@ -137,11 +200,11 @@
       "reason": "The read operation timed out"
     },
     {
-      "id": "424",
-      "url": "https://thedailyshot.com/",
-      "title": "The Daily Shot – Global Macro Currents Visualized",
-      "status": 415,
-      "reason": "Unsupported Media Type"
+      "id": "445",
+      "url": "https://github.com/Dakkshin/after-effects-mcp",
+      "title": "Dakkshin/after-effects-mcp: MCP Server for Adobe After Effects. Enables remote control (compositions, text, shapes, solids, properties) via the Model Context Protocol using ExtendScript.",
+      "status": 504,
+      "reason": "Gateway Time-out"
     }
   ]
 }
