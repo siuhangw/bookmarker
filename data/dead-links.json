@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-06-15T08:56:27Z",
+  "checked_at": "2026-06-22T08:53:45Z",
   "total": 434,
-  "dead_count": 21,
+  "dead_count": 20,
   "dead": [
     {
       "id": "5",
@@ -14,8 +14,15 @@
       "id": "6",
       "url": "https://playbooks.com/prompts",
       "title": "AI Prompt Library — ChatGPT, Claude, Gemini, Grok",
-      "status": 404,
-      "reason": "Not Found"
+      "status": 502,
+      "reason": "Bad Gateway"
+    },
+    {
+      "id": "34",
+      "url": "https://soloist.ai/",
+      "title": "Solo — Free AI Website Creator",
+      "status": 406,
+      "reason": "Not Acceptable"
     },
     {
       "id": "82",
@@ -109,13 +116,6 @@
       "reason": "Remote end closed connection without response"
     },
     {
-      "id": "313",
-      "url": "https://www.cls.cn/",
-      "title": "財聯社 (CLS)",
-      "status": 418,
-      "reason": ""
-    },
-    {
       "id": "340",
       "url": "https://tinytools.page/",
       "title": "Tiny Tools",
@@ -142,13 +142,6 @@
       "title": "GS Quant",
       "status": null,
       "reason": "The read operation timed out"
-    },
-    {
-      "id": "424",
-      "url": "https://thedailyshot.com/",
-      "title": "The Daily Shot – Global Macro Currents Visualized",
-      "status": 415,
-      "reason": "Unsupported Media Type"
     }
   ]
 }
