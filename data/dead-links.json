@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-06-22T08:53:45Z",
+  "checked_at": "2026-06-29T07:25:05Z",
   "total": 434,
-  "dead_count": 20,
+  "dead_count": 21,
   "dead": [
     {
       "id": "5",
@@ -113,7 +113,14 @@
       "url": "https://www.pchome.net/",
       "title": "PCHome — Taiwan Tech News",
       "status": null,
-      "reason": "Remote end closed connection without response"
+      "reason": "[Errno -5] No address associated with hostname"
+    },
+    {
+      "id": "313",
+      "url": "https://www.cls.cn/",
+      "title": "財聯社 (CLS)",
+      "status": 418,
+      "reason": ""
     },
     {
       "id": "340",
