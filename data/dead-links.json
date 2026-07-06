@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-06-29T07:25:05Z",
+  "checked_at": "2026-07-06T07:06:16Z",
   "total": 434,
-  "dead_count": 21,
+  "dead_count": 22,
   "dead": [
     {
       "id": "5",
@@ -37,6 +37,13 @@
       "title": "EtherFi — Cash Membership",
       "status": 404,
       "reason": "Not Found"
+    },
+    {
+      "id": "110",
+      "url": "https://www.creprice.cn/",
+      "title": "Creprice — China Commercial Real Estate",
+      "status": null,
+      "reason": "[Errno -3] Temporary failure in name resolution"
     },
     {
       "id": "118",
@@ -113,7 +120,7 @@
       "url": "https://www.pchome.net/",
       "title": "PCHome — Taiwan Tech News",
       "status": null,
-      "reason": "[Errno -5] No address associated with hostname"
+      "reason": "Remote end closed connection without response"
     },
     {
       "id": "313",
