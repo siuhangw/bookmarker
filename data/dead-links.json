@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-07-06T07:06:16Z",
+  "checked_at": "2026-07-13T06:08:54Z",
   "total": 434,
-  "dead_count": 22,
+  "dead_count": 24,
   "dead": [
     {
       "id": "5",
@@ -39,11 +39,11 @@
       "reason": "Not Found"
     },
     {
-      "id": "110",
-      "url": "https://www.creprice.cn/",
-      "title": "Creprice — China Commercial Real Estate",
+      "id": "109",
+      "url": "https://hkdata.centanet.com/BigData/%E9%A6%99%E6%B8%AF?field=WP_ER",
+      "title": "中原樓市大數據 — 香港十八區",
       "status": null,
-      "reason": "[Errno -3] Temporary failure in name resolution"
+      "reason": "The read operation timed out"
     },
     {
       "id": "118",
@@ -109,11 +109,25 @@
       "reason": "Not Found"
     },
     {
+      "id": "269",
+      "url": "http://www.cnu.cc/selectedPage",
+      "title": "CNU视觉联盟",
+      "status": null,
+      "reason": "[Errno -3] Temporary failure in name resolution"
+    },
+    {
       "id": "275",
       "url": "https://docs.lovable.dev/use-case/inspiration",
       "title": "Lovable Docs — Inspiration",
       "status": 404,
       "reason": "Not Found"
+    },
+    {
+      "id": "279",
+      "url": "http://www.rxsy.net/2024/04/between-you-and-sea/",
+      "title": "Photography — 大胆构图",
+      "status": null,
+      "reason": "[Errno -3] Temporary failure in name resolution"
     },
     {
       "id": "302",
