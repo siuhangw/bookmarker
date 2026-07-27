@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-07-20T06:10:30Z",
+  "checked_at": "2026-07-27T06:22:56Z",
   "total": 434,
-  "dead_count": 25,
+  "dead_count": 22,
   "dead": [
     {
       "id": "5",
@@ -14,8 +14,8 @@
       "id": "6",
       "url": "https://playbooks.com/prompts",
       "title": "AI Prompt Library — ChatGPT, Claude, Gemini, Grok",
-      "status": 502,
-      "reason": "Bad Gateway"
+      "status": 404,
+      "reason": "Not Found"
     },
     {
       "id": "34",
@@ -37,13 +37,6 @@
       "title": "EtherFi — Cash Membership",
       "status": 404,
       "reason": "Not Found"
-    },
-    {
-      "id": "110",
-      "url": "https://www.creprice.cn/",
-      "title": "Creprice — China Commercial Real Estate",
-      "status": null,
-      "reason": "[Errno 104] Connection reset by peer"
     },
     {
       "id": "118",
@@ -95,6 +88,13 @@
       "reason": "[Errno -5] No address associated with hostname"
     },
     {
+      "id": "193",
+      "url": "https://runacap.com/ross-index/",
+      "title": "ROSS Index — Runacap",
+      "status": 522,
+      "reason": "<none>"
+    },
+    {
       "id": "202",
       "url": "https://ossinsight.io/explore/collections",
       "title": "OSS Insight Collections",
@@ -109,25 +109,11 @@
       "reason": "Not Found"
     },
     {
-      "id": "249",
-      "url": "https://nextcloud.com/",
-      "title": "NextCloud",
-      "status": null,
-      "reason": "[Errno 101] Network is unreachable"
-    },
-    {
       "id": "275",
       "url": "https://docs.lovable.dev/use-case/inspiration",
       "title": "Lovable Docs — Inspiration",
       "status": 404,
       "reason": "Not Found"
-    },
-    {
-      "id": "299",
-      "url": "https://cyble.com/knowledge-hub/top-10-dark-web-forums/",
-      "title": "Top 10 Dark Web Forums 2025 (Cyble)",
-      "status": 415,
-      "reason": "Unsupported Media Type"
     },
     {
       "id": "302",
@@ -170,13 +156,6 @@
       "title": "GS Quant",
       "status": null,
       "reason": "The read operation timed out"
-    },
-    {
-      "id": "424",
-      "url": "https://thedailyshot.com/",
-      "title": "The Daily Shot – Global Macro Currents Visualized",
-      "status": 415,
-      "reason": "Unsupported Media Type"
     }
   ]
 }
