@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-08-03T06:14:22Z",
+  "checked_at": "2026-08-10T04:27:21Z",
   "total": 434,
-  "dead_count": 25,
+  "dead_count": 22,
   "dead": [
     {
       "id": "5",
@@ -23,13 +23,6 @@
       "title": "Solo — Free AI Website Creator",
       "status": 406,
       "reason": "Not Acceptable"
-    },
-    {
-      "id": "58",
-      "url": "https://relativerotationgraphs.com/login/",
-      "title": "Relative Rotation Graphs",
-      "status": null,
-      "reason": "_ssl.c:999: The handshake operation timed out"
     },
     {
       "id": "82",
@@ -65,6 +58,13 @@
       "title": "China Money — RMB FX Index",
       "status": null,
       "reason": "[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1016)"
+    },
+    {
+      "id": "135",
+      "url": "https://gdp.gotohui.com/",
+      "title": "Gotohui — GDP",
+      "status": null,
+      "reason": "timed out"
     },
     {
       "id": "145",
@@ -109,20 +109,6 @@
       "reason": "Not Found"
     },
     {
-      "id": "220",
-      "url": "https://cybersecuritynews.com/",
-      "title": "Cybersecurity News",
-      "status": null,
-      "reason": "timed out"
-    },
-    {
-      "id": "258",
-      "url": "https://seo.dns.com.tw/archives/category/website-optimization",
-      "title": "SEO Research Institute (TW)",
-      "status": null,
-      "reason": "_ssl.c:999: The handshake operation timed out"
-    },
-    {
       "id": "275",
       "url": "https://docs.lovable.dev/use-case/inspiration",
       "title": "Lovable Docs — Inspiration",
@@ -130,11 +116,11 @@
       "reason": "Not Found"
     },
     {
-      "id": "279",
-      "url": "http://www.rxsy.net/2024/04/between-you-and-sea/",
-      "title": "Photography — 大胆构图",
-      "status": 500,
-      "reason": "Internal Server Error"
+      "id": "284",
+      "url": "https://bg.ibelick.com/",
+      "title": "iBelick — Backgrounds",
+      "status": 402,
+      "reason": "Payment Required"
     },
     {
       "id": "302",
@@ -156,13 +142,6 @@
       "title": "Unblock Academy",
       "status": null,
       "reason": "[Errno -3] Temporary failure in name resolution"
-    },
-    {
-      "id": "365",
-      "url": "https://en.knowledgefxg.com/",
-      "title": "Learn English Resource",
-      "status": null,
-      "reason": "timed out"
     },
     {
       "id": "370",
