@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-08-10T04:27:21Z",
+  "checked_at": "2026-08-17T03:44:22Z",
   "total": 434,
-  "dead_count": 22,
+  "dead_count": 21,
   "dead": [
     {
       "id": "5",
@@ -39,6 +39,13 @@
       "reason": "Not Found"
     },
     {
+      "id": "108",
+      "url": "https://www.property.hk/article/",
+      "title": "Property HK Blog",
+      "status": 502,
+      "reason": "Bad Gateway"
+    },
+    {
       "id": "118",
       "url": "https://stoctaverse.com/",
       "title": "HK Participants — Stoctaverse",
@@ -58,13 +65,6 @@
       "title": "China Money — RMB FX Index",
       "status": null,
       "reason": "[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1016)"
-    },
-    {
-      "id": "135",
-      "url": "https://gdp.gotohui.com/",
-      "title": "Gotohui — GDP",
-      "status": null,
-      "reason": "timed out"
     },
     {
       "id": "145",
@@ -142,13 +142,6 @@
       "title": "Unblock Academy",
       "status": null,
       "reason": "[Errno -3] Temporary failure in name resolution"
-    },
-    {
-      "id": "370",
-      "url": "https://linsa.io/",
-      "title": "Linsa.io",
-      "status": 404,
-      "reason": "Not Found"
     },
     {
       "id": "418",
