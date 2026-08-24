@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-08-17T03:44:22Z",
+  "checked_at": "2026-08-24T03:48:53Z",
   "total": 434,
-  "dead_count": 21,
+  "dead_count": 23,
   "dead": [
     {
       "id": "5",
@@ -39,11 +39,11 @@
       "reason": "Not Found"
     },
     {
-      "id": "108",
-      "url": "https://www.property.hk/article/",
-      "title": "Property HK Blog",
-      "status": 502,
-      "reason": "Bad Gateway"
+      "id": "97",
+      "url": "https://www.theblockbeats.info/",
+      "title": "BlockBeats — Blockchain News",
+      "status": null,
+      "reason": "The read operation timed out"
     },
     {
       "id": "118",
@@ -109,6 +109,13 @@
       "reason": "Not Found"
     },
     {
+      "id": "238",
+      "url": "https://pdfdrive.webs.nf/",
+      "title": "PDF Drive",
+      "status": null,
+      "reason": "timed out"
+    },
+    {
       "id": "275",
       "url": "https://docs.lovable.dev/use-case/inspiration",
       "title": "Lovable Docs — Inspiration",
@@ -128,6 +135,13 @@
       "title": "PCHome — Taiwan Tech News",
       "status": null,
       "reason": "Remote end closed connection without response"
+    },
+    {
+      "id": "313",
+      "url": "https://www.cls.cn/",
+      "title": "財聯社 (CLS)",
+      "status": 418,
+      "reason": ""
     },
     {
       "id": "340",
