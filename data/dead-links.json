@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-07T07:47:11Z",
+  "checked_at": "2026-09-14T08:26:34Z",
   "total": 434,
-  "dead_count": 21,
+  "dead_count": 24,
   "dead": [
     {
       "id": "5",
@@ -14,6 +14,13 @@
       "id": "6",
       "url": "https://playbooks.com/prompts",
       "title": "AI Prompt Library — ChatGPT, Claude, Gemini, Grok",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "15",
+      "url": "https://www.blaze.ai/persona/local-services",
+      "title": "Blaze AI — Local Business Growth",
       "status": 404,
       "reason": "Not Found"
     },
@@ -51,6 +58,13 @@
       "title": "HK Participants — Stoctaverse",
       "status": null,
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
+    },
+    {
+      "id": "119",
+      "url": "https://webb-site.com/ccass/cholder.asp?sort=stakdn&part=1323&d=",
+      "title": "Webb-site CCASS — Stock 00003",
+      "status": null,
+      "reason": "_ssl.c:999: The handshake operation timed out"
     },
     {
       "id": "121",
@@ -100,6 +114,13 @@
       "title": "OSS Insight Collections",
       "status": 404,
       "reason": "Not Found"
+    },
+    {
+      "id": "210",
+      "url": "https://devhunt.org/",
+      "title": "Dev Hunt — New Dev Tools Daily",
+      "status": null,
+      "reason": "timed out"
     },
     {
       "id": "212",
