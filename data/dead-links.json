@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-09-14T08:26:34Z",
+  "checked_at": "2026-09-21T08:28:46Z",
   "total": 434,
-  "dead_count": 24,
+  "dead_count": 25,
   "dead": [
     {
       "id": "5",
@@ -25,6 +25,13 @@
       "reason": "Not Found"
     },
     {
+      "id": "28",
+      "url": "https://stepfun.ai/",
+      "title": "Stepfun",
+      "status": 503,
+      "reason": "Service Temporarily Unavailable"
+    },
+    {
       "id": "34",
       "url": "https://soloist.ai/",
       "title": "Solo — Free AI Website Creator",
@@ -39,13 +46,6 @@
       "reason": "Not Found"
     },
     {
-      "id": "88",
-      "url": "https://www.ether.fi/app/cash/my-membership",
-      "title": "EtherFi — Cash Membership",
-      "status": 404,
-      "reason": "Not Found"
-    },
-    {
       "id": "97",
       "url": "https://www.theblockbeats.info/",
       "title": "BlockBeats — Blockchain News",
@@ -53,18 +53,18 @@
       "reason": "The read operation timed out"
     },
     {
+      "id": "110",
+      "url": "https://www.creprice.cn/",
+      "title": "Creprice — China Commercial Real Estate",
+      "status": null,
+      "reason": "[Errno 104] Connection reset by peer"
+    },
+    {
       "id": "118",
       "url": "https://stoctaverse.com/",
       "title": "HK Participants — Stoctaverse",
       "status": null,
       "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
-    },
-    {
-      "id": "119",
-      "url": "https://webb-site.com/ccass/cholder.asp?sort=stakdn&part=1323&d=",
-      "title": "Webb-site CCASS — Stock 00003",
-      "status": null,
-      "reason": "_ssl.c:999: The handshake operation timed out"
     },
     {
       "id": "121",
@@ -102,6 +102,13 @@
       "reason": "Not Found"
     },
     {
+      "id": "165",
+      "url": "https://frappe.io/erpnext",
+      "title": "ERPNext",
+      "status": null,
+      "reason": "The read operation timed out"
+    },
+    {
       "id": "168",
       "url": "https://designer.tesslate.com/",
       "title": "Tesslate Designer",
@@ -116,18 +123,18 @@
       "reason": "Not Found"
     },
     {
-      "id": "210",
-      "url": "https://devhunt.org/",
-      "title": "Dev Hunt — New Dev Tools Daily",
-      "status": null,
-      "reason": "timed out"
-    },
-    {
       "id": "212",
       "url": "https://www.kaggle.com/",
       "title": "Kaggle",
       "status": 404,
       "reason": "Not Found"
+    },
+    {
+      "id": "253",
+      "url": "https://www.joesandbox.com/",
+      "title": "Joe Sandbox — Automated Malware Analysis",
+      "status": 503,
+      "reason": "Service Unavailable"
     },
     {
       "id": "275",
@@ -137,11 +144,11 @@
       "reason": "Not Found"
     },
     {
-      "id": "284",
-      "url": "https://bg.ibelick.com/",
-      "title": "iBelick — Backgrounds",
-      "status": 402,
-      "reason": "Payment Required"
+      "id": "279",
+      "url": "http://www.rxsy.net/2024/04/between-you-and-sea/",
+      "title": "Photography — 大胆构图",
+      "status": 500,
+      "reason": "Internal Server Error"
     },
     {
       "id": "302",
