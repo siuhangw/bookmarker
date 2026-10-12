@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-05T09:53:41Z",
+  "checked_at": "2026-10-12T10:05:57Z",
   "total": 434,
   "dead_count": 21,
   "dead": [
@@ -109,11 +109,18 @@
       "reason": "Not Found"
     },
     {
+      "id": "221",
+      "url": "https://github.com/4ier/neo",
+      "title": "4ier/neo",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
       "id": "275",
       "url": "https://docs.lovable.dev/use-case/inspiration",
       "title": "Lovable Docs — Inspiration",
-      "status": null,
-      "reason": "The read operation timed out"
+      "status": 404,
+      "reason": "Not Found"
     },
     {
       "id": "302",
@@ -121,13 +128,6 @@
       "title": "PCHome — Taiwan Tech News",
       "status": null,
       "reason": "Remote end closed connection without response"
-    },
-    {
-      "id": "314",
-      "url": "https://www.guancha.cn/",
-      "title": "觀察者網",
-      "status": null,
-      "reason": "_ssl.c:999: The handshake operation timed out"
     },
     {
       "id": "340",
