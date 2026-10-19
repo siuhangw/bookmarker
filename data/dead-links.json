@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-12T10:05:57Z",
+  "checked_at": "2026-10-19T08:21:53Z",
   "total": 434,
-  "dead_count": 21,
+  "dead_count": 23,
   "dead": [
     {
       "id": "5",
@@ -116,6 +116,13 @@
       "reason": "Not Found"
     },
     {
+      "id": "243",
+      "url": "https://www.runoob.com/linux/linux-remote-login.html",
+      "title": "Runoob — Linux Remote Login",
+      "status": 530,
+      "reason": "<none>"
+    },
+    {
       "id": "275",
       "url": "https://docs.lovable.dev/use-case/inspiration",
       "title": "Lovable Docs — Inspiration",
@@ -128,6 +135,13 @@
       "title": "PCHome — Taiwan Tech News",
       "status": null,
       "reason": "Remote end closed connection without response"
+    },
+    {
+      "id": "313",
+      "url": "https://www.cls.cn/",
+      "title": "財聯社 (CLS)",
+      "status": null,
+      "reason": "_ssl.c:999: The handshake operation timed out"
     },
     {
       "id": "340",
