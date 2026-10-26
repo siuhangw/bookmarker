@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-10-19T08:21:53Z",
+  "checked_at": "2026-10-26T08:22:14Z",
   "total": 434,
-  "dead_count": 23,
+  "dead_count": 20,
   "dead": [
     {
       "id": "5",
@@ -18,13 +18,6 @@
       "reason": "Not Found"
     },
     {
-      "id": "15",
-      "url": "https://www.blaze.ai/persona/local-services",
-      "title": "Blaze AI — Local Business Growth",
-      "status": 404,
-      "reason": "Not Found"
-    },
-    {
       "id": "34",
       "url": "https://soloist.ai/",
       "title": "Solo — Free AI Website Creator",
@@ -37,13 +30,6 @@
       "title": "Hyperdash — Liquidation Map",
       "status": 404,
       "reason": "Not Found"
-    },
-    {
-      "id": "97",
-      "url": "https://www.theblockbeats.info/",
-      "title": "BlockBeats — Blockchain News",
-      "status": null,
-      "reason": "The read operation timed out"
     },
     {
       "id": "118",
@@ -116,13 +102,6 @@
       "reason": "Not Found"
     },
     {
-      "id": "243",
-      "url": "https://www.runoob.com/linux/linux-remote-login.html",
-      "title": "Runoob — Linux Remote Login",
-      "status": 530,
-      "reason": "<none>"
-    },
-    {
       "id": "275",
       "url": "https://docs.lovable.dev/use-case/inspiration",
       "title": "Lovable Docs — Inspiration",
@@ -130,18 +109,18 @@
       "reason": "Not Found"
     },
     {
+      "id": "282",
+      "url": "https://magicui.design/",
+      "title": "Magic UI",
+      "status": null,
+      "reason": "timed out"
+    },
+    {
       "id": "302",
       "url": "https://www.pchome.net/",
       "title": "PCHome — Taiwan Tech News",
       "status": null,
       "reason": "Remote end closed connection without response"
-    },
-    {
-      "id": "313",
-      "url": "https://www.cls.cn/",
-      "title": "財聯社 (CLS)",
-      "status": null,
-      "reason": "_ssl.c:999: The handshake operation timed out"
     },
     {
       "id": "340",
