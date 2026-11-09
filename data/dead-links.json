@@ -1,7 +1,7 @@
 {
-  "checked_at": "2026-11-02T10:25:07Z",
+  "checked_at": "2026-11-09T10:46:31Z",
   "total": 434,
-  "dead_count": 25,
+  "dead_count": 24,
   "dead": [
     {
       "id": "5",
@@ -14,6 +14,13 @@
       "id": "6",
       "url": "https://playbooks.com/prompts",
       "title": "AI Prompt Library — ChatGPT, Claude, Gemini, Grok",
+      "status": 404,
+      "reason": "Not Found"
+    },
+    {
+      "id": "29",
+      "url": "https://tenbin.ai/workspace/welcome",
+      "title": "天秤AI byGMO",
       "status": 404,
       "reason": "Not Found"
     },
@@ -43,7 +50,7 @@
       "url": "https://stoctaverse.com/",
       "title": "HK Participants — Stoctaverse",
       "status": null,
-      "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
+      "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1018)"
     },
     {
       "id": "121",
@@ -57,14 +64,14 @@
       "url": "https://www.chinamoney.org.cn/chinese/bkrmbidx/",
       "title": "China Money — RMB FX Index",
       "status": null,
-      "reason": "[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1016)"
+      "reason": "[SSL: UNSAFE_LEGACY_RENEGOTIATION_DISABLED] unsafe legacy renegotiation disabled (_ssl.c:1018)"
     },
     {
       "id": "145",
       "url": "https://stock.us/hk/filing/cn",
       "title": "滬深公司公告",
       "status": null,
-      "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1016)"
+      "reason": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1018)"
     },
     {
       "id": "159",
@@ -86,13 +93,6 @@
       "title": "Tesslate Designer",
       "status": null,
       "reason": "[Errno -5] No address associated with hostname"
-    },
-    {
-      "id": "201",
-      "url": "https://datawhalechina.github.io/happy-llm/#/",
-      "title": "Happy-LLM (Datawhale)",
-      "status": 503,
-      "reason": "Service Unavailable"
     },
     {
       "id": "202",
@@ -121,13 +121,6 @@
       "title": "4ier/neo",
       "status": 404,
       "reason": "Not Found"
-    },
-    {
-      "id": "253",
-      "url": "https://www.joesandbox.com/",
-      "title": "Joe Sandbox — Automated Malware Analysis",
-      "status": 503,
-      "reason": "Service Unavailable"
     },
     {
       "id": "258",
